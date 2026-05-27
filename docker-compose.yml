@@ -1,0 +1,61 @@
+# Basic containerized auth-ms with its SQLite database persisted in a volume.
+#   docker compose up -d     build + start all services
+#   docker compose down      stop all
+#   docker compose logs -f   follow logs
+# The shared JWT secret must match the backend's AUTH_JWT_SECRET.
+services:
+  auth-ms:
+    build:
+      context: .
+      dockerfile: auth-ms/Dockerfile
+    image: gopdfsuit-auth-ms
+    container_name: gopdfsuit-auth-ms
+    ports:
+      - "9090:9090"
+    environment:
+      AUTH_PORT: "9090"
+      AUTH_DB_PATH: /data/auth.db
+      AUTH_JWT_SECRET: ${AUTH_JWT_SECRET:-dev-insecure-secret-change-me}
+      AUTH_CORS_ORIGIN: "*"
+    volumes:
+      - auth-data:/data
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: .
+      dockerfile: dockerfolder/Dockerfile
+    container_name: gopdfsuit-backend
+    ports:
+      - "8080:8080"
+    environment:
+      AUTH_MS_URL: http://auth-ms:9090
+      AUTH_JWT_SECRET: ${AUTH_JWT_SECRET:-dev-insecure-secret-change-me}
+    depends_on:
+      - auth-ms
+    restart: unless-stopped
+
+  frontend:
+    image: node:22-alpine
+    container_name: gopdfsuit-frontend
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+      - frontend_node_modules:/app/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      VITE_API_URL: http://localhost:8080
+      VITE_IS_CLOUD_RUN: "false"
+      VITE_ENVIRONMENT: local
+      VITE_AUTH_ENABLED: "true"
+    command: sh -c "npm install --ignore-scripts && npm run dev -- --host 0.0.0.0"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  auth-data:
+  frontend_node_modules:
+
+

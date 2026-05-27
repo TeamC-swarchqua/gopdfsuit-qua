@@ -93,10 +93,10 @@ func RegisterRoutes(router *gin.Engine) {
 	router.Static("/gopdfsuit/assets", filepath.Join(base, "docs", "assets"))
 	router.Static("/assets", filepath.Join(base, "docs", "assets")) // Fallback for backward compatibility
 
-	// API endpoints - protected with Google OAuth when running on Cloud Run
+	// API endpoints - protected by auth-ms JWT when running on Cloud Run
 	v1 := router.Group("/api/v1")
 	v1.Use(middleware.CORSMiddleware())       // Add CORS middleware
-	v1.Use(middleware.GoogleAuthMiddleware()) // Only enforces auth on Cloud Run
+	v1.Use(middleware.AuthMiddleware()) // Validates auth-ms JWT; only enforced on Cloud Run
 	{
 		// Handle all OPTIONS requests for CORS
 		v1.OPTIONS("/*path", func(c *gin.Context) { //nolint:revive
@@ -121,6 +121,8 @@ func RegisterRoutes(router *gin.Engine) {
 		v1.POST("/redact/capabilities", HandleRedactCapabilities)
 		v1.POST("/redact/apply", HandleRedactApply)
 		v1.POST("/redact/search", HandleRedactSearch)
+
+		v1.GET("/test/auth", handleTestAuth)
 	}
 
 	// Add pprof routes for profiling
@@ -584,4 +586,22 @@ func handleHTMLToImage(c *gin.Context) {
 	c.Header("Content-Type", contentType)
 	c.Header("Content-Disposition", fmt.Sprintf("attachment; filename=converted.%s", req.Format))
 	c.Data(http.StatusOK, contentType, imageBytes)
+}
+
+func handleTestAuth(c *gin.Context) {
+	userInfo := middleware.GetUserInfo(c)
+
+	if len(userInfo) == 0 {
+		c.JSON(http.StatusOK, gin.H{
+			"authenticated": false,
+			"message":       "No user info found in context (auth middleware may be disabled)",
+		})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{
+		"authenticated": true,
+		"message":       "Token verified successfully",
+		"user":          userInfo,
+	})
 }
