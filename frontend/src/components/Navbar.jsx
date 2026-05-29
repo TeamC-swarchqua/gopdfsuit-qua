@@ -1,17 +1,22 @@
 import { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { FileText, Edit, Merge, FileCheck, Globe, Image, Menu, X, Sun, Moon, Camera, LogOut, Scissors, Book, Eraser, Gauge } from 'lucide-react'
 import { useTheme } from '../theme'
 import { useAuth } from '../contexts/AuthContext'
-import { isAuthRequired } from '../utils/apiConfig'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const { theme, toggle } = useTheme()
   const location = useLocation()
-  const authRequired = isAuthRequired()
-  const auth = useAuth()
-  const { isAuthenticated, user, logout } = authRequired ? auth : { isAuthenticated: false, user: null, logout: () => { } }
+  const navigate = useNavigate()
+  const { isAuthenticated, user, logout, setNavigate } = useAuth()
+
+  // Wire up the navigate fn for context-level logout redirect
+  // (only once — the ref prevents re-renders)
+  setNavigate(navigate)
+
+  // Don't render the navbar on the login page
+  if (location.pathname === '/login') return null
 
   const isNavItemActive = (path) => {
     const [pathname, query] = path.split('?')
@@ -150,8 +155,8 @@ const Navbar = () => {
                 {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />} {/* Reduced icon size */}
               </button>
 
-              {/* User Profile and Sign Out - only show when authenticated and auth is required */}
-              {authRequired && isAuthenticated && user && (
+              {/* User Profile and Sign Out - always shown when authenticated */}
+              {isAuthenticated && user && (
                 <>
                   <div
                     title={user.email}
@@ -163,12 +168,12 @@ const Navbar = () => {
                       borderRadius: '6px',
                       border: '1px solid hsl(var(--border))',
                       background: 'hsl(var(--card))',
-                      maxWidth: '160px', /* Reduced max-width */
+                      maxWidth: '160px',
                       marginLeft: '0.25rem'
                     }}>
                     <div style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
                       <span style={{
-                        fontSize: '0.75rem', /* Reduced font size */
+                        fontSize: '0.75rem',
                         fontWeight: '600',
                         color: 'hsl(var(--foreground))',
                         lineHeight: '1.2',
@@ -191,10 +196,10 @@ const Navbar = () => {
                       background: 'hsl(var(--destructive))',
                       color: 'hsl(var(--destructive-foreground))',
                       border: '1px solid hsl(var(--border))',
-                      padding: '0.3rem 0.6rem', /* Reduced padding */
+                      padding: '0.3rem 0.6rem',
                       borderRadius: '6px',
                       cursor: 'pointer',
-                      fontSize: '0.75rem', /* Reduced font size */
+                      fontSize: '0.75rem',
                       fontWeight: '500',
                       transition: 'all 0.3s ease',
                       whiteSpace: 'nowrap'
@@ -298,7 +303,7 @@ const Navbar = () => {
               </button>
 
               {/* User Profile and Sign Out - mobile */}
-              {authRequired && isAuthenticated && user && (
+              {isAuthenticated && user && (
                 <>
                   <div style={{
                     display: 'flex',

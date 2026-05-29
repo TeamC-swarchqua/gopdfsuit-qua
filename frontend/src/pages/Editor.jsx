@@ -2,7 +2,7 @@
 import React, { useState, useRef, useMemo, useEffect } from 'react'
 import { useTheme } from '../theme'
 import { useAuth } from '../contexts/AuthContext'
-import { makeAuthenticatedRequest, isAuthRequired } from '../utils/apiConfig'
+import { makeAuthenticatedRequest } from '../utils/apiConfig'
 import PdfPreview from '../components/PdfPreview'
 import Toast from '../components/Toast'
 
@@ -67,7 +67,7 @@ export default function Editor() {
         _fontsFetchPromise = makeAuthenticatedRequest(
           '/api/v1/fonts',
           {},
-          isAuthRequired() ? getAuthHeaders : null
+          getAuthHeaders
         ).then(async (response) => {
           if (response.ok) {
             const data = await response.json()
@@ -673,7 +673,7 @@ export default function Editor() {
           },
           body: JSON.stringify(template)
         },
-        isAuthRequired() ? getAuthHeaders : null
+        getAuthHeaders
       )
 
       console.log('PDF Generation Response Status:', response.status)
@@ -748,7 +748,7 @@ export default function Editor() {
               'Accept': 'application/json'
             }
           },
-          isAuthRequired() ? getAuthHeaders : null
+          getAuthHeaders
         )
 
         if (!response.ok) {
@@ -979,7 +979,7 @@ export default function Editor() {
                   method: 'POST',
                   body: formData
                 },
-                isAuthRequired() ? getAuthHeaders : null
+                getAuthHeaders
               )
               if (response.ok) {
                 const data = await response.json()
@@ -990,7 +990,7 @@ export default function Editor() {
                 const fontsResponse = await makeAuthenticatedRequest(
                   '/api/v1/fonts',
                   {},
-                  isAuthRequired() ? getAuthHeaders : null
+                  getAuthHeaders
                 )
                 if (fontsResponse.ok) {
                   const fontsData = await fontsResponse.json()

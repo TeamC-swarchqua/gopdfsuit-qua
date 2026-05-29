@@ -26,8 +26,12 @@ test('TC 05: Frontend -> auth-ms -> Backend (login y verificación)', async ({ p
 
   // 1) Abrir la vista de login.
   await page.goto(EDITOR_URL)
-  await expect(page.getByRole('heading', { name: /PDF Template Editor/i })).toBeVisible()
   await expect(page.getByTestId('auth-form')).toBeVisible()
+  await expect(page.getByRole('heading', { name: /Bienvenido de nuevo/i })).toBeVisible()
+
+  // Cambiar al tab de registro (el botón "Crear cuenta" en el switcher de tabs)
+  await page.getByRole('button', { name: /^Crear cuenta$/ }).first().click()
+  await expect(page.getByRole('heading', { name: /Crear cuenta nueva/i })).toBeVisible()
 
   // 2) Simular login usando las credenciales de prueba.
   //    Como auth-ms no permite Google OAuth, primero registramos al usuario
@@ -38,6 +42,8 @@ test('TC 05: Frontend -> auth-ms -> Backend (login y verificación)', async ({ p
   await page.getByTestId('auth-register').click()
 
   // 3) Obtener respuesta del servicio de auth y obtener los tokens.
+  // Tras registrarse exitosamente el AuthContext persiste el token y navega al
+  // destino original (/editor), por lo que el formulario de login desaparece.
   await expect(page.getByTestId('auth-form')).toHaveCount(0, { timeout: 15000 })
   const token = await page.evaluate(() => localStorage.getItem('auth_token'))
   expect(token).toBeTruthy()

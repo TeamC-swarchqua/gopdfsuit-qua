@@ -20,6 +20,23 @@ test.describe('Merge - camino fail', () => {
       }
     })
 
+    // Seed auth state in localStorage so the AuthGuard lets us past /login.
+    // The local config has no live auth-ms, so we inject a plausible token
+    // directly — the backend in local mode does not enforce JWT validation.
+    await page.goto('/gopdfsuit/')
+
+    await page.evaluate(() => {
+      localStorage.setItem('auth_token', 'e2e-local-test-token')
+      localStorage.setItem(
+        'auth_user',
+        JSON.stringify({ email: 'test@e2e.local' }),
+      )
+    })
+
+    // Force a full reload so the lazy initializer in AuthContext
+    // reads the freshly seeded localStorage values on mount.
+    await page.reload()
+
     await page.goto('/gopdfsuit/#/merge')
 
     await expect(
@@ -27,6 +44,7 @@ test.describe('Merge - camino fail', () => {
     ).toBeVisible()
 
     const fileInput = page.locator('input[accept=".pdf"]')
+
     await fileInput.setInputFiles([
       {
         name: 'corrupted-1.pdf',
@@ -44,22 +62,30 @@ test.describe('Merge - camino fail', () => {
     await expect(page.getByText('corrupted-2.pdf')).toBeVisible()
 
     const mergeBtn = page.getByRole('button', { name: /Merge PDFs/i })
+
     await expect(mergeBtn).toBeEnabled()
+
     await mergeBtn.click()
 
     // Backend rejects the garbage upload with a JSON 500.
     await expect.poll(() => mergeStatus, { timeout: 30_000 }).toBe(500)
+
     expect(mergeContentType).toContain('application/json')
 
     // The UI surfaces the error via an alert dialog.
-    await expect.poll(() => dialogMessage, { timeout: 10_000 }).toContain('Error merging PDFs')
+    await expect
+      .poll(() => dialogMessage, { timeout: 10_000 })
+      .toContain('Error merging PDFs')
+
     expect(dialogMessage).toContain('no valid PDF files to merge')
 
     // No merged result should be rendered, and the button stays usable.
     await expect(page.getByTitle('Merged PDF')).toHaveCount(0)
+
     await expect(
       page.getByRole('button', { name: /Download Merged PDF/i }),
     ).toHaveCount(0)
+
     await expect(mergeBtn).toBeEnabled()
   })
 })
