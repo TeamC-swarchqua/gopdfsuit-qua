@@ -75,6 +75,11 @@ test-validation-filler:
 
 test-validacion-filler: test-validation-filler
 
+# Validación E2E auth (FR-AUTH-01..06, solo UI).
+test-validation-auth:
+	go build -o /dev/null ./cmd/gopdfsuit ./auth-ms
+	cd new_tests/validation/auth && npm install --ignore-scripts && npx playwright install chromium && npm test
+
 # auth-ms in a container, SQLite persisted in a named volume (http://localhost:9090).
 auth-up:
 	AUTH_JWT_SECRET=$(AUTH_JWT_SECRET) docker compose up -d --build auth-ms
@@ -143,7 +148,7 @@ gengine-deploy: test-unit
 	cd frontend && npm install --ignore-scripts && npm run build && cd ..
 	gcloud app deploy
 
-.PHONY: build test test-unit test-integration test-validation-filler test-validacion-filler auth-up auth-down auth-logs clean run fmt vet mod lint e2e
+.PHONY: build test test-unit test-integration test-validation-filler test-validacion-filler test-validation-auth auth-up auth-down auth-logs clean run fmt vet mod lint e2e
 
 # go tool pprof -http=:8081 "http://localhost:8080/debug/pprof/profile?seconds=30"
 # go tool pprof -http=:8081 "http://localhost:8080/debug/pprof/heap"
