@@ -8,7 +8,7 @@ export const SAMPLE = {
   acroformPdf: path.join(
     REPO_ROOT,
     'sampledata/filler/us_hospital_encounter_acroform.pdf',
-  ),test-validacion-filler: test-validation-filler
+  ),
   xfdf: path.join(
     REPO_ROOT,
     'sampledata/filler/us_hospital_encounter_data.xfdf',
