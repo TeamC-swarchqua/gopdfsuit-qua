@@ -1,0 +1,2673 @@
+{
+	"Golang errors": {},
+	"Issues": [
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint64 -\u003e int",
+			"file": "/app/internal/pdf/redact/helpers.go",
+			"code": "131: \t\t\tf2 := int(readUint(dec[pos+w0 : pos+w0+w1]))\n132: \t\t\tf3 := int(readUint(dec[pos+w0+w1 : pos+total]))\n133: \t\t\tif f1 == 1 {\n",
+			"line": "132",
+			"column": "13",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint64 -\u003e int",
+			"file": "/app/internal/pdf/redact/helpers.go",
+			"code": "130: \t\t\tf1 := int(readUint(dec[pos : pos+w0]))\n131: \t\t\tf2 := int(readUint(dec[pos+w0 : pos+w0+w1]))\n132: \t\t\tf3 := int(readUint(dec[pos+w0+w1 : pos+total]))\n",
+			"line": "131",
+			"column": "13",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint64 -\u003e int",
+			"file": "/app/internal/pdf/redact/helpers.go",
+			"code": "129: \t\tfor pos := 0; pos+total \u003c= len(dec); pos += total {\n130: \t\t\tf1 := int(readUint(dec[pos : pos+w0]))\n131: \t\t\tf2 := int(readUint(dec[pos+w0 : pos+w0+w1]))\n",
+			"line": "130",
+			"column": "13",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint64 -\u003e int",
+			"file": "/app/internal/pdf/helpers.go",
+			"code": "139: \t\t\tf2 := int(readUint(dec[pos+w0 : pos+w0+w1]))\n140: \t\t\tf3 := int(readUint(dec[pos+w0+w1 : pos+total]))\n141: \t\t\t// type 1: f1==1 -\u003e offset f3\n",
+			"line": "140",
+			"column": "13",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint64 -\u003e int",
+			"file": "/app/internal/pdf/helpers.go",
+			"code": "138: \t\t\tf1 := int(readUint(dec[pos : pos+w0]))\n139: \t\t\tf2 := int(readUint(dec[pos+w0 : pos+w0+w1]))\n140: \t\t\tf3 := int(readUint(dec[pos+w0+w1 : pos+total]))\n",
+			"line": "139",
+			"column": "13",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint64 -\u003e int",
+			"file": "/app/internal/pdf/helpers.go",
+			"code": "137: \t\tfor pos := 0; pos+total \u003c= len(dec); pos += total {\n138: \t\t\tf1 := int(readUint(dec[pos : pos+w0]))\n139: \t\t\tf2 := int(readUint(dec[pos+w0 : pos+w0+w1]))\n",
+			"line": "138",
+			"column": "13",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint64 -\u003e int",
+			"file": "/app/internal/pdf/form/xfdf.go",
+			"code": "433: \t\t\tf2 := int(readUint(dec[pos+w0 : pos+w0+w1]))\n434: \t\t\tf3 := int(readUint(dec[pos+w0+w1 : pos+total]))\n435: \t\t\t// type 1: f1==1 -\u003e offset f3\n",
+			"line": "434",
+			"column": "13",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint64 -\u003e int",
+			"file": "/app/internal/pdf/form/xfdf.go",
+			"code": "432: \t\t\tf1 := int(readUint(dec[pos : pos+w0]))\n433: \t\t\tf2 := int(readUint(dec[pos+w0 : pos+w0+w1]))\n434: \t\t\tf3 := int(readUint(dec[pos+w0+w1 : pos+total]))\n",
+			"line": "433",
+			"column": "13",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint64 -\u003e int",
+			"file": "/app/internal/pdf/form/xfdf.go",
+			"code": "431: \t\tfor pos := 0; pos+total \u003c= len(dec); pos += total {\n432: \t\t\tf1 := int(readUint(dec[pos : pos+w0]))\n433: \t\t\tf2 := int(readUint(dec[pos+w0 : pos+w0+w1]))\n",
+			"line": "432",
+			"column": "13",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint32 -\u003e uint16",
+			"file": "/app/internal/pdf/font/subset.go",
+			"code": "314: \t\tfor _, offset := range newOffsets {\n315: \t\t\tif err := binary.Write(\u0026newLoca, binary.BigEndian, uint16(offset/2)); err != nil {\n316: \t\t\t\treturn nil, nil, false\n",
+			"line": "315",
+			"column": "61",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint32 -\u003e byte",
+			"file": "/app/internal/pdf/image.go",
+			"code": "431: \t\t\t\trgbData[idx+1] = byte(((g8*a8 + white) * 0x8081) \u003e\u003e 23)\n432: \t\t\t\trgbData[idx+2] = byte(((b8*a8 + white) * 0x8081) \u003e\u003e 23)\n433: \t\t\t}\n",
+			"line": "432",
+			"column": "26",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint32 -\u003e byte",
+			"file": "/app/internal/pdf/image.go",
+			"code": "430: \t\t\t\trgbData[idx] = byte(((r8*a8 + white) * 0x8081) \u003e\u003e 23)\n431: \t\t\t\trgbData[idx+1] = byte(((g8*a8 + white) * 0x8081) \u003e\u003e 23)\n432: \t\t\t\trgbData[idx+2] = byte(((b8*a8 + white) * 0x8081) \u003e\u003e 23)\n",
+			"line": "431",
+			"column": "26",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint32 -\u003e byte",
+			"file": "/app/internal/pdf/image.go",
+			"code": "429: \t\t\t\twhite := 255 * invA\n430: \t\t\t\trgbData[idx] = byte(((r8*a8 + white) * 0x8081) \u003e\u003e 23)\n431: \t\t\t\trgbData[idx+1] = byte(((g8*a8 + white) * 0x8081) \u003e\u003e 23)\n",
+			"line": "430",
+			"column": "24",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint32 -\u003e byte",
+			"file": "/app/internal/pdf/image.go",
+			"code": "420: \t\t\t\trgbData[idx+1] = byte(g8)\n421: \t\t\t\trgbData[idx+2] = byte(b8)\n422: \t\t\tcase 0:\n",
+			"line": "421",
+			"column": "26",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint32 -\u003e byte",
+			"file": "/app/internal/pdf/image.go",
+			"code": "419: \t\t\t\trgbData[idx] = byte(r8)\n420: \t\t\t\trgbData[idx+1] = byte(g8)\n421: \t\t\t\trgbData[idx+2] = byte(b8)\n",
+			"line": "420",
+			"column": "26",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint32 -\u003e byte",
+			"file": "/app/internal/pdf/image.go",
+			"code": "418: \t\t\tcase 255:\n419: \t\t\t\trgbData[idx] = byte(r8)\n420: \t\t\t\trgbData[idx+1] = byte(g8)\n",
+			"line": "419",
+			"column": "24",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint32 -\u003e byte",
+			"file": "/app/internal/pdf/image.go",
+			"code": "396: \t\t\t\t\trgbData[idx+1] = byte(gPre + bgPart)\n397: \t\t\t\t\trgbData[idx+2] = byte(bPre + bgPart)\n398: \t\t\t\t}\n",
+			"line": "397",
+			"column": "27",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint32 -\u003e byte",
+			"file": "/app/internal/pdf/image.go",
+			"code": "395: \t\t\t\t\trgbData[idx] = byte(rPre + bgPart)\n396: \t\t\t\t\trgbData[idx+1] = byte(gPre + bgPart)\n397: \t\t\t\t\trgbData[idx+2] = byte(bPre + bgPart)\n",
+			"line": "396",
+			"column": "27",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint32 -\u003e byte",
+			"file": "/app/internal/pdf/image.go",
+			"code": "394: \t\t\t\t\tbgPart := ((255 * (255 - a)) * 0x8081) \u003e\u003e 23\n395: \t\t\t\t\trgbData[idx] = byte(rPre + bgPart)\n396: \t\t\t\t\trgbData[idx+1] = byte(gPre + bgPart)\n",
+			"line": "395",
+			"column": "25",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint32 -\u003e byte",
+			"file": "/app/internal/pdf/image.go",
+			"code": "383: \t\t\t\tcase 255:\n384: \t\t\t\t\trgbData[idx] = byte(rPre)\n385: \t\t\t\t\trgbData[idx+1] = byte(gPre)\n",
+			"line": "384",
+			"column": "25",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint32 -\u003e byte",
+			"file": "/app/internal/pdf/image.go",
+			"code": "357: \t\t\t\t\trgbData[idx+1] = byte(((g*a + white) * 0x8081) \u003e\u003e 23)\n358: \t\t\t\t\trgbData[idx+2] = byte(((b*a + white) * 0x8081) \u003e\u003e 23)\n359: \t\t\t\t}\n",
+			"line": "358",
+			"column": "27",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint32 -\u003e byte",
+			"file": "/app/internal/pdf/image.go",
+			"code": "356: \t\t\t\t\trgbData[idx] = byte(((r*a + white) * 0x8081) \u003e\u003e 23)\n357: \t\t\t\t\trgbData[idx+1] = byte(((g*a + white) * 0x8081) \u003e\u003e 23)\n358: \t\t\t\t\trgbData[idx+2] = byte(((b*a + white) * 0x8081) \u003e\u003e 23)\n",
+			"line": "357",
+			"column": "27",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint32 -\u003e byte",
+			"file": "/app/internal/pdf/image.go",
+			"code": "355: \t\t\t\t\t// Using: ((n * 0x8081) \u003e\u003e 23) approximates n/255 with high accuracy\n356: \t\t\t\t\trgbData[idx] = byte(((r*a + white) * 0x8081) \u003e\u003e 23)\n357: \t\t\t\t\trgbData[idx+1] = byte(((g*a + white) * 0x8081) \u003e\u003e 23)\n",
+			"line": "356",
+			"column": "25",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint32 -\u003e byte",
+			"file": "/app/internal/pdf/image.go",
+			"code": "341: \t\t\t\tcase 255:\n342: \t\t\t\t\trgbData[idx] = byte(r)\n343: \t\t\t\t\trgbData[idx+1] = byte(g)\n",
+			"line": "342",
+			"column": "25",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint32 -\u003e byte",
+			"file": "/app/internal/pdf/image.go",
+			"code": "301: \t\t\trgbData[idx+1] = byte(g \u003e\u003e 8)\n302: \t\t\trgbData[idx+2] = byte(b \u003e\u003e 8)\n303: \t\t\tidx += 3\n",
+			"line": "302",
+			"column": "25",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint32 -\u003e byte",
+			"file": "/app/internal/pdf/image.go",
+			"code": "300: \t\t\trgbData[idx] = byte(r \u003e\u003e 8)\n301: \t\t\trgbData[idx+1] = byte(g \u003e\u003e 8)\n302: \t\t\trgbData[idx+2] = byte(b \u003e\u003e 8)\n",
+			"line": "301",
+			"column": "25",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint32 -\u003e byte",
+			"file": "/app/internal/pdf/image.go",
+			"code": "299: \t\t\t// Convert from 16-bit to 8-bit\n300: \t\t\trgbData[idx] = byte(r \u003e\u003e 8)\n301: \t\t\trgbData[idx+1] = byte(g \u003e\u003e 8)\n",
+			"line": "300",
+			"column": "23",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint16 -\u003e int16",
+			"file": "/app/internal/pdf/font/subset.go",
+			"code": "838: \t}\n839: \tnumContours := int16(binary.BigEndian.Uint16(data[0:2]))\n840: \tif numContours \u003e= 0 {\n",
+			"line": "839",
+			"column": "22",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint16 -\u003e int16",
+			"file": "/app/internal/pdf/font/subset.go",
+			"code": "769: \t// numberOfContours is the first int16; negative means composite\n770: \tnumContours := int16(binary.BigEndian.Uint16(data[0:2]))\n771: \tif numContours \u003e= 0 {\n",
+			"line": "770",
+			"column": "22",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint16 -\u003e int16",
+			"file": "/app/internal/pdf/font/subset.go",
+			"code": "405: \t\t// Don't forget the last segment\n406: \t\tdelta := int16(charToNewGlyph[segStart]) - int16(segStart)\n407: \t\tsegments = append(segments, segment{segStart, prevChar, delta})\n",
+			"line": "406",
+			"column": "51",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint16 -\u003e int16",
+			"file": "/app/internal/pdf/font/subset.go",
+			"code": "405: \t\t// Don't forget the last segment\n406: \t\tdelta := int16(charToNewGlyph[segStart]) - int16(segStart)\n407: \t\tsegments = append(segments, segment{segStart, prevChar, delta})\n",
+			"line": "406",
+			"column": "17",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint16 -\u003e int16",
+			"file": "/app/internal/pdf/font/subset.go",
+			"code": "394: \t\t\t\t// End current segment\n395: \t\t\t\tdelta := int16(charToNewGlyph[segStart]) - int16(segStart)\n396: \t\t\t\tsegments = append(segments, segment{segStart, prevChar, delta})\n",
+			"line": "395",
+			"column": "53",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint16 -\u003e int16",
+			"file": "/app/internal/pdf/font/subset.go",
+			"code": "394: \t\t\t\t// End current segment\n395: \t\t\t\tdelta := int16(charToNewGlyph[segStart]) - int16(segStart)\n396: \t\t\t\tsegments = append(segments, segment{segStart, prevChar, delta})\n",
+			"line": "395",
+			"column": "19",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint16 -\u003e byte",
+			"file": "/app/internal/pdf/font/subset.go",
+			"code": "692: \t\t\tbuf.WriteByte(byte(low \u003e\u003e 8))\n693: \t\t\tbuf.WriteByte(byte(low))\n694: \t\t}\n",
+			"line": "693",
+			"column": "22",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion uint16 -\u003e byte",
+			"file": "/app/internal/pdf/font/subset.go",
+			"code": "690: \t\t\tbuf.WriteByte(byte(high \u003e\u003e 8))\n691: \t\t\tbuf.WriteByte(byte(high))\n692: \t\t\tbuf.WriteByte(byte(low \u003e\u003e 8))\n",
+			"line": "691",
+			"column": "22",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion rune -\u003e uint16",
+			"file": "/app/internal/pdf/redact/secure.go",
+			"code": "455: \t\t\t\tfor _, r := range seg.text {\n456: \t\t\t\t\t_, _ = fmt.Fprintf(\u0026out, \"%04X\", uint16(r))\n457: \t\t\t\t}\n",
+			"line": "456",
+			"column": "45",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion rune -\u003e uint16",
+			"file": "/app/internal/pdf/redact/secure.go",
+			"code": "399: \t\t\tfor _, r := range redacted {\n400: \t\t\t\t_, _ = fmt.Fprintf(\u0026sb, \"%04X\", uint16(r))\n401: \t\t\t}\n",
+			"line": "400",
+			"column": "43",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion rune -\u003e uint16",
+			"file": "/app/internal/pdf/redact/secure.go",
+			"code": "377: \t\t\tfor _, r := range redacted {\n378: \t\t\t\t_, _ = fmt.Fprintf(\u0026sb, \"%04X\", uint16(r))\n379: \t\t\t}\n",
+			"line": "378",
+			"column": "43",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion rune -\u003e uint16",
+			"file": "/app/internal/pdf/font/ttf.go",
+			"code": "468: \t\t\t\t\tif glyphID != 0 {\n469: \t\t\t\t\t\tglyphID = uint16(int32(glyphID) + int32(idDeltas[i]))\n470: \t\t\t\t\t}\n",
+			"line": "469",
+			"column": "23",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion rune -\u003e uint16",
+			"file": "/app/internal/pdf/font/ttf.go",
+			"code": "457: \t\t\tif idRangeOffsets[i] == 0 {\n458: \t\t\t\tglyphID = uint16(int32(c) + int32(idDeltas[i]))\n459: \t\t\t} else {\n",
+			"line": "458",
+			"column": "21",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion rune -\u003e uint16",
+			"file": "/app/internal/pdf/font/subset.go",
+			"code": "687: \t\t\tr -= 0x10000\n688: \t\t\thigh := uint16(0xD800 + (r \u003e\u003e 10))\n689: \t\t\tlow := uint16(0xDC00 + (r \u0026 0x3FF))\n",
+			"line": "688",
+			"column": "18",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion rune -\u003e uint16",
+			"file": "/app/internal/pdf/font/subset.go",
+			"code": "357: \t\t\tif newGlyph, ok := oldToNew[oldGlyph]; ok {\n358: \t\t\t\tcharToNewGlyph[uint16(char)] = newGlyph\n359: \t\t\t}\n",
+			"line": "358",
+			"column": "26",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion rune -\u003e uint16",
+			"file": "/app/internal/pdf/font/metrics.go",
+			"code": "1048: \t\t\tif _, exists := font.Font.CharToGlyph[char]; exists {\n1049: \t\t\t\tv := uint16(char)\n1050: \t\t\t\tbuf = append(buf, hexDigits[v\u003e\u003e12\u00260xF], hexDigits[v\u003e\u003e8\u00260xF], hexDigits[v\u003e\u003e4\u00260xF], hexDigits[v\u00260xF])\n",
+			"line": "1049",
+			"column": "16",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion rune -\u003e uint16",
+			"file": "/app/internal/pdf/font/metrics.go",
+			"code": "1041: \t\tfor _, char := range text {\n1042: \t\t\tv := uint16(char)\n1043: \t\t\tbuf = append(buf, hexDigits[v\u003e\u003e12\u00260xF], hexDigits[v\u003e\u003e8\u00260xF], hexDigits[v\u003e\u003e4\u00260xF], hexDigits[v\u00260xF])\n",
+			"line": "1042",
+			"column": "15",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion rune -\u003e uint16",
+			"file": "/app/internal/pdf/font/metrics.go",
+			"code": "981: \t\t\t\tr := m.char - 0x10000\n982: \t\t\t\thigh := uint16(0xD800 + (r \u003e\u003e 10))\n983: \t\t\t\tlow := uint16(0xDC00 + (r \u0026 0x3FF))\n",
+			"line": "982",
+			"column": "19",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion rune -\u003e uint16",
+			"file": "/app/internal/pdf/font/metrics.go",
+			"code": "976: \t\t\t\tcmap.WriteString(\"\u003e \u003c\")\n977: \t\t\t\twriteHex4(\u0026cmap, uint16(m.char))\n978: \t\t\t\tcmap.WriteString(\"\u003e\\n\")\n",
+			"line": "977",
+			"column": "28",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion rune -\u003e uint16",
+			"file": "/app/internal/pdf/font/metrics.go",
+			"code": "939: \t\tif _, ok := f.CharToGlyph[char]; ok {\n940: \t\t\tmappings = append(mappings, mapping{uint16(char), char})\n941: \t\t}\n",
+			"line": "940",
+			"column": "46",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion rune -\u003e uint16",
+			"file": "/app/internal/pdf/font/metrics.go",
+			"code": "864: \t\t}\n865: \t\tcid := uint16(char)\n866: \n",
+			"line": "865",
+			"column": "16",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion rune -\u003e uint16",
+			"file": "/app/internal/pdf/font/metrics.go",
+			"code": "861: \t\t// PDF standard implies CIDs are valid up to 65535, but we only size up to maxCID\n862: \t\tif uint16(char) \u003e maxCID {\n863: \t\t\tcontinue // Should not happen given maxCID calculation logic\n",
+			"line": "862",
+			"column": "12",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion rune -\u003e uint16",
+			"file": "/app/internal/pdf/font/metrics.go",
+			"code": "850: \t\tif uint16(char) \u003e maxCID {\n851: \t\t\tmaxCID = uint16(char)\n852: \t\t}\n",
+			"line": "851",
+			"column": "19",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion rune -\u003e uint16",
+			"file": "/app/internal/pdf/font/metrics.go",
+			"code": "849: \tfor char := range font.UsedChars {\n850: \t\tif uint16(char) \u003e maxCID {\n851: \t\t\tmaxCID = uint16(char)\n",
+			"line": "850",
+			"column": "12",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion rune -\u003e uint16",
+			"file": "/app/internal/pdf/font/metrics.go",
+			"code": "792: \t\t\t// For Identity-H encoding, CID = Unicode code point\n793: \t\t\tcid := uint16(char)\n794: \t\t\t// Scale width to PDF units (1/1000 em) with proper rounding\n",
+			"line": "793",
+			"column": "17",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion rune -\u003e byte",
+			"file": "/app/internal/pdf/outline.go",
+			"code": "352: \t\t\t\t\t\tlow := 0xDC00 + (r \u0026 0x3FF)\n353: \t\t\t\t\t\ttitleBytes = append(titleBytes, byte(high\u003e\u003e8), byte(high), byte(low\u003e\u003e8), byte(low))\n354: \t\t\t\t\t}\n",
+			"line": "353",
+			"column": "84",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion rune -\u003e byte",
+			"file": "/app/internal/pdf/outline.go",
+			"code": "352: \t\t\t\t\t\tlow := 0xDC00 + (r \u0026 0x3FF)\n353: \t\t\t\t\t\ttitleBytes = append(titleBytes, byte(high\u003e\u003e8), byte(high), byte(low\u003e\u003e8), byte(low))\n354: \t\t\t\t\t}\n",
+			"line": "353",
+			"column": "58",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion rune -\u003e byte",
+			"file": "/app/internal/pdf/outline.go",
+			"code": "347: \t\t\t\t\tif r \u003c= 0xFFFF {\n348: \t\t\t\t\t\ttitleBytes = append(titleBytes, byte(r\u003e\u003e8), byte(r))\n349: \t\t\t\t\t} else {\n",
+			"line": "348",
+			"column": "55",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion rune -\u003e byte",
+			"file": "/app/internal/pdf/outline.go",
+			"code": "347: \t\t\t\t\tif r \u003c= 0xFFFF {\n348: \t\t\t\t\t\ttitleBytes = append(titleBytes, byte(r\u003e\u003e8), byte(r))\n349: \t\t\t\t\t} else {\n",
+			"line": "348",
+			"column": "43",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion rune -\u003e byte",
+			"file": "/app/internal/pdf/font/ttf.go",
+			"code": "827: \t\tif (c \u003e= 'A' \u0026\u0026 c \u003c= 'Z') || (c \u003e= 'a' \u0026\u0026 c \u003c= 'z') || (c \u003e= '0' \u0026\u0026 c \u003c= '9') {\n828: \t\t\tresult = append(result, byte(c))\n829: \t\t}\n",
+			"line": "828",
+			"column": "32",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion rune -\u003e byte",
+			"file": "/app/internal/pdf/font/subset.go",
+			"code": "683: \t\t\tbuf.WriteByte(byte(r \u003e\u003e 8))\n684: \t\t\tbuf.WriteByte(byte(r))\n685: \t\t} else {\n",
+			"line": "684",
+			"column": "22",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion rune -\u003e byte",
+			"file": "/app/internal/pdf/font/subset.go",
+			"code": "682: \t\tif r \u003c= 0xFFFF {\n683: \t\t\tbuf.WriteByte(byte(r \u003e\u003e 8))\n684: \t\t\tbuf.WriteByte(byte(r))\n",
+			"line": "683",
+			"column": "22",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int64 -\u003e uint32",
+			"file": "/app/internal/pdf/font/ttf.go",
+			"code": "462: \t\t\t\tif glyphIndexOffset+2 \u003c= int64(len(data[offset:])) {\n463: \t\t\t\t\tglyphReader := bytes.NewReader(data[offset+uint32(glyphIndexOffset):])\n464: \t\t\t\t\tif err := binary.Read(glyphReader, binary.BigEndian, \u0026glyphID); err != nil {\n",
+			"line": "463",
+			"column": "55",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int32 -\u003e byte",
+			"file": "/app/internal/pdf/redact/encryption_inhouse.go",
+			"code": "353: func int32LEBytes(v int32) []byte {\n354: \treturn []byte{byte(v), byte(v \u003e\u003e 8), byte(v \u003e\u003e 16), byte(v \u003e\u003e 24)}\n355: }\n",
+			"line": "354",
+			"column": "43",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int32 -\u003e byte",
+			"file": "/app/internal/pdf/redact/encryption_inhouse.go",
+			"code": "353: func int32LEBytes(v int32) []byte {\n354: \treturn []byte{byte(v), byte(v \u003e\u003e 8), byte(v \u003e\u003e 16), byte(v \u003e\u003e 24)}\n355: }\n",
+			"line": "354",
+			"column": "58",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int32 -\u003e byte",
+			"file": "/app/internal/pdf/redact/encryption_inhouse.go",
+			"code": "353: func int32LEBytes(v int32) []byte {\n354: \treturn []byte{byte(v), byte(v \u003e\u003e 8), byte(v \u003e\u003e 16), byte(v \u003e\u003e 24)}\n355: }\n",
+			"line": "354",
+			"column": "29",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int32 -\u003e byte",
+			"file": "/app/internal/pdf/redact/encryption_inhouse.go",
+			"code": "353: func int32LEBytes(v int32) []byte {\n354: \treturn []byte{byte(v), byte(v \u003e\u003e 8), byte(v \u003e\u003e 16), byte(v \u003e\u003e 24)}\n355: }\n",
+			"line": "354",
+			"column": "20",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int32 -\u003e byte",
+			"file": "/app/internal/pdf/encryption/encrypt.go",
+			"code": "123: \tpBytes[2] = byte(enc.Permissions \u003e\u003e 16)\n124: \tpBytes[3] = byte(enc.Permissions \u003e\u003e 24)\n125: \thasher.Write(pBytes)\n",
+			"line": "124",
+			"column": "18",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int32 -\u003e byte",
+			"file": "/app/internal/pdf/encryption/encrypt.go",
+			"code": "122: \tpBytes[1] = byte(enc.Permissions \u003e\u003e 8)\n123: \tpBytes[2] = byte(enc.Permissions \u003e\u003e 16)\n124: \tpBytes[3] = byte(enc.Permissions \u003e\u003e 24)\n",
+			"line": "123",
+			"column": "18",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int32 -\u003e byte",
+			"file": "/app/internal/pdf/encryption/encrypt.go",
+			"code": "121: \tpBytes[0] = byte(enc.Permissions)\n122: \tpBytes[1] = byte(enc.Permissions \u003e\u003e 8)\n123: \tpBytes[2] = byte(enc.Permissions \u003e\u003e 16)\n",
+			"line": "122",
+			"column": "18",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int32 -\u003e byte",
+			"file": "/app/internal/pdf/encryption/encrypt.go",
+			"code": "120: \tpBytes := make([]byte, 4)\n121: \tpBytes[0] = byte(enc.Permissions)\n122: \tpBytes[1] = byte(enc.Permissions \u003e\u003e 8)\n",
+			"line": "121",
+			"column": "18",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e uint32",
+			"file": "/app/internal/pdf/pdfa.go",
+			"code": "434: \t\tbinary.BigEndian.PutUint32(profile[offset+4:offset+8], uint32(tag.offset))\n435: \t\tbinary.BigEndian.PutUint32(profile[offset+8:offset+12], uint32(tag.size))\n436: \t\toffset += 12\n",
+			"line": "435",
+			"column": "65",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e uint32",
+			"file": "/app/internal/pdf/pdfa.go",
+			"code": "433: \t\tcopy(profile[offset:offset+4], []byte(tag.sig))\n434: \t\tbinary.BigEndian.PutUint32(profile[offset+4:offset+8], uint32(tag.offset))\n435: \t\tbinary.BigEndian.PutUint32(profile[offset+8:offset+12], uint32(tag.size))\n",
+			"line": "434",
+			"column": "64",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e uint32",
+			"file": "/app/internal/pdf/pdfa.go",
+			"code": "234: \t\tbinary.BigEndian.PutUint32(profile[offset+4:offset+8], uint32(tag.offset))\n235: \t\tbinary.BigEndian.PutUint32(profile[offset+8:offset+12], uint32(tag.size))\n236: \t\toffset += 12\n",
+			"line": "235",
+			"column": "65",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e uint32",
+			"file": "/app/internal/pdf/pdfa.go",
+			"code": "233: \t\tcopy(profile[offset:offset+4], []byte(tag.sig))\n234: \t\tbinary.BigEndian.PutUint32(profile[offset+4:offset+8], uint32(tag.offset))\n235: \t\tbinary.BigEndian.PutUint32(profile[offset+8:offset+12], uint32(tag.size))\n",
+			"line": "234",
+			"column": "64",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e uint32",
+			"file": "/app/internal/pdf/font/ttf.go",
+			"code": "587: \t\t\tstrEnd := strStart + uint32(length)\n588: \t\t\tif strEnd \u003c= uint32(len(data)) {\n589: \t\t\t\tstr := string(data[strStart:strEnd])\n",
+			"line": "588",
+			"column": "23",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e uint32",
+			"file": "/app/internal/pdf/font/ttf.go",
+			"code": "567: \t\t\tstrEnd := strStart + uint32(length)\n568: \t\t\tif strEnd \u003c= uint32(len(data)) {\n569: \t\t\t\t// Convert UTF-16BE to string\n",
+			"line": "568",
+			"column": "23",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e uint32",
+			"file": "/app/internal/pdf/font/ttf.go",
+			"code": "272: \thheaTable := f.Tables[\"hhea\"]\n273: \tif hheaTable.Offset+36 \u003e uint32(len(data)) {\n274: \t\treturn errors.New(\"hhea table truncated\")\n",
+			"line": "273",
+			"column": "33",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e uint32",
+			"file": "/app/internal/pdf/font/ttf.go",
+			"code": "247: \n248: \tif table.Offset+6 \u003e uint32(len(data)) {\n249: \t\treturn errors.New(\"maxp table truncated\")\n",
+			"line": "248",
+			"column": "28",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e uint32",
+			"file": "/app/internal/pdf/font/ttf.go",
+			"code": "218: \n219: \tif table.Offset+36 \u003e uint32(len(data)) {\n220: \t\treturn errors.New(\"hhea table truncated\")\n",
+			"line": "219",
+			"column": "29",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e uint32",
+			"file": "/app/internal/pdf/font/ttf.go",
+			"code": "178: \n179: \tif table.Offset+54 \u003e uint32(len(data)) {\n180: \t\treturn errors.New(\"head table truncated\")\n",
+			"line": "179",
+			"column": "29",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e uint32",
+			"file": "/app/internal/pdf/font/subset.go",
+			"code": "757: \tif offset+length \u003e uint32(len(glyfData)) {\n758: \t\tlength = uint32(len(glyfData)) - offset\n759: \t}\n",
+			"line": "758",
+			"column": "18",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e uint32",
+			"file": "/app/internal/pdf/font/subset.go",
+			"code": "756: \tlength := nextOffset - offset\n757: \tif offset+length \u003e uint32(len(glyfData)) {\n758: \t\tlength = uint32(len(glyfData)) - offset\n",
+			"line": "757",
+			"column": "27",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e uint32",
+			"file": "/app/internal/pdf/font/subset.go",
+			"code": "752: \n753: \tif nextOffset \u003c= offset || offset \u003e= uint32(len(glyfData)) {\n754: \t\treturn nil\n",
+			"line": "753",
+			"column": "45",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e uint32",
+			"file": "/app/internal/pdf/font/subset.go",
+			"code": "305: \t}\n306: \tnewOffsets[len(glyphs)] = uint32(newGlyf.Len())\n307: \n",
+			"line": "306",
+			"column": "34",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e uint32",
+			"file": "/app/internal/pdf/font/subset.go",
+			"code": "289: \t\t\tif offset+length \u003e uint32(len(glyfData)) {\n290: \t\t\t\tlength = uint32(len(glyfData)) - offset\n291: \t\t\t}\n",
+			"line": "290",
+			"column": "20",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e uint32",
+			"file": "/app/internal/pdf/font/subset.go",
+			"code": "288: \t\t\tlength := nextOffset - offset\n289: \t\t\tif offset+length \u003e uint32(len(glyfData)) {\n290: \t\t\t\tlength = uint32(len(glyfData)) - offset\n",
+			"line": "289",
+			"column": "29",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e uint32",
+			"file": "/app/internal/pdf/font/subset.go",
+			"code": "286: \n287: \t\tif nextOffset \u003e offset \u0026\u0026 offset \u003c uint32(len(glyfData)) {\n288: \t\t\tlength := nextOffset - offset\n",
+			"line": "287",
+			"column": "44",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e uint32",
+			"file": "/app/internal/pdf/font/subset.go",
+			"code": "274: \tfor i, glyphID := range glyphs {\n275: \t\tnewOffsets[i] = uint32(newGlyf.Len())\n276: \n",
+			"line": "275",
+			"column": "25",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e uint32",
+			"file": "/app/internal/pdf/font/subset.go",
+			"code": "166: \t\tchecksum := calculateChecksum(data)\n167: \t\tlength := uint32(len(data))\n168: \n",
+			"line": "167",
+			"column": "19",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e uint32",
+			"file": "/app/internal/pdf/font/subset.go",
+			"code": "109: \t\tif entry, ok := font.Tables[tableName]; ok {\n110: \t\t\tif entry.Offset+entry.Length \u003c= uint32(len(font.RawData)) {\n111: \t\t\t\ttables[tableName] = make([]byte, entry.Length)\n",
+			"line": "110",
+			"column": "42",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e uint32",
+			"file": "/app/internal/pdf/font/subset.go",
+			"code": "99: \tif os2Table, ok := font.Tables[\"OS/2\"]; ok {\n100: \t\tif os2Table.Offset+os2Table.Length \u003c= uint32(len(font.RawData)) {\n101: \t\t\ttables[\"OS/2\"] = make([]byte, os2Table.Length)\n",
+			"line": "100",
+			"column": "47",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e uint16",
+			"file": "/app/internal/pdf/font/subset.go",
+			"code": "616: \t}\n617: \tif err := binary.Write(\u0026buf, binary.BigEndian, uint16(6+len(records)*12)); err != nil { // stringOffset\n618: \t\treturn nil\n",
+			"line": "617",
+			"column": "55",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e uint16",
+			"file": "/app/internal/pdf/font/subset.go",
+			"code": "613: \t}\n614: \tif err := binary.Write(\u0026buf, binary.BigEndian, uint16(len(records))); err != nil { // count\n615: \t\treturn nil\n",
+			"line": "614",
+			"column": "55",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e uint16",
+			"file": "/app/internal/pdf/font/subset.go",
+			"code": "604: \t\t\tnameID:     name.nameID,\n605: \t\t\tlength:     uint16(len(encoded)),\n606: \t\t\toffset:     offset,\n",
+			"line": "605",
+			"column": "22",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e uint16",
+			"file": "/app/internal/pdf/font/subset.go",
+			"code": "595: \t\t// Windows Unicode BMP\n596: \t\toffset := uint16(stringData.Len())\n597: \t\tencoded := encodeUTF16BE(name.value)\n",
+			"line": "596",
+			"column": "19",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e uint16",
+			"file": "/app/internal/pdf/font/subset.go",
+			"code": "485: \tformat4Data := format4.Bytes()\n486: \tbinary.BigEndian.PutUint16(format4Data[2:], uint16(len(format4Data)))\n487: \n",
+			"line": "486",
+			"column": "52",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e uint16",
+			"file": "/app/internal/pdf/font/subset.go",
+			"code": "412: \n413: \tsegCount := uint16(len(segments))\n414: \n",
+			"line": "413",
+			"column": "20",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e uint16",
+			"file": "/app/internal/pdf/font/subset.go",
+			"code": "117: \t// Calculate number of tables and offset table values\n118: \tnumTables := uint16(len(tables))\n119: \tsearchRange := uint16(1)\n",
+			"line": "118",
+			"column": "21",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e uint16",
+			"file": "/app/internal/pdf/font/subset.go",
+			"code": "69: \ttables[\"hhea\"] = subsetHhea(font, uint16(len(glyphs)))\n70: \ttables[\"maxp\"] = subsetMaxp(font, uint16(len(glyphs)))\n71: \n",
+			"line": "70",
+			"column": "42",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e uint16",
+			"file": "/app/internal/pdf/font/subset.go",
+			"code": "68: \ttables[\"head\"] = subsetHead(font)\n69: \ttables[\"hhea\"] = subsetHhea(font, uint16(len(glyphs)))\n70: \ttables[\"maxp\"] = subsetMaxp(font, uint16(len(glyphs)))\n",
+			"line": "69",
+			"column": "42",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e int32",
+			"file": "/root/.cache/go-build/37/37b8430a5c6a2abb854a66f25bc0ba10a60fdef6c9d2dc20a95518e5fd58378e-d",
+			"code": "395: \t\tresult.error = ( /*line :392:18*/_Cfunc_CString /*line :392:26*/)(err.Error())\n396: \t\treturn result\n397: \t}\n",
+			"line": "396",
+			"column": "23",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e int32",
+			"file": "/root/.cache/go-build/37/37b8430a5c6a2abb854a66f25bc0ba10a60fdef6c9d2dc20a95518e5fd58378e-d",
+			"code": "366: \t\tresult.error = ( /*line :363:18*/_Cfunc_CString /*line :363:26*/)(err.Error())\n367: \t\treturn result\n368: \t}\n",
+			"line": "367",
+			"column": "23",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e int32",
+			"file": "/root/.cache/go-build/37/37b8430a5c6a2abb854a66f25bc0ba10a60fdef6c9d2dc20a95518e5fd58378e-d",
+			"code": "337: \t\tresult.error = ( /*line :334:18*/_Cfunc_CString /*line :334:26*/)(err.Error())\n338: \t\treturn result\n339: \t}\n",
+			"line": "338",
+			"column": "23",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e int32",
+			"file": "/root/.cache/go-build/37/37b8430a5c6a2abb854a66f25bc0ba10a60fdef6c9d2dc20a95518e5fd58378e-d",
+			"code": "309: \t\tresult.error = ( /*line :306:18*/_Cfunc_CString /*line :306:26*/)(err.Error())\n310: \t\treturn result\n311: \t}\n",
+			"line": "310",
+			"column": "23",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e int32",
+			"file": "/root/.cache/go-build/37/37b8430a5c6a2abb854a66f25bc0ba10a60fdef6c9d2dc20a95518e5fd58378e-d",
+			"code": "282: \t\tresult.error = ( /*line :279:18*/_Cfunc_CString /*line :279:26*/)(err.Error())\n283: \t\treturn result\n284: \t}\n",
+			"line": "283",
+			"column": "23",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e int32",
+			"file": "/root/.cache/go-build/37/37b8430a5c6a2abb854a66f25bc0ba10a60fdef6c9d2dc20a95518e5fd58378e-d",
+			"code": "255: \t\tresult.error = ( /*line :252:18*/_Cfunc_CString /*line :252:26*/)(err.Error())\n256: \t\treturn result\n257: \t}\n",
+			"line": "256",
+			"column": "23",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e int32",
+			"file": "/root/.cache/go-build/37/37b8430a5c6a2abb854a66f25bc0ba10a60fdef6c9d2dc20a95518e5fd58378e-d",
+			"code": "234: \t\tresult.error = ( /*line :231:18*/_Cfunc_CString /*line :231:26*/)(err.Error())\n235: \t\treturn result\n236: \t}\n",
+			"line": "235",
+			"column": "23",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e int32",
+			"file": "/root/.cache/go-build/37/37b8430a5c6a2abb854a66f25bc0ba10a60fdef6c9d2dc20a95518e5fd58378e-d",
+			"code": "207: \t\tresult.error = ( /*line :204:18*/_Cfunc_CString /*line :204:26*/)(err.Error())\n208: \t\treturn result\n209: \t}\n",
+			"line": "208",
+			"column": "23",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e int32",
+			"file": "/root/.cache/go-build/37/37b8430a5c6a2abb854a66f25bc0ba10a60fdef6c9d2dc20a95518e5fd58378e-d",
+			"code": "180: \t\tresult.error = ( /*line :177:18*/_Cfunc_CString /*line :177:26*/)(err.Error())\n181: \t\treturn result\n182: \t}\n",
+			"line": "181",
+			"column": "23",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e int32",
+			"file": "/root/.cache/go-build/37/37b8430a5c6a2abb854a66f25bc0ba10a60fdef6c9d2dc20a95518e5fd58378e-d",
+			"code": "157: \t\tresult.error = ( /*line :154:18*/_Cfunc_CString /*line :154:26*/)(err.Error())\n158: \t\treturn result\n159: \t}\n",
+			"line": "158",
+			"column": "23",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e int32",
+			"file": "/root/.cache/go-build/37/37b8430a5c6a2abb854a66f25bc0ba10a60fdef6c9d2dc20a95518e5fd58378e-d",
+			"code": "128: \tdataSlice := unsafe.Slice(result.data, len(parts))\n129: \tlengthSlice := unsafe.Slice(result.lengths, len(parts))\n130: \n",
+			"line": "129",
+			"column": "25",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e int32",
+			"file": "/root/.cache/go-build/37/37b8430a5c6a2abb854a66f25bc0ba10a60fdef6c9d2dc20a95518e5fd58378e-d",
+			"code": "120: \t\treturn result\n121: \t}\n122: \n",
+			"line": "121",
+			"column": "22",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e int32",
+			"file": "/root/.cache/go-build/37/37b8430a5c6a2abb854a66f25bc0ba10a60fdef6c9d2dc20a95518e5fd58378e-d",
+			"code": "85: \t\tresult.error = ( /*line :82:18*/_Cfunc_CString /*line :82:26*/)(err.Error())\n86: \t\treturn result\n87: \t}\n",
+			"line": "86",
+			"column": "23",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e int32",
+			"file": "/root/.cache/go-build/37/37b8430a5c6a2abb854a66f25bc0ba10a60fdef6c9d2dc20a95518e5fd58378e-d",
+			"code": "76: \n77: \tfiles := make([][]byte, int(count))\n78: \tfor i := 0; i \u003c int(count); i++ {\n",
+			"line": "77",
+			"column": "59",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e int32",
+			"file": "/root/.cache/go-build/37/37b8430a5c6a2abb854a66f25bc0ba10a60fdef6c9d2dc20a95518e5fd58378e-d",
+			"code": "50: \t\treturn result\n51: \t}\n52: \n",
+			"line": "51",
+			"column": "23",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e int32",
+			"file": "/app/internal/pdf/redact/encryption_inhouse.go",
+			"code": "234: \th.Write(d.O)\n235: \th.Write(int32LEBytes(int32(d.P)))\n236: \th.Write(id0)\n",
+			"line": "235",
+			"column": "28",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e byte",
+			"file": "/app/internal/pdf/redact/pdf_utils.go",
+			"code": "672: \t\t\t\t}\n673: \t\t\t\tout.WriteByte(byte(val))\n674: \t\t\t} else {\n",
+			"line": "673",
+			"column": "23",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e byte",
+			"file": "/app/internal/pdf/redact/encryption_inhouse.go",
+			"code": "330: \tb = append(b, byte(objNum), byte(objNum\u003e\u003e8), byte(objNum\u003e\u003e16))\n331: \tb = append(b, byte(genNum), byte(genNum\u003e\u003e8))\n332: \th := md5.Sum(b)\n",
+			"line": "331",
+			"column": "20",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e byte",
+			"file": "/app/internal/pdf/redact/encryption_inhouse.go",
+			"code": "330: \tb = append(b, byte(objNum), byte(objNum\u003e\u003e8), byte(objNum\u003e\u003e16))\n331: \tb = append(b, byte(genNum), byte(genNum\u003e\u003e8))\n332: \th := md5.Sum(b)\n",
+			"line": "331",
+			"column": "34",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e byte",
+			"file": "/app/internal/pdf/redact/encryption_inhouse.go",
+			"code": "329: \tb = append(b, fileKey...)\n330: \tb = append(b, byte(objNum), byte(objNum\u003e\u003e8), byte(objNum\u003e\u003e16))\n331: \tb = append(b, byte(genNum), byte(genNum\u003e\u003e8))\n",
+			"line": "330",
+			"column": "20",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e byte",
+			"file": "/app/internal/pdf/redact/encryption_inhouse.go",
+			"code": "329: \tb = append(b, fileKey...)\n330: \tb = append(b, byte(objNum), byte(objNum\u003e\u003e8), byte(objNum\u003e\u003e16))\n331: \tb = append(b, byte(genNum), byte(genNum\u003e\u003e8))\n",
+			"line": "330",
+			"column": "34",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e byte",
+			"file": "/app/internal/pdf/redact/encryption_inhouse.go",
+			"code": "329: \tb = append(b, fileKey...)\n330: \tb = append(b, byte(objNum), byte(objNum\u003e\u003e8), byte(objNum\u003e\u003e16))\n331: \tb = append(b, byte(genNum), byte(genNum\u003e\u003e8))\n",
+			"line": "330",
+			"column": "51",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e byte",
+			"file": "/app/internal/pdf/encryption/encrypt.go",
+			"code": "298: \tpadding := blockSize - (len(data) % blockSize)\n299: \tpadText := bytes.Repeat([]byte{byte(padding)}, padding)\n300: \treturn append(data, padText...)\n",
+			"line": "299",
+			"column": "37",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e byte",
+			"file": "/app/internal/pdf/encryption/encrypt.go",
+			"code": "283: \t\tbyte(genNum),\n284: \t\tbyte(genNum \u003e\u003e 8),\n285: \t})\n",
+			"line": "284",
+			"column": "7",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e byte",
+			"file": "/app/internal/pdf/encryption/encrypt.go",
+			"code": "282: \t\tbyte(objNum \u003e\u003e 16),\n283: \t\tbyte(genNum),\n284: \t\tbyte(genNum \u003e\u003e 8),\n",
+			"line": "283",
+			"column": "7",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e byte",
+			"file": "/app/internal/pdf/encryption/encrypt.go",
+			"code": "281: \t\tbyte(objNum \u003e\u003e 8),\n282: \t\tbyte(objNum \u003e\u003e 16),\n283: \t\tbyte(genNum),\n",
+			"line": "282",
+			"column": "7",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e byte",
+			"file": "/app/internal/pdf/encryption/encrypt.go",
+			"code": "280: \t\tbyte(objNum),\n281: \t\tbyte(objNum \u003e\u003e 8),\n282: \t\tbyte(objNum \u003e\u003e 16),\n",
+			"line": "281",
+			"column": "7",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "HIGH",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "190",
+				"url": "https://cwe.mitre.org/data/definitions/190.html"
+			},
+			"rule_id": "G115",
+			"details": "integer overflow conversion int -\u003e byte",
+			"file": "/app/internal/pdf/encryption/encrypt.go",
+			"code": "279: \thasher.Write([]byte{\n280: \t\tbyte(objNum),\n281: \t\tbyte(objNum \u003e\u003e 8),\n",
+			"line": "280",
+			"column": "7",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "327",
+				"url": "https://cwe.mitre.org/data/definitions/327.html"
+			},
+			"rule_id": "G405",
+			"details": "Use of weak cryptographic primitive",
+			"file": "/app/internal/pdf/redact/encryption_inhouse.go",
+			"code": "357: func rc4Crypt(key, in []byte) []byte {\n358: \tc, err := rc4.NewCipher(key)\n359: \tif err != nil {\n",
+			"line": "358",
+			"column": "12",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "328",
+				"url": "https://cwe.mitre.org/data/definitions/328.html"
+			},
+			"rule_id": "G401",
+			"details": "Use of weak cryptographic primitive",
+			"file": "/app/internal/pdf/redact/encryption_inhouse.go",
+			"code": "331: \tb = append(b, byte(genNum), byte(genNum\u003e\u003e8))\n332: \th := md5.Sum(b)\n333: \tkLen := len(fileKey) + 5\n",
+			"line": "332",
+			"column": "7",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "328",
+				"url": "https://cwe.mitre.org/data/definitions/328.html"
+			},
+			"rule_id": "G401",
+			"details": "Use of weak cryptographic primitive",
+			"file": "/app/internal/pdf/redact/encryption_inhouse.go",
+			"code": "286: \t\tfor i := 0; i \u003c 50; i++ {\n287: \t\t\tx := md5.Sum(k[:keyLen])\n288: \t\t\tk = x[:]\n",
+			"line": "287",
+			"column": "9",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "328",
+				"url": "https://cwe.mitre.org/data/definitions/328.html"
+			},
+			"rule_id": "G401",
+			"details": "Use of weak cryptographic primitive",
+			"file": "/app/internal/pdf/redact/encryption_inhouse.go",
+			"code": "282: \n283: \th := md5.Sum(padPassword(ownerPassword))\n284: \tk := h[:]\n",
+			"line": "283",
+			"column": "7",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "328",
+				"url": "https://cwe.mitre.org/data/definitions/328.html"
+			},
+			"rule_id": "G401",
+			"details": "Use of weak cryptographic primitive",
+			"file": "/app/internal/pdf/redact/encryption_inhouse.go",
+			"code": "254: \t}\n255: \th := md5.Sum(append(append([]byte{}, pdfPasswordPadding...), id0...))\n256: \ttmp := h[:]\n",
+			"line": "255",
+			"column": "7",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "328",
+				"url": "https://cwe.mitre.org/data/definitions/328.html"
+			},
+			"rule_id": "G401",
+			"details": "Use of weak cryptographic primitive",
+			"file": "/app/internal/pdf/redact/encryption_inhouse.go",
+			"code": "242: \t\tfor i := 0; i \u003c 50; i++ {\n243: \t\t\tx := md5.Sum(sum[:keyLen])\n244: \t\t\tsum = x[:]\n",
+			"line": "243",
+			"column": "9",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "328",
+				"url": "https://cwe.mitre.org/data/definitions/328.html"
+			},
+			"rule_id": "G401",
+			"details": "Use of weak cryptographic primitive",
+			"file": "/app/internal/pdf/redact/encryption_inhouse.go",
+			"code": "231: \tpad := padPassword(password)\n232: \th := md5.New()\n233: \th.Write(pad)\n",
+			"line": "232",
+			"column": "7",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "328",
+				"url": "https://cwe.mitre.org/data/definitions/328.html"
+			},
+			"rule_id": "G401",
+			"details": "Use of weak cryptographic primitive",
+			"file": "/app/internal/pdf/generator.go",
+			"code": "1018: \t\t}\n1019: \t\trandomHash := md5.Sum(randomBytes)\n1020: \t\tdocumentID = fmt.Sprintf(\"[\u003c%s\u003e \u003c%s\u003e]\", hex.EncodeToString(contentHashArr[:]), hex.EncodeToString(randomHash[:]))\n",
+			"line": "1019",
+			"column": "17",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "328",
+				"url": "https://cwe.mitre.org/data/definitions/328.html"
+			},
+			"rule_id": "G401",
+			"details": "Use of weak cryptographic primitive",
+			"file": "/app/internal/pdf/generator.go",
+			"code": "1005: \t// Use incremental hash to avoid copying the entire buffer\n1006: \tcontentHasher := md5.New()\n1007: \tcontentHasher.Write(pdfBuffer.Bytes())\n",
+			"line": "1006",
+			"column": "19",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "328",
+				"url": "https://cwe.mitre.org/data/definitions/328.html"
+			},
+			"rule_id": "G401",
+			"details": "Use of weak cryptographic primitive",
+			"file": "/app/internal/pdf/encryption/encrypt.go",
+			"code": "337: \t// Create MD5 hash of document content + timestamp\n338: \thasher := md5.New()\n339: \thasher.Write(data)\n",
+			"line": "338",
+			"column": "12",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "328",
+				"url": "https://cwe.mitre.org/data/definitions/328.html"
+			},
+			"rule_id": "G401",
+			"details": "Use of weak cryptographic primitive",
+			"file": "/app/internal/pdf/encryption/encrypt.go",
+			"code": "274: \t// Create key by hashing: file key + object number + generation number\n275: \thasher := md5.New()\n276: \thasher.Write(enc.EncryptionKey)\n",
+			"line": "275",
+			"column": "12",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "328",
+				"url": "https://cwe.mitre.org/data/definitions/328.html"
+			},
+			"rule_id": "G401",
+			"details": "Use of weak cryptographic primitive",
+			"file": "/app/internal/pdf/encryption/encrypt.go",
+			"code": "143: \t// Step 1: Create MD5 hash of padding + document ID\n144: \thasher := md5.New()\n145: \thasher.Write(paddingBytes)\n",
+			"line": "144",
+			"column": "12",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "328",
+				"url": "https://cwe.mitre.org/data/definitions/328.html"
+			},
+			"rule_id": "G401",
+			"details": "Use of weak cryptographic primitive",
+			"file": "/app/internal/pdf/encryption/encrypt.go",
+			"code": "132: \tfor i := 0; i \u003c 50; i++ {\n133: \t\th := md5.Sum(hash[:16])\n134: \t\thash = h[:]\n",
+			"line": "133",
+			"column": "8",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "328",
+				"url": "https://cwe.mitre.org/data/definitions/328.html"
+			},
+			"rule_id": "G401",
+			"details": "Use of weak cryptographic primitive",
+			"file": "/app/internal/pdf/encryption/encrypt.go",
+			"code": "114: \t// Step 2: Create MD5 hash of: padded password + O value + P value + document ID\n115: \thasher := md5.New()\n116: \thasher.Write(userPwd)\n",
+			"line": "115",
+			"column": "12",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "328",
+				"url": "https://cwe.mitre.org/data/definitions/328.html"
+			},
+			"rule_id": "G401",
+			"details": "Use of weak cryptographic primitive",
+			"file": "/app/internal/pdf/encryption/encrypt.go",
+			"code": "82: \tfor i := 0; i \u003c 50; i++ {\n83: \t\thash = md5.Sum(hash[:])\n84: \t}\n",
+			"line": "83",
+			"column": "10",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "328",
+				"url": "https://cwe.mitre.org/data/definitions/328.html"
+			},
+			"rule_id": "G401",
+			"details": "Use of weak cryptographic primitive",
+			"file": "/app/internal/pdf/encryption/encrypt.go",
+			"code": "78: \t// Step 2: MD5 hash the padded owner password\n79: \thash := md5.Sum(ownerPwd)\n80: \n",
+			"line": "79",
+			"column": "10",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "78",
+				"url": "https://cwe.mitre.org/data/definitions/78.html"
+			},
+			"rule_id": "G204",
+			"details": "Subprocess launched with variable",
+			"file": "/app/internal/pdf/redact/ocr_adapter.go",
+			"code": "128: \n129: \t\ttsvCmd := exec.Command(\"tesseract\", imgPath, \"stdout\", \"tsv\", \"-l\", lang)\n130: \t\ttsvOut, err := tsvCmd.CombinedOutput()\n",
+			"line": "129",
+			"column": "13",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "78",
+				"url": "https://cwe.mitre.org/data/definitions/78.html"
+			},
+			"rule_id": "G204",
+			"details": "Subprocess launched with a potential tainted input or cmd arguments",
+			"file": "/app/internal/pdf/redact/ocr_adapter.go",
+			"code": "113: \t\timgPath := imgBase + \".png\"\n114: \t\tpdftoppmCmd := exec.Command(\"pdftoppm\", \"-f\", strconv.Itoa(page), \"-l\", strconv.Itoa(page), \"-singlefile\", \"-png\", pdfPath, imgBase)\n115: \t\tif out, err := pdftoppmCmd.CombinedOutput(); err != nil {\n",
+			"line": "114",
+			"column": "18",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "22",
+				"url": "https://cwe.mitre.org/data/definitions/22.html"
+			},
+			"rule_id": "G304",
+			"details": "Potential file inclusion via variable",
+			"file": "/app/internal/pdf/redact/ocr_adapter.go",
+			"code": "118: \n119: \t\timgFile, err := os.Open(imgPath)\n120: \t\tif err != nil {\n",
+			"line": "119",
+			"column": "19",
+			"nosec": false,
+			"suppressions": null,
+			"autofix": "Consider using os.Root to scope file access under a fixed root (Go \u003e=1.24). Prefer root.Open/root.Stat over os.Open/os.Stat to prevent directory traversal."
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "22",
+				"url": "https://cwe.mitre.org/data/definitions/22.html"
+			},
+			"rule_id": "G304",
+			"details": "Potential file inclusion via variable",
+			"file": "/app/internal/pdf/font/ttf.go",
+			"code": "60: func LoadTTFFromFile(path string) (*TTFFont, error) {\n61: \tdata, err := os.ReadFile(path)\n62: \tif err != nil {\n",
+			"line": "61",
+			"column": "15",
+			"nosec": false,
+			"suppressions": null,
+			"autofix": "Consider using os.Root to scope file access under a fixed root (Go \u003e=1.24). Prefer root.Open/root.Stat over os.Open/os.Stat to prevent directory traversal."
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "22",
+				"url": "https://cwe.mitre.org/data/definitions/22.html"
+			},
+			"rule_id": "G304",
+			"details": "Potential file inclusion via variable",
+			"file": "/app/internal/pdf/font/pdfa.go",
+			"code": "300: \t\t\tdestPath := filepath.Join(m.config.FontsDirectory, fileName)\n301: \t\t\toutFile, err := os.Create(destPath)\n302: \t\t\tif err != nil {\n",
+			"line": "301",
+			"column": "20",
+			"nosec": false,
+			"suppressions": null,
+			"autofix": "Consider using os.Root to scope file access under a fixed root (Go \u003e=1.24). Prefer root.Open/root.Stat over os.Open/os.Stat to prevent directory traversal."
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "22",
+				"url": "https://cwe.mitre.org/data/definitions/22.html"
+			},
+			"rule_id": "G304",
+			"details": "Potential file inclusion via variable",
+			"file": "/app/internal/handlers/handlers.go",
+			"code": "199: \t// Read the JSON file\n200: \tdata, err := os.ReadFile(filePath)\n201: \tif err != nil {\n",
+			"line": "200",
+			"column": "15",
+			"nosec": false,
+			"suppressions": null,
+			"autofix": "Consider using os.Root to scope file access under a fixed root (Go \u003e=1.24). Prefer root.Open/root.Stat over os.Open/os.Stat to prevent directory traversal."
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "22",
+				"url": "https://cwe.mitre.org/data/definitions/22.html"
+			},
+			"rule_id": "G304",
+			"details": "Potential file inclusion via variable",
+			"file": "/app/internal/benchmarktemplates/zerodha_retail.go",
+			"code": "26: func readText(relativePath string) (string, error) {\n27: \tcontent, err := os.ReadFile(filepath.Join(repoRoot(), relativePath))\n28: \tif err != nil {\n",
+			"line": "27",
+			"column": "18",
+			"nosec": false,
+			"suppressions": null,
+			"autofix": "Consider using os.Root to scope file access under a fixed root (Go \u003e=1.24). Prefer root.Open/root.Stat over os.Open/os.Stat to prevent directory traversal."
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "88",
+				"url": "https://cwe.mitre.org/data/definitions/88.html"
+			},
+			"rule_id": "G107",
+			"details": "Potential HTTP request made with variable url",
+			"file": "/app/internal/pdf/font/pdfa.go",
+			"code": "237: \t// Download the file\n238: \tresp, err := http.Get(liberationFontsArchiveURL)\n239: \tif err != nil {\n",
+			"line": "238",
+			"column": "15",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "409",
+				"url": "https://cwe.mitre.org/data/definitions/409.html"
+			},
+			"rule_id": "G110",
+			"details": "Potential DoS vulnerability via decompression bomb",
+			"file": "/app/internal/pdf/redact/helpers.go",
+			"code": "51: \tvar out bytes.Buffer\n52: \tif _, err := io.Copy(\u0026out, r); err != nil {\n53: \t\treturn nil, err\n",
+			"line": "52",
+			"column": "15",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "409",
+				"url": "https://cwe.mitre.org/data/definitions/409.html"
+			},
+			"rule_id": "G110",
+			"details": "Potential DoS vulnerability via decompression bomb",
+			"file": "/app/internal/pdf/redact/helpers.go",
+			"code": "38: \tvar out bytes.Buffer\n39: \tif _, err := io.Copy(\u0026out, r); err != nil {\n40: \t\treturn nil, err\n",
+			"line": "39",
+			"column": "15",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "409",
+				"url": "https://cwe.mitre.org/data/definitions/409.html"
+			},
+			"rule_id": "G110",
+			"details": "Potential DoS vulnerability via decompression bomb",
+			"file": "/app/internal/pdf/merge/parser.go",
+			"code": "564: \tvar out bytes.Buffer\n565: \t_, err = io.Copy(\u0026out, reader)\n566: \tif err != nil {\n",
+			"line": "565",
+			"column": "11",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "409",
+				"url": "https://cwe.mitre.org/data/definitions/409.html"
+			},
+			"rule_id": "G110",
+			"details": "Potential DoS vulnerability via decompression bomb",
+			"file": "/app/internal/pdf/helpers.go",
+			"code": "52: \tvar out bytes.Buffer\n53: \tif _, err := io.Copy(\u0026out, r); err != nil {\n54: \t\treturn nil, err\n",
+			"line": "53",
+			"column": "15",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "409",
+				"url": "https://cwe.mitre.org/data/definitions/409.html"
+			},
+			"rule_id": "G110",
+			"details": "Potential DoS vulnerability via decompression bomb",
+			"file": "/app/internal/pdf/helpers.go",
+			"code": "39: \tvar out bytes.Buffer\n40: \tif _, err := io.Copy(\u0026out, r); err != nil {\n41: \t\treturn nil, err\n",
+			"line": "40",
+			"column": "15",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "409",
+				"url": "https://cwe.mitre.org/data/definitions/409.html"
+			},
+			"rule_id": "G110",
+			"details": "Potential DoS vulnerability via decompression bomb",
+			"file": "/app/internal/pdf/form/xfdf.go",
+			"code": "114: \tvar out bytes.Buffer\n115: \tif _, err := io.Copy(\u0026out, r); err != nil {\n116: \t\treturn nil, err\n",
+			"line": "115",
+			"column": "15",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "409",
+				"url": "https://cwe.mitre.org/data/definitions/409.html"
+			},
+			"rule_id": "G110",
+			"details": "Potential DoS vulnerability via decompression bomb",
+			"file": "/app/internal/pdf/form/xfdf.go",
+			"code": "101: \tvar out bytes.Buffer\n102: \tif _, err := io.Copy(\u0026out, r); err != nil {\n103: \t\treturn nil, err\n",
+			"line": "102",
+			"column": "15",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "409",
+				"url": "https://cwe.mitre.org/data/definitions/409.html"
+			},
+			"rule_id": "G110",
+			"details": "Potential DoS vulnerability via decompression bomb",
+			"file": "/app/internal/pdf/font/pdfa.go",
+			"code": "305: \n306: \t\t\tif _, err := io.Copy(outFile, tr); err != nil {\n307: \t\t\t\t_ = outFile.Close()\n",
+			"line": "306",
+			"column": "17",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "377",
+				"url": "https://cwe.mitre.org/data/definitions/377.html"
+			},
+			"rule_id": "G303",
+			"details": "File creation in shared tmp directory without using ioutil.Tempfile",
+			"file": "/app/cmd/gopdfsuit/main.go",
+			"code": "22: \tif os.Getenv(\"ENABLE_PROFILING\") == \"1\" {\n23: \t\tf, err := os.Create(\"/tmp/mem.prof\")\n24: \t\tif err != nil {\n",
+			"line": "23",
+			"column": "13",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "276",
+				"url": "https://cwe.mitre.org/data/definitions/276.html"
+			},
+			"rule_id": "G301",
+			"details": "Expect directory permissions to be 0750 or less",
+			"file": "/app/pkg/fontutils/fontutils.go",
+			"code": "189: \tdestDir := fontsDir()\n190: \tif err := os.MkdirAll(destDir, 0o755); err != nil {\n191: \t\treturn fmt.Errorf(\"create fonts dir: %w\", err)\n",
+			"line": "190",
+			"column": "12",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "276",
+				"url": "https://cwe.mitre.org/data/definitions/276.html"
+			},
+			"rule_id": "G301",
+			"details": "Expect directory permissions to be 0750 or less",
+			"file": "/app/internal/pdf/font/pdfa.go",
+			"code": "178: \t// Create fonts directory\n179: \tif err := os.MkdirAll(m.config.FontsDirectory, 0755); err != nil {\n180: \t\tm.ensureAttempted = true\n",
+			"line": "179",
+			"column": "12",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "327",
+				"url": "https://cwe.mitre.org/data/definitions/327.html"
+			},
+			"rule_id": "G503",
+			"details": "Blocklisted import crypto/rc4: weak cryptographic primitive",
+			"file": "/app/internal/pdf/redact/encryption_inhouse.go",
+			"code": "6: \t\"crypto/md5\"\n7: \t\"crypto/rc4\"\n8: \t\"encoding/hex\"\n",
+			"line": "7",
+			"column": "2",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "327",
+				"url": "https://cwe.mitre.org/data/definitions/327.html"
+			},
+			"rule_id": "G501",
+			"details": "Blocklisted import crypto/md5: weak cryptographic primitive",
+			"file": "/app/internal/pdf/redact/encryption_inhouse.go",
+			"code": "5: \t\"bytes\"\n6: \t\"crypto/md5\"\n7: \t\"crypto/rc4\"\n",
+			"line": "6",
+			"column": "2",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "327",
+				"url": "https://cwe.mitre.org/data/definitions/327.html"
+			},
+			"rule_id": "G501",
+			"details": "Blocklisted import crypto/md5: weak cryptographic primitive",
+			"file": "/app/internal/pdf/generator.go",
+			"code": "4: \t\"bytes\"\n5: \t\"crypto/md5\"\n6: \t\"crypto/rand\"\n",
+			"line": "5",
+			"column": "2",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "327",
+				"url": "https://cwe.mitre.org/data/definitions/327.html"
+			},
+			"rule_id": "G501",
+			"details": "Blocklisted import crypto/md5: weak cryptographic primitive",
+			"file": "/app/internal/pdf/encryption/encrypt.go",
+			"code": "7: \t\"crypto/cipher\"\n8: \t\"crypto/md5\"\n9: \t\"crypto/rand\"\n",
+			"line": "8",
+			"column": "2",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "118",
+				"url": "https://cwe.mitre.org/data/definitions/118.html"
+			},
+			"rule_id": "G602",
+			"details": "slice index out of range",
+			"file": "/app/internal/pdf/utils.go",
+			"code": "142: \t\t\tif val, err := strconv.Atoi(parts[i]); err == nil {\n143: \t\t\t\tborders[i-4] = val\n144: \t\t\t}\n",
+			"line": "143",
+			"column": "12",
+			"nosec": false,
+			"suppressions": null
+		}
+	],
+	"Stats": {
+		"files": 71,
+		"lines": 25101,
+		"nosec": 0,
+		"found": 166
+	},
+	"GosecVersion": "dev"
+}
