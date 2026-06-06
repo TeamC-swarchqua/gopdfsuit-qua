@@ -45,8 +45,8 @@ export default function Toast({ message, type = 'success', duration = 3000, onCl
             text: 'white'
         },
         info: {
-            bg: 'hsl(199 89% 48%)',
-            icon: 'hsl(199 89% 48%)',
+            bg: '#ff493b',
+            icon: '#ff493b',
             text: 'white'
         }
     }

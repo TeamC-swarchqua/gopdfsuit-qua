@@ -28,6 +28,12 @@ export default function LoginPage() {
     e.preventDefault()
     setError('')
     setSuccess('')
+
+    if (password.length < 8) {
+      setError('La contraseña debe tener al menos 8 caracteres')
+      return
+    }
+
     setBusy(true)
     try {
       if (tab === 'login') {
@@ -62,7 +68,7 @@ export default function LoginPage() {
           }}>
             <span style={{ fontSize: '2.2rem' }}>📄</span>
             <span style={{
-              background: 'linear-gradient(135deg, #4ecdc4 0%, #667eea 50%, #f093fb 100%)',
+              background: 'linear-gradient(135deg, #ff493b 0%, #ff6b35 50%, #ff8560 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -98,10 +104,10 @@ export default function LoginPage() {
                   fontSize: '0.9rem',
                   transition: 'all 0.25s ease',
                   background: tab === t
-                    ? 'linear-gradient(135deg, rgba(78,205,196,0.25) 0%, rgba(102,126,234,0.25) 100%)'
+                    ? 'linear-gradient(135deg, rgba(255,73,59,0.25) 0%, rgba(255,107,53,0.25) 100%)'
                     : 'transparent',
-                  color: tab === t ? '#4ecdc4' : 'hsl(var(--muted-foreground))',
-                  borderBottom: tab === t ? '2px solid #4ecdc4' : '2px solid transparent',
+                  color: tab === t ? '#ff493b' : 'hsl(var(--muted-foreground))',
+                  borderBottom: tab === t ? '2px solid #ff493b' : '2px solid transparent',
                 }}
               >
                 {t === 'login' ? 'Iniciar sesión' : 'Crear cuenta'}
@@ -148,7 +154,7 @@ export default function LoginPage() {
                   transition: 'border-color 0.2s',
                   boxSizing: 'border-box',
                 }}
-                onFocus={(e) => e.target.style.borderColor = '#4ecdc4'}
+                onFocus={(e) => e.target.style.borderColor = '#ff493b'}
                 onBlur={(e) => e.target.style.borderColor = 'rgba(255,255,255,0.15)'}
               />
             </div>
@@ -166,6 +172,7 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
+                minLength={8}
                 disabled={busy}
                 style={{
                   width: '100%',
@@ -178,7 +185,7 @@ export default function LoginPage() {
                   transition: 'border-color 0.2s',
                   boxSizing: 'border-box',
                 }}
-                onFocus={(e) => e.target.style.borderColor = '#4ecdc4'}
+                onFocus={(e) => e.target.style.borderColor = '#ff493b'}
                 onBlur={(e) => e.target.style.borderColor = 'rgba(255,255,255,0.15)'}
               />
             </div>
@@ -219,8 +226,8 @@ export default function LoginPage() {
                 width: '100%',
                 padding: '0.8rem',
                 background: busy
-                  ? 'rgba(78,205,196,0.4)'
-                  : 'linear-gradient(135deg, #4ecdc4 0%, #667eea 100%)',
+                  ? 'rgba(255,73,59,0.4)'
+                  : 'linear-gradient(135deg, #ff493b 0%, #ff6b35 100%)',
                 color: '#fff',
                 border: 'none',
                 borderRadius: '8px',
@@ -228,7 +235,7 @@ export default function LoginPage() {
                 fontSize: '1rem',
                 cursor: busy ? 'not-allowed' : 'pointer',
                 transition: 'all 0.25s ease',
-                boxShadow: busy ? 'none' : '0 4px 15px rgba(78,205,196,0.35)',
+                boxShadow: busy ? 'none' : '0 4px 15px rgba(255,73,59,0.35)',
                 marginTop: '0.25rem',
               }}
               onMouseEnter={(e) => { if (!busy) e.currentTarget.style.transform = 'translateY(-1px)' }}
@@ -245,7 +252,7 @@ export default function LoginPage() {
             {tab === 'login' ? '¿No tienes cuenta? ' : '¿Ya tienes cuenta? '}
             <button
               onClick={() => { setTab(tab === 'login' ? 'register' : 'login'); setError(''); setSuccess('') }}
-              style={{ background: 'none', border: 'none', color: '#4ecdc4', cursor: 'pointer', fontWeight: '600', fontSize: '0.875rem', padding: 0 }}
+              style={{ background: 'none', border: 'none', color: '#ff493b', cursor: 'pointer', fontWeight: '600', fontSize: '0.875rem', padding: 0 }}
             >
               {tab === 'login' ? 'Crear cuenta' : 'Iniciar sesión'}
             </button>
@@ -254,7 +261,7 @@ export default function LoginPage() {
 
         {/* Feature badges */}
         <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'center', marginTop: '1.5rem', flexWrap: 'wrap' }}>
-          {['🔒 Seguro', '⚡ Rápido', '📑 PDF Editor', '🔗 Merge & Split'].map((badge) => (
+          {['🔒 Seguro', '⚡ Rápido', '📑 Editor PDF', '🔗 Combinar y dividir'].map((badge) => (
             <span key={badge} style={{
               padding: '0.3rem 0.7rem',
               background: 'rgba(255,255,255,0.05)',

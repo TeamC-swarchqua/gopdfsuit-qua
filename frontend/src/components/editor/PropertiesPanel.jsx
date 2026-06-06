@@ -68,16 +68,16 @@ function PropsEditor({ props, onChange, fonts = DEFAULT_FONTS, showAlignment = t
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             {/* Font Section */}
             <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Font</label>
+                <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Fuente</label>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
                     <div>
-                        <label style={{ display: 'block', fontSize: '0.75rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Family</label>
+                        <label style={{ display: 'block', fontSize: '0.75rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Familia</label>
                         <select value={parsed.font} onChange={(e) => onChange(formatProps({ ...parsed, font: e.target.value }))} style={{ width: '100%', padding: '0.4rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--background))', color: 'hsl(var(--foreground))', fontSize: '0.85rem' }}>
                             {fonts.map(font => <option key={font.id} value={font.id}>{font.displayName}</option>)}
                         </select>
                     </div>
                     <div>
-                        <label style={{ display: 'block', fontSize: '0.75rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Size</label>
+                        <label style={{ display: 'block', fontSize: '0.75rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Tamaño</label>
                         <select value={parsed.size} onChange={(e) => onChange(formatProps({ ...parsed, size: parseInt(e.target.value) }))} style={{ width: '100%', padding: '0.4rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--background))', color: 'hsl(var(--foreground))', fontSize: '0.85rem' }}>
                             {[8, 9, 10, 11, 12, 14, 16, 18, 20, 24, 28, 32, 36, 48, 72].map(size => <option key={size} value={size}>{size}px</option>)}
                         </select>
@@ -87,7 +87,7 @@ function PropsEditor({ props, onChange, fonts = DEFAULT_FONTS, showAlignment = t
 
             {/* Style Section */}
             <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Style</label>
+                <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Estilo</label>
                 <div style={{ display: 'flex', gap: '0.5rem' }}>
                     {[{ key: 0, label: 'B' }, { key: 1, label: 'I' }, { key: 2, label: 'U' }].map(({ key, label }) => (
                         <button key={key} onClick={() => { const s = parsed.style.split(''); s[key] = s[key] === '1' ? '0' : '1'; onChange(formatProps({ ...parsed, style: s.join('') })) }} style={{ padding: '0.4rem 0.75rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: parsed.style[key] === '1' ? 'hsl(var(--accent))' : 'hsl(var(--background))', color: parsed.style[key] === '1' ? 'hsl(var(--accent-foreground))' : 'hsl(var(--foreground))', fontSize: '0.85rem', fontWeight: parsed.style[key] === '1' ? '600' : '400', cursor: 'pointer' }}>{label}</button>
@@ -98,12 +98,12 @@ function PropsEditor({ props, onChange, fonts = DEFAULT_FONTS, showAlignment = t
             {/* Alignment Section */}
             {showAlignment && (
                 <div>
-                    <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Alignment</label>
+                    <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Alineación</label>
                     <div style={{ display: 'flex', gap: '0.25rem' }}>
                         {[
-                            { value: 'left', icon: <ArrowLeft size={14} />, label: 'Left' },
-                            { value: 'center', icon: <ArrowDown size={14} style={{ transform: 'rotate(0deg)' }} />, label: 'Center' },
-                            { value: 'right', icon: <ArrowRight size={14} />, label: 'Right' }
+                            { value: 'left', icon: <ArrowLeft size={14} />, label: 'Izquierda' },
+                            { value: 'center', icon: <ArrowDown size={14} style={{ transform: 'rotate(0deg)' }} />, label: 'Centro' },
+                            { value: 'right', icon: <ArrowRight size={14} />, label: 'Derecha' }
                         ].map(({ value, icon, label }) => (
                             <button key={value} onClick={() => onChange(formatProps({ ...parsed, align: value }))} style={{ flex: 1, padding: '0.4rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: parsed.align === value ? 'hsl(var(--accent))' : 'hsl(var(--background))', color: parsed.align === value ? 'hsl(var(--accent-foreground))' : 'hsl(var(--foreground))', fontSize: '0.75rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.25rem' }}>
                                 {icon} {label}
@@ -116,21 +116,21 @@ function PropsEditor({ props, onChange, fonts = DEFAULT_FONTS, showAlignment = t
             {/* Borders Section */}
             {showBorders && (
                 <div>
-                    <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Borders</label>
+                    <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Bordes</label>
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem', marginBottom: '0.5rem' }}>
-                        <BorderControls label="Left" index={0} />
-                        <BorderControls label="Right" index={1} />
-                        <BorderControls label="Top" index={2} />
-                        <BorderControls label="Bottom" index={3} />
+                        <BorderControls label="Izquierda" index={0} />
+                        <BorderControls label="Derecha" index={1} />
+                        <BorderControls label="Arriba" index={2} />
+                        <BorderControls label="Abajo" index={3} />
                     </div>
                     <div>
-                        <label style={{ display: 'block', fontSize: '0.75rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Quick Set</label>
+                        <label style={{ display: 'block', fontSize: '0.75rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Ajuste rápido</label>
                         <div style={{ display: 'flex', gap: '0.25rem', flexWrap: 'wrap' }}>
                             {[
-                                { label: 'None', borders: [0, 0, 0, 0] },
-                                { label: 'All', borders: [1, 1, 1, 1] },
-                                { label: 'Box', borders: [1, 1, 1, 1] },
-                                { label: 'Bottom', borders: [0, 0, 0, 1] }
+                                { label: 'Ninguno', borders: [0, 0, 0, 0] },
+                                { label: 'Todos', borders: [1, 1, 1, 1] },
+                                { label: 'Cuadro', borders: [1, 1, 1, 1] },
+                                { label: 'Inferior', borders: [0, 0, 0, 1] }
                             ].map(({ label, borders: presetBorders }) => (
                                 <button
                                     key={label}
@@ -211,7 +211,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                 justifyContent: 'center'
             }}>
                 <Settings size={24} style={{ opacity: 0.3, marginBottom: '0.5rem' }} />
-                <p style={{ fontSize: '0.85rem', margin: 0 }}>Select a component to edit</p>
+                <p style={{ fontSize: '0.85rem', margin: 0 }}>Seleccione un componente para editarlo</p>
             </div>
         )
     }
@@ -220,20 +220,20 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
 
     // Color preset swatches - using light pastel colors for table backgrounds
     const tableBackgroundPresets = [
-        { label: 'White', color: '#FFFFFF' },
-        { label: 'Light Gray', color: '#F0F0F0' },
-        { label: 'Light Blue', color: '#E3F2FD' },
-        { label: 'Light Green', color: '#E8F5E9' },
-        { label: 'Light Yellow', color: '#FFFDE7' },
-        { label: 'Light Red', color: '#FFEBEE' }
+        { label: 'Blanco', color: '#FFFFFF' },
+        { label: 'Gris claro', color: '#F0F0F0' },
+        { label: 'Azul claro', color: '#E3F2FD' },
+        { label: 'Verde claro', color: '#E8F5E9' },
+        { label: 'Amarillo claro', color: '#FFFDE7' },
+        { label: 'Rojo claro', color: '#FFEBEE' }
     ]
     const cellBackgroundPresets = [
-        { label: 'White', color: '#FFFFFF' },
-        { label: 'Light Gray', color: '#F0F0F0' },
-        { label: 'Light Blue', color: '#E3F2FD' },
-        { label: 'Light Green', color: '#E8F5E9' },
-        { label: 'Light Yellow', color: '#FFFDE7' },
-        { label: 'Light Red', color: '#FFEBEE' }
+        { label: 'Blanco', color: '#FFFFFF' },
+        { label: 'Gris claro', color: '#F0F0F0' },
+        { label: 'Azul claro', color: '#E3F2FD' },
+        { label: 'Verde claro', color: '#E8F5E9' },
+        { label: 'Amarillo claro', color: '#FFFDE7' },
+        { label: 'Rojo claro', color: '#FFEBEE' }
     ]
     const cellTextPresets = ['#1E1E1E', '#2D2D2D', '#424242', '#FFFFFF', '#FF0000', '#0000FF', '#00FF00']
 
@@ -251,7 +251,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
             <div style={{ marginBottom: '1rem' }}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
                     <h3 style={{ margin: 0, fontSize: '0.85rem', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'hsl(var(--foreground))' }}>
-                        <Edit size={14} /> Properties
+                        <Edit size={14} /> Propiedades
                     </h3>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: '0.75rem', borderBottom: '1px solid hsl(var(--border))' }}>
@@ -284,7 +284,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                             gap: '0.25rem'
                         }}
                     >
-                        <Trash2 size={12} /> Delete
+                        <Trash2 size={12} /> Eliminar
                     </button>
                 </div>
             </div>
@@ -294,9 +294,9 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                 {/* TITLE Properties */}
                 {selectedElement.type === 'title' && (
                     <>
-                        {/* Title Background Color */}
+                        {/* Color de fondo del título */}
                         <div>
-                            <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Title Background Color</label>
+                            <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Color de fondo del título</label>
                             <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
                                 <input
                                     type="color"
@@ -308,14 +308,14 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                     type="text"
                                     value={selectedElement.bgcolor || '#ffffff'}
                                     onChange={(e) => updateElement(selectedElement.id, { bgcolor: e.target.value })}
-                                    placeholder="#RRGGBB or transparent"
+                                    placeholder="#RRGGBB o transparente"
                                     style={{ flex: 1, padding: '0.4rem', fontSize: '0.8rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--background))', color: 'hsl(var(--foreground))' }}
                                 />
                                 <button
                                     onClick={() => updateElement(selectedElement.id, { bgcolor: '' })}
                                     style={{ padding: '0.4rem 0.6rem', fontSize: '0.75rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--muted))', color: 'hsl(var(--foreground))', cursor: 'pointer' }}
                                 >
-                                    Clear
+                                    Limpiar
                                 </button>
                             </div>
                             <div style={{ display: 'flex', gap: '0.25rem', marginTop: '0.5rem', flexWrap: 'wrap' }}>
@@ -330,9 +330,9 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                             </div>
                         </div>
 
-                        {/* Title Text Color */}
+                        {/* Color del texto del título */}
                         <div>
-                            <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Title Text Color</label>
+                            <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Color del texto del título</label>
                             <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
                                 <input
                                     type="color"
@@ -344,14 +344,14 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                     type="text"
                                     value={selectedElement.textcolor || '#000000'}
                                     onChange={(e) => updateElement(selectedElement.id, { textcolor: e.target.value })}
-                                    placeholder="#RRGGBB (default: black)"
+                                    placeholder="#RRGGBB (predeterminado: negro)"
                                     style={{ flex: 1, padding: '0.4rem', fontSize: '0.8rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--background))', color: 'hsl(var(--foreground))' }}
                                 />
                                 <button
                                     onClick={() => updateElement(selectedElement.id, { textcolor: '' })}
                                     style={{ padding: '0.4rem 0.6rem', fontSize: '0.75rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--muted))', color: 'hsl(var(--foreground))', cursor: 'pointer' }}
                                 >
-                                    Clear
+                                    Limpiar
                                 </button>
                             </div>
                             <div style={{ display: 'flex', gap: '0.25rem', marginTop: '0.5rem', flexWrap: 'wrap' }}>
@@ -366,11 +366,11 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                             </div>
                         </div>
 
-                        {/* Title Table Settings */}
+                        {/* Configuración de la tabla del título */}
                         <div>
-                            <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Title Table Settings</label>
+                            <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Configuración de la tabla del título</label>
                             <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', marginBottom: '0.5rem' }}>
-                                <label style={{ fontSize: '0.75rem', color: 'hsl(var(--muted-foreground))' }}>Columns:</label>
+                                <label style={{ fontSize: '0.75rem', color: 'hsl(var(--muted-foreground))' }}>Columnas:</label>
                                 <input
                                     type="number"
                                     min="1"
@@ -407,7 +407,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                     }}
                                     style={{ padding: '0.4rem', fontSize: '0.75rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--background))', cursor: 'pointer' }}
                                 >
-                                    Add Row
+                                    Añadir fila
                                 </button>
                                 <button
                                     onClick={() => {
@@ -420,7 +420,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                     }}
                                     style={{ padding: '0.4rem', fontSize: '0.75rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--background))', cursor: 'pointer' }}
                                 >
-                                    Add Column
+                                    Añadir columna
                                 </button>
                                 {selectedCell && (
                                     <button
@@ -435,15 +435,15 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                         }}
                                         style={{ padding: '0.4rem', fontSize: '0.75rem', border: '1px solid hsl(var(--destructive))', borderRadius: '4px', background: 'hsl(var(--destructive))', color: 'white', cursor: 'pointer', gridColumn: 'span 2' }}
                                     >
-                                        Remove Column (Col {selectedCell.colIdx + 1})
+                                        Eliminar columna (Col. {selectedCell.colIdx + 1})
                                     </button>
                                 )}
                             </div>
                         </div>
 
-                        {/* Title Table Borders Toggle */}
+                        {/* Bordes de la tabla del título Toggle */}
                         <div>
-                            <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Title Table Borders</label>
+                            <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Bordes de la tabla del título</label>
                             <div style={{ display: 'flex', gap: '0.5rem' }}>
                                 <button
                                     onClick={() => {
@@ -460,7 +460,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                     }}
                                     style={{ flex: 1, padding: '0.4rem', fontSize: '0.75rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--background))', cursor: 'pointer' }}
                                 >
-                                    All Borders On
+                                    Activar todos los bordes
                                 </button>
                                 <button
                                     onClick={() => {
@@ -477,7 +477,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                     }}
                                     style={{ flex: 1, padding: '0.4rem', fontSize: '0.75rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--background))', cursor: 'pointer' }}
                                 >
-                                    All Borders Off
+                                    Desactivar todos los bordes
                                 </button>
                             </div>
                         </div>
@@ -486,12 +486,12 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                         {selectedCell && selectedCellElement && (
                             <div style={{ padding: '0.75rem', background: 'hsl(var(--muted))', borderRadius: '6px', border: '1px solid hsl(var(--border))' }}>
                                 <h4 style={{ margin: '0 0 0.75rem 0', fontSize: '0.85rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>
-                                    Title Cell (Row {selectedCell.rowIdx + 1}, Col {selectedCell.colIdx + 1})
+                                    Celda del título (Fila {selectedCell.rowIdx + 1}, Col. {selectedCell.colIdx + 1})
                                 </h4>
 
                                 {/* Cell Text */}
                                 <div style={{ marginBottom: '0.75rem' }}>
-                                    <label style={{ display: 'block', fontSize: '0.75rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Text:</label>
+                                    <label style={{ display: 'block', fontSize: '0.75rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Texto:</label>
                                     <input
                                         type="text"
                                         value={selectedCellElement.text || ''}
@@ -500,14 +500,14 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                             newRows[selectedCell.rowIdx].row[selectedCell.colIdx] = { ...newRows[selectedCell.rowIdx].row[selectedCell.colIdx], text: e.target.value }
                                             updateElement(selectedElement.id, { table: { ...selectedElement.table, rows: newRows } })
                                         }}
-                                        placeholder="Cell text content"
+                                        placeholder="Texto de la celda"
                                         style={{ width: '100%', padding: '0.4rem', fontSize: '0.8rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--background))', color: 'hsl(var(--foreground))' }}
                                     />
                                 </div>
 
                                 {/* Add Image */}
                                 <div style={{ marginBottom: '0.75rem' }}>
-                                    <label style={{ display: 'block', fontSize: '0.75rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Add Image:</label>
+                                    <label style={{ display: 'block', fontSize: '0.75rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Añadir imagen:</label>
                                     <input
                                         type="file"
                                         accept="image/*"
@@ -546,9 +546,9 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                     fonts={fonts}
                                 />
 
-                                {/* Link URL */}
+                                {/* URL del enlace */}
                                 <div style={{ marginTop: '0.75rem' }}>
-                                    <label style={{ display: 'block', fontSize: '0.75rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Link URL:</label>
+                                    <label style={{ display: 'block', fontSize: '0.75rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>URL del enlace:</label>
                                     <input
                                         type="text"
                                         value={selectedCellElement.link || ''}
@@ -571,9 +571,9 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                     <>
                         {/* Column Count and Layout Controls */}
                         <div>
-                            <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Table</label>
+                            <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Tabla</label>
                             <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', marginBottom: '0.5rem' }}>
-                                <label style={{ fontSize: '0.75rem', color: 'hsl(var(--muted-foreground))', minWidth: '60px' }}>Columns:</label>
+                                <label style={{ fontSize: '0.75rem', color: 'hsl(var(--muted-foreground))', minWidth: '60px' }}>Columnas:</label>
                                 <input
                                     type="number"
                                     min="1"
@@ -591,7 +591,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                     }}
                                     style={{ padding: '0.4rem', fontSize: '0.75rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--background))', cursor: 'pointer' }}
                                 >
-                                    + Add Row
+                                    + Añadir fila
                                 </button>
                                 <button
                                     onClick={() => {
@@ -601,7 +601,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                     }}
                                     style={{ padding: '0.4rem', fontSize: '0.75rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--background))', cursor: 'pointer' }}
                                 >
-                                    Remove Row (Last)
+                                    Eliminar fila (última)
                                 </button>
                                 <button
                                     onClick={() => {
@@ -613,7 +613,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                     }}
                                     style={{ padding: '0.4rem', fontSize: '0.75rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--background))', cursor: 'pointer' }}
                                 >
-                                    + Add Column
+                                    + Añadir columna
                                 </button>
                                 <button
                                     onClick={() => {
@@ -625,7 +625,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                     }}
                                     style={{ padding: '0.4rem', fontSize: '0.75rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--background))', cursor: 'pointer' }}
                                 >
-                                    Remove Column (Last)
+                                    Eliminar columna (última)
                                 </button>
                                 {selectedCell && (
                                     <button
@@ -649,18 +649,18 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                         }}
                                         style={{ padding: '0.4rem', fontSize: '0.75rem', border: '1px solid hsl(var(--destructive))', borderRadius: '4px', background: 'hsl(var(--destructive))', color: 'white', cursor: 'pointer', gridColumn: 'span 2' }}
                                     >
-                                        Remove Column (Col {selectedCell.colIdx + 1})
+                                        Eliminar columna (Col. {selectedCell.colIdx + 1})
                                     </button>
                                 )}
                             </div>
                             <div style={{ marginTop: '0.5rem', fontSize: '0.75rem', color: 'hsl(var(--muted-foreground))' }}>
-                                Rows: {selectedElement.rows?.length || 0}, Columns: {selectedElement.maxcolumns || 3}
+                                Filas: {selectedElement.rows?.length || 0}, Columnas: {selectedElement.maxcolumns || 3}
                             </div>
                         </div>
 
-                        {/* Table Borders Toggle */}
+                        {/* Bordes de la tabla Toggle */}
                         <div>
-                            <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Table Borders</label>
+                            <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Bordes de la tabla</label>
                             <div style={{ display: 'flex', gap: '0.5rem' }}>
                                 <button
                                     onClick={() => {
@@ -676,7 +676,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                     }}
                                     style={{ flex: 1, padding: '0.4rem', fontSize: '0.75rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--background))', cursor: 'pointer' }}
                                 >
-                                    All Borders On
+                                    Activar todos los bordes
                                 </button>
                                 <button
                                     onClick={() => {
@@ -692,20 +692,20 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                     }}
                                     style={{ flex: 1, padding: '0.4rem', fontSize: '0.75rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--background))', cursor: 'pointer' }}
                                 >
-                                    All Borders Off
+                                    Desactivar todos los bordes
                                 </button>
                             </div>
                         </div>
 
                         {/* Column Widths */}
                         <div>
-                            <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Column Widths (weights)</label>
+                            <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Ancho de columnas (pesos)</label>
                             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(60px, 1fr))', gap: '0.5rem', marginBottom: '0.5rem' }}>
                                 {Array.from({ length: selectedElement.maxcolumns || 3 }).map((_, idx) => {
                                     const currentWidths = selectedElement.columnwidths || Array(selectedElement.maxcolumns).fill(1)
                                     return (
                                         <div key={idx}>
-                                            <label style={{ display: 'block', fontSize: '0.7rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Col {idx + 1}</label>
+                                            <label style={{ display: 'block', fontSize: '0.7rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Col. {idx + 1}</label>
                                             <input
                                                 type="number"
                                                 min="0.1"
@@ -729,19 +729,19 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                 }}
                                 style={{ width: '100%', padding: '0.4rem', fontSize: '0.75rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--muted))', color: 'hsl(var(--foreground))', cursor: 'pointer' }}
                             >
-                                Reset to Equal
+                                Restablecer igual
                             </button>
                         </div>
 
                         {/* Row Heights */}
                         <div>
-                            <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Row Heights (multipliers)</label>
+                            <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Alto de filas (multiplicadores)</label>
                             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(60px, 1fr))', gap: '0.5rem', marginBottom: '0.5rem', maxHeight: '200px', overflowY: 'auto' }}>
                                 {selectedElement.rows?.map((row, idx) => {
                                     const rowHeight = row.height || 1.0
                                     return (
                                         <div key={idx}>
-                                            <label style={{ display: 'block', fontSize: '0.7rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Row {idx + 1}</label>
+                                            <label style={{ display: 'block', fontSize: '0.7rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Fila {idx + 1}</label>
                                             <input
                                                 type="number"
                                                 min="0.1"
@@ -765,15 +765,15 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                 }}
                                 style={{ width: '100%', padding: '0.4rem', fontSize: '0.75rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--muted))', color: 'hsl(var(--foreground))', cursor: 'pointer' }}
                             >
-                                Reset to Default
+                                Restablecer predeterminado
                             </button>
                         </div>
 
-                        {/* Table Background Color */}
+                        {/* Color de fondo de la tabla */}
                         <div>
-                            <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Table Background Color</label>
+                            <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Color de fondo de la tabla</label>
                             <div style={{ fontSize: '0.75rem', color: 'hsl(var(--muted-foreground))', marginBottom: '0.5rem' }}>
-                                Sets the default background color for all cells. Individual cells can override this.
+                                Establece el color de fondo predeterminado de todas las celdas. Cada celda puede cambiarlo.
                             </div>
                             <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
                                 <input
@@ -786,14 +786,14 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                     type="text"
                                     value={selectedElement.bgcolor || '#ffffff'}
                                     onChange={(e) => updateElement(selectedElement.id, { bgcolor: e.target.value })}
-                                    placeholder="#RRGGBB or transparent"
+                                    placeholder="#RRGGBB o transparente"
                                     style={{ flex: 1, padding: '0.4rem', fontSize: '0.8rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--background))', color: 'hsl(var(--foreground))' }}
                                 />
                                 <button
                                     onClick={() => updateElement(selectedElement.id, { bgcolor: '' })}
                                     style={{ padding: '0.4rem 0.6rem', fontSize: '0.75rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--muted))', color: 'hsl(var(--foreground))', cursor: 'pointer' }}
                                 >
-                                    Clear
+                                    Limpiar
                                 </button>
                             </div>
                             <div style={{ display: 'flex', gap: '0.35rem', marginTop: '0.5rem', flexWrap: 'wrap' }}>
@@ -817,11 +817,11 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                             </div>
                         </div>
 
-                        {/* Table Text Color */}
+                        {/* Color del texto de la tabla */}
                         <div>
-                            <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Table Text Color</label>
+                            <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Color del texto de la tabla</label>
                             <div style={{ fontSize: '0.75rem', color: 'hsl(var(--muted-foreground))', marginBottom: '0.5rem' }}>
-                                Sets the default text color for all cells. Individual cells can override this.
+                                Establece el color del texto predeterminado de todas las celdas. Cada celda puede cambiarlo.
                             </div>
                             <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
                                 <input
@@ -834,14 +834,14 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                     type="text"
                                     value={selectedElement.textcolor || '#000000'}
                                     onChange={(e) => updateElement(selectedElement.id, { textcolor: e.target.value })}
-                                    placeholder="#RRGGBB (default: black)"
+                                    placeholder="#RRGGBB (predeterminado: negro)"
                                     style={{ flex: 1, padding: '0.4rem', fontSize: '0.8rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--background))', color: 'hsl(var(--foreground))' }}
                                 />
                                 <button
                                     onClick={() => updateElement(selectedElement.id, { textcolor: '' })}
                                     style={{ padding: '0.4rem 0.6rem', fontSize: '0.75rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--muted))', color: 'hsl(var(--foreground))', cursor: 'pointer' }}
                                 >
-                                    Clear
+                                    Limpiar
                                 </button>
                             </div>
                             <div style={{ display: 'flex', gap: '0.35rem', marginTop: '0.5rem', flexWrap: 'wrap' }}>
@@ -869,17 +869,17 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                         {selectedCell && selectedCellElement && (
                             <div style={{ padding: '0.75rem', background: 'hsl(var(--muted))', borderRadius: '6px', border: '1px solid hsl(var(--border))' }}>
                                 <h4 style={{ margin: '0 0 0.75rem 0', fontSize: '0.85rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>
-                                    Cell (Row {selectedCell.rowIdx + 1}, Col {selectedCell.colIdx + 1})
+                                    Celda (Fila {selectedCell.rowIdx + 1}, Col. {selectedCell.colIdx + 1})
                                 </h4>
 
                                 {/* Form Field Properties - show if cell has form_field */}
                                 {selectedCellElement.form_field && (
                                     <div style={{ marginBottom: '0.75rem', padding: '0.75rem', background: 'hsl(var(--muted))', borderRadius: '6px', border: '1px solid hsl(var(--border))' }}>
                                         <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: '600', marginBottom: '0.5rem', color: 'hsl(var(--foreground))' }}>
-                                            {selectedCellElement.form_field.type === 'radio' ? '🔘 Radio Button' : selectedCellElement.form_field.type === 'text' ? '📝 Text Input' : '☑️ Checkbox'} Field
+                                            {selectedCellElement.form_field.type === 'radio' ? '🔘 Botón de opción' : selectedCellElement.form_field.type === 'text' ? '📝 Campo de texto' : '☑️ Casilla'}
                                         </label>
                                         <div style={{ marginBottom: '0.5rem' }}>
-                                            <label style={{ display: 'block', fontSize: '0.75rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Field Name:</label>
+                                            <label style={{ display: 'block', fontSize: '0.75rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Nombre del campo:</label>
                                             <input
                                                 type="text"
                                                 value={selectedCellElement.form_field.name || ''}
@@ -894,13 +894,13 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                                     }
                                                     updateElement(selectedElement.id, { rows: newRows })
                                                 }}
-                                                placeholder="Enter field name (e.g., patient_name)"
+                                                placeholder="Escriba el nombre del campo (ej.: patient_name)"
                                                 style={{ width: '100%', padding: '0.4rem', fontSize: '0.8rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--background))', color: 'hsl(var(--foreground))' }}
                                             />
                                         </div>
                                         {selectedCellElement.form_field.type === 'text' && (
                                             <div style={{ marginBottom: '0.5rem' }}>
-                                                <label style={{ display: 'block', fontSize: '0.75rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Default Value:</label>
+                                                <label style={{ display: 'block', fontSize: '0.75rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Valor predeterminado:</label>
                                                 <input
                                                     type="text"
                                                     value={selectedCellElement.form_field.value || ''}
@@ -915,7 +915,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                                         }
                                                         updateElement(selectedElement.id, { rows: newRows })
                                                     }}
-                                                    placeholder="Default value"
+                                                    placeholder="Valor predeterminado"
                                                     style={{ width: '100%', padding: '0.4rem', fontSize: '0.8rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--background))', color: 'hsl(var(--foreground))' }}
                                                 />
                                             </div>
@@ -938,7 +938,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                                     }}
                                                     style={{ width: '16px', height: '16px', cursor: 'pointer' }}
                                                 />
-                                                <label style={{ fontSize: '0.75rem', color: 'hsl(var(--foreground))' }}>Default checked</label>
+                                                <label style={{ fontSize: '0.75rem', color: 'hsl(var(--foreground))' }}>Marcado por defecto</label>
                                             </div>
                                         )}
                                         <button
@@ -953,7 +953,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                             }}
                                             style={{ marginTop: '0.5rem', width: '100%', padding: '0.35rem', fontSize: '0.75rem', border: '1px solid hsl(var(--destructive))', borderRadius: '4px', background: 'transparent', color: 'hsl(var(--destructive))', cursor: 'pointer' }}
                                         >
-                                            Remove Form Field
+                                            Quitar campo de formulario
                                         </button>
                                         <button
                                             onClick={() => {
@@ -976,9 +976,9 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                             }}
                                             style={{ marginTop: '0.35rem', width: '100%', padding: '0.35rem', fontSize: '0.75rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'transparent', color: 'hsl(var(--muted-foreground))', cursor: 'pointer' }}
                                             disabled={selectedCellElement.form_field.type === 'text'}
-                                            title={selectedCellElement.form_field.type === 'text' ? 'Text inputs cannot be converted to simple' : 'Convert to simple (non-form-field) element'}
+                                            title={selectedCellElement.form_field.type === 'text' ? 'Los campos de texto no se pueden convertir a simple' : 'Convertir a elemento simple (sin formulario)'}
                                         >
-                                            Convert to Simple
+                                            Convertir a simple
                                         </button>
                                     </div>
                                 )}
@@ -987,7 +987,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                 {selectedCellElement.chequebox !== undefined && !selectedCellElement.form_field && (
                                     <div style={{ marginBottom: '0.75rem', padding: '0.75rem', background: 'hsl(var(--muted))', borderRadius: '6px', border: '1px solid hsl(var(--border))' }}>
                                         <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: '600', marginBottom: '0.5rem', color: 'hsl(var(--foreground))' }}>
-                                            ☑️ Simple Checkbox
+                                            ☑️ Casilla simple
                                         </label>
                                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
                                             <input
@@ -1003,7 +1003,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                                 }}
                                                 style={{ width: '16px', height: '16px', cursor: 'pointer' }}
                                             />
-                                            <label style={{ fontSize: '0.75rem', color: 'hsl(var(--foreground))' }}>Checked</label>
+                                            <label style={{ fontSize: '0.75rem', color: 'hsl(var(--foreground))' }}>Marcado</label>
                                         </div>
                                         <button
                                             onClick={() => {
@@ -1017,7 +1017,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                             }}
                                             style={{ width: '100%', padding: '0.35rem', fontSize: '0.75rem', border: '1px solid hsl(var(--primary))', borderRadius: '4px', background: 'transparent', color: 'hsl(var(--primary))', cursor: 'pointer' }}
                                         >
-                                            Convert to Form Field
+                                            Convertir a campo de formulario
                                         </button>
                                     </div>
                                 )}
@@ -1026,7 +1026,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                 {selectedCellElement.radio !== undefined && !selectedCellElement.form_field && (
                                     <div style={{ marginBottom: '0.75rem', padding: '0.75rem', background: 'hsl(var(--muted))', borderRadius: '6px', border: '1px solid hsl(var(--border))' }}>
                                         <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: '600', marginBottom: '0.5rem', color: 'hsl(var(--foreground))' }}>
-                                            🔘 Simple Radio
+                                            🔘 Opción simple
                                         </label>
                                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
                                             <input
@@ -1042,7 +1042,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                                 }}
                                                 style={{ width: '16px', height: '16px', cursor: 'pointer' }}
                                             />
-                                            <label style={{ fontSize: '0.75rem', color: 'hsl(var(--foreground))' }}>Selected</label>
+                                            <label style={{ fontSize: '0.75rem', color: 'hsl(var(--foreground))' }}>Seleccionado</label>
                                         </div>
                                         <button
                                             onClick={() => {
@@ -1056,19 +1056,19 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                             }}
                                             style={{ width: '100%', padding: '0.35rem', fontSize: '0.75rem', border: '1px solid hsl(var(--primary))', borderRadius: '4px', background: 'transparent', color: 'hsl(var(--primary))', cursor: 'pointer' }}
                                         >
-                                            Convert to Form Field
+                                            Convertir a campo de formulario
                                         </button>
                                     </div>
                                 )}
 
-                                {/* Image Properties - show if cell has image */}
+                                {/* Propiedades de la imagen - show if cell has image */}
                                 {selectedCellElement.image && (
                                     <div style={{ marginBottom: '0.75rem', padding: '0.75rem', background: 'hsl(var(--muted))', borderRadius: '6px', border: '1px solid hsl(var(--border))' }}>
-                                        <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Image Properties</label>
+                                        <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Propiedades de la imagen</label>
 
-                                        {/* Image Source */}
+                                        {/* Origen de la imagen */}
                                         <div style={{ marginBottom: '0.5rem' }}>
-                                            <label style={{ display: 'block', fontSize: '0.75rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Source:</label>
+                                            <label style={{ display: 'block', fontSize: '0.75rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Origen:</label>
                                             <input
                                                 type="file"
                                                 accept="image/*"
@@ -1095,15 +1095,15 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                             />
                                             {selectedCellElement.image.imagename && (
                                                 <div style={{ fontSize: '0.75rem', color: 'hsl(var(--muted-foreground))', marginTop: '0.25rem', wordBreak: 'break-all' }}>
-                                                    Current: {selectedCellElement.image.imagename}
+                                                    Actual: {selectedCellElement.image.imagename}
                                                 </div>
                                             )}
                                         </div>
 
-                                        {/* Dimensions */}
+                                        {/* Dimensiones */}
                                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
                                             <div>
-                                                <label style={{ display: 'block', fontSize: '0.7rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Width (px)</label>
+                                                <label style={{ display: 'block', fontSize: '0.7rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Ancho (px)</label>
                                                 <input
                                                     type="number"
                                                     min="10"
@@ -1124,7 +1124,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                                 />
                                             </div>
                                             <div>
-                                                <label style={{ display: 'block', fontSize: '0.7rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Height (px)</label>
+                                                <label style={{ display: 'block', fontSize: '0.7rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Alto (px)</label>
                                                 <input
                                                     type="number"
                                                     min="10"
@@ -1158,7 +1158,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                             }}
                                             style={{ marginTop: '0.5rem', width: '100%', padding: '0.35rem', fontSize: '0.75rem', border: '1px solid hsl(var(--destructive))', borderRadius: '4px', background: 'transparent', color: 'hsl(var(--destructive))', cursor: 'pointer' }}
                                         >
-                                            Remove Image
+                                            Quitar imagen
                                         </button>
                                     </div>
                                 )}
@@ -1166,7 +1166,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                 {/* Cell Text - hide if form_field or image exists */}
                                 {!selectedCellElement.form_field && !selectedCellElement.image && (
                                     <div style={{ marginBottom: '0.75rem' }}>
-                                        <label style={{ display: 'block', fontSize: '0.75rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Text:</label>
+                                        <label style={{ display: 'block', fontSize: '0.75rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Texto:</label>
                                         <input
                                             type="text"
                                             value={selectedCellElement.text || ''}
@@ -1175,7 +1175,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                                 newRows[selectedCell.rowIdx].row[selectedCell.colIdx] = { ...newRows[selectedCell.rowIdx].row[selectedCell.colIdx], text: e.target.value }
                                                 updateElement(selectedElement.id, { rows: newRows })
                                             }}
-                                            placeholder="Cell text content"
+                                            placeholder="Texto de la celda"
                                             style={{ width: '100%', padding: '0.4rem', fontSize: '0.8rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--background))', color: 'hsl(var(--foreground))' }}
                                         />
                                     </div>
@@ -1192,9 +1192,9 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                     fonts={fonts}
                                 />
 
-                                {/* Link URL */}
+                                {/* URL del enlace */}
                                 <div style={{ marginTop: '0.75rem' }}>
-                                    <label style={{ display: 'block', fontSize: '0.75rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Link URL:</label>
+                                    <label style={{ display: 'block', fontSize: '0.75rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>URL del enlace:</label>
                                     <input
                                         type="text"
                                         value={selectedCellElement.link || ''}
@@ -1203,17 +1203,17 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                             newRows[selectedCell.rowIdx].row[selectedCell.colIdx] = { ...newRows[selectedCell.rowIdx].row[selectedCell.colIdx], link: e.target.value }
                                             updateElement(selectedElement.id, { rows: newRows })
                                         }}
-                                        placeholder="https://... or #bookmark-id"
+                                        placeholder="https://... o #bookmark-id"
                                         style={{ width: '100%', padding: '0.4rem', fontSize: '0.8rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--background))', color: 'hsl(var(--foreground))' }}
                                     />
                                     <div style={{ fontSize: '0.7rem', color: 'hsl(var(--muted-foreground))', marginTop: '0.25rem' }}>
-                                        Use # prefix for internal links (e.g., #section-id)
+                                        Use el prefijo # para enlaces internos (ej.: #section-id)
                                     </div>
                                 </div>
 
                                 {/* Destination ID (dest) for bookmark target */}
                                 <div style={{ marginTop: '0.5rem' }}>
-                                    <label style={{ display: 'block', fontSize: '0.75rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Destination ID (dest):</label>
+                                    <label style={{ display: 'block', fontSize: '0.75rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>ID de destino (dest):</label>
                                     <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
                                         <input
                                             type="text"
@@ -1231,7 +1231,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                                     setBookmarks(updatedBookmarks)
                                                 }
                                             }}
-                                            placeholder="e.g., financial-summary"
+                                            placeholder="ej.: financial-summary"
                                             style={{ flex: 1, padding: '0.4rem', fontSize: '0.8rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--background))', color: 'hsl(var(--foreground))' }}
                                         />
                                         {existingDestinations.length > 0 && !selectedCellElement.dest && (
@@ -1246,7 +1246,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                                 }}
                                                 style={{ padding: '0.4rem', fontSize: '0.75rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--background))', color: 'hsl(var(--foreground))' }}
                                             >
-                                                <option value="">Select...</option>
+                                                <option value="">Seleccionar...</option>
                                                 {existingDestinations.map(({ dest, title }) => (
                                                     <option key={dest} value={dest}>📑 {title} → {dest}</option>
                                                 ))}
@@ -1255,23 +1255,23 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                     </div>
                                     {selectedCellElement.dest && existingDestinations.find(d => d.dest === selectedCellElement.dest) && (
                                         <div style={{ fontSize: '0.7rem', color: '#22c55e', marginTop: '0.25rem', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                                            ✓ Linked to bookmark: &quot;{existingDestinations.find(d => d.dest === selectedCellElement.dest)?.title}&quot;
+                                            ✓ Vinculado al marcador: &quot;{existingDestinations.find(d => d.dest === selectedCellElement.dest)?.title}&quot;
                                         </div>
                                     )}
                                     <div style={{ fontSize: '0.7rem', color: 'hsl(var(--muted-foreground))', marginTop: '0.25rem' }}>
-                                        ID used as bookmark target for internal links
+                                        ID usado como destino de marcador para enlaces internos
                                     </div>
                                 </div>
 
-                                {/* Cell Size Override */}
+                                {/* Tamaño personalizado de celda */}
                                 <div style={{ marginTop: '0.75rem' }}>
-                                    <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Cell Size Override</label>
+                                    <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Tamaño personalizado de celda</label>
                                     <div style={{ fontSize: '0.75rem', color: 'hsl(var(--muted-foreground))', marginBottom: '0.5rem' }}>
-                                        ⚠️ Only use Blue handle (right-adjust to resize width, resizing height adjusts cell height to value in its JSON).
+                                        ⚠️ Use solo el control azul (ajuste a la derecha para el ancho; al cambiar el alto se actualiza el valor en el JSON).
                                     </div>
                                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
                                         <div>
-                                            <label style={{ display: 'block', fontSize: '0.7rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Width (px):</label>
+                                            <label style={{ display: 'block', fontSize: '0.7rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Ancho (px):</label>
                                             <input
                                                 type="number"
                                                 min="10"
@@ -1282,12 +1282,12 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                                     newRows[selectedCell.rowIdx].row[selectedCell.colIdx] = { ...newRows[selectedCell.rowIdx].row[selectedCell.colIdx], width: val }
                                                     updateElement(selectedElement.id, { rows: newRows })
                                                 }}
-                                                placeholder="Auto"
+                                                placeholder="Automático"
                                                 style={{ width: '100%', padding: '0.35rem', fontSize: '0.75rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--background))', color: 'hsl(var(--foreground))' }}
                                             />
                                         </div>
                                         <div>
-                                            <label style={{ display: 'block', fontSize: '0.7rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Height (px):</label>
+                                            <label style={{ display: 'block', fontSize: '0.7rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Alto (px):</label>
                                             <input
                                                 type="number"
                                                 min="10"
@@ -1298,18 +1298,18 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                                     newRows[selectedCell.rowIdx].row[selectedCell.colIdx] = { ...newRows[selectedCell.rowIdx].row[selectedCell.colIdx], height: val }
                                                     updateElement(selectedElement.id, { rows: newRows })
                                                 }}
-                                                placeholder="Auto"
+                                                placeholder="Automático"
                                                 style={{ width: '100%', padding: '0.35rem', fontSize: '0.75rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--background))', color: 'hsl(var(--foreground))' }}
                                             />
                                         </div>
                                     </div>
                                 </div>
 
-                                {/* Cell Background Color */}
+                                {/* Color de fondo de la celda */}
                                 <div style={{ marginTop: '0.75rem' }}>
-                                    <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Cell Background Color</label>
+                                    <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Color de fondo de la celda</label>
                                     <div style={{ fontSize: '0.75rem', color: 'hsl(var(--muted-foreground))', marginBottom: '0.5rem' }}>
-                                        Overrides (from bgcolor #FFFFFF)
+                                        Sobrescribe (desde bgcolor #FFFFFF)
                                     </div>
                                     <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
                                         <div style={{ position: 'relative', width: '48px', height: '32px', borderRadius: '4px', border: '2px solid hsl(var(--border))', overflow: 'hidden' }}>
@@ -1343,7 +1343,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                             }}
                                             style={{ padding: '0.4rem 0.6rem', fontSize: '0.75rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--muted))', color: 'hsl(var(--foreground))', cursor: 'pointer' }}
                                         >
-                                            Clear
+                                            Limpiar
                                         </button>
                                     </div>
                                     <div style={{ display: 'flex', gap: '0.35rem', marginTop: '0.5rem', flexWrap: 'wrap' }}>
@@ -1371,11 +1371,11 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                     </div>
                                 </div>
 
-                                {/* Cell Text Color */}
+                                {/* Color del texto de la celda */}
                                 <div style={{ marginTop: '0.75rem' }}>
-                                    <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Cell Text Color</label>
+                                    <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Color del texto de la celda</label>
                                     <div style={{ fontSize: '0.75rem', color: 'hsl(var(--muted-foreground))', marginBottom: '0.5rem' }}>
-                                        Sets the text color (default: black)
+                                        Establece el color del texto (predeterminado: negro)
                                     </div>
                                     <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
                                         <div style={{ position: 'relative', width: '48px', height: '32px', borderRadius: '4px', border: '2px solid hsl(var(--border))', overflow: 'hidden' }}>
@@ -1409,7 +1409,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                             }}
                                             style={{ padding: '0.4rem 0.6rem', fontSize: '0.75rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--muted))', color: 'hsl(var(--foreground))', cursor: 'pointer' }}
                                         >
-                                            Clear
+                                            Limpiar
                                         </button>
                                     </div>
                                     <div style={{ display: 'flex', gap: '0.35rem', marginTop: '0.5rem', flexWrap: 'wrap' }}>
@@ -1437,11 +1437,11 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                     </div>
                                 </div>
 
-                                {/* Text Wrap Toggle */}
+                                {/* Ajuste de texto Toggle */}
                                 <div style={{ marginTop: '0.75rem' }}>
-                                    <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Text Wrap</label>
+                                    <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Ajuste de texto</label>
                                     <div style={{ fontSize: '0.75rem', color: 'hsl(var(--muted-foreground))', marginBottom: '0.5rem' }}>
-                                        Enable to wrap text and automatically adjust row height
+                                        Activa el ajuste de texto y el alto de fila automático
                                     </div>
                                     <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
                                         <input
@@ -1458,7 +1458,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                             style={{ width: '18px', height: '18px', accentColor: '#3b82f6', cursor: 'pointer' }}
                                         />
                                         <span style={{ fontSize: '0.85rem', color: 'hsl(var(--foreground))' }}>
-                                            Enable auto text wrapping
+                                            Activar ajuste automático de texto
                                         </span>
                                     </label>
                                 </div>
@@ -1471,7 +1471,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                 {selectedElement.type === 'footer' && (
                     <>
                         <div>
-                            <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: '600', marginBottom: '0.5rem', color: 'hsl(var(--foreground))' }}>Text:</label>
+                            <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: '600', marginBottom: '0.5rem', color: 'hsl(var(--foreground))' }}>Texto:</label>
                             <input
                                 type="text"
                                 value={selectedElement.text || ''}
@@ -1492,7 +1492,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                     <>
                         {/* Image Upload/Change */}
                         <div>
-                            <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Image Source</label>
+                            <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Origen de la imagen</label>
                             <input
                                 type="file"
                                 accept="image/*"
@@ -1513,17 +1513,17 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                             />
                             {selectedElement.imagename && (
                                 <div style={{ fontSize: '0.75rem', color: 'hsl(var(--muted-foreground))', marginTop: '0.5rem', wordBreak: 'break-all' }}>
-                                    Current: {selectedElement.imagename}
+                                    Actual: {selectedElement.imagename}
                                 </div>
                             )}
                         </div>
 
-                        {/* Image Dimensions */}
+                        {/* Image Dimensiones */}
                         <div>
-                            <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Dimensions</label>
+                            <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Dimensiones</label>
                             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
                                 <div>
-                                    <label style={{ display: 'block', fontSize: '0.75rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Width (px)</label>
+                                    <label style={{ display: 'block', fontSize: '0.75rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Ancho (px)</label>
                                     <input
                                         type="number"
                                         min="10"
@@ -1534,7 +1534,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                     />
                                 </div>
                                 <div>
-                                    <label style={{ display: 'block', fontSize: '0.75rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Height (px)</label>
+                                    <label style={{ display: 'block', fontSize: '0.75rem', marginBottom: '0.25rem', color: 'hsl(var(--muted-foreground))' }}>Alto (px)</label>
                                     <input
                                         type="number"
                                         min="10"
@@ -1547,9 +1547,9 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                             </div>
                         </div>
 
-                        {/* Link URL */}
+                        {/* URL del enlace */}
                         <div>
-                            <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>Link URL</label>
+                            <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', fontWeight: '600', color: 'hsl(var(--foreground))' }}>URL del enlace</label>
                             <input
                                 type="text"
                                 value={selectedElement.link || ''}
@@ -1564,7 +1564,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                 {/* SPACER Properties */}
                 {selectedElement.type === 'spacer' && (
                     <div>
-                        <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: '600', marginBottom: '0.5rem', color: 'hsl(var(--foreground))' }}>Height (px):</label>
+                        <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: '600', marginBottom: '0.5rem', color: 'hsl(var(--foreground))' }}>Alto (px):</label>
                         <input
                             type="number"
                             min="1"
@@ -1580,7 +1580,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                 {selectedElement.type === 'image' && (
                     <>
                         <div>
-                            <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: '600', marginBottom: '0.5rem', color: 'hsl(var(--foreground))' }}>Select Image:</label>
+                            <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: '600', marginBottom: '0.5rem', color: 'hsl(var(--foreground))' }}>Seleccionar imagen:</label>
                             <input
                                 type="file"
                                 accept="image/*"
@@ -1601,18 +1601,18 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                             />
                         </div>
                         <div>
-                            <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: '600', marginBottom: '0.5rem', color: 'hsl(var(--foreground))' }}>Image Name:</label>
+                            <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: '600', marginBottom: '0.5rem', color: 'hsl(var(--foreground))' }}>Nombre de la imagen:</label>
                             <input
                                 type="text"
                                 value={selectedElement.imagename || ''}
                                 onChange={(e) => updateElement(selectedElement.id, { imagename: e.target.value })}
-                                placeholder="Image name"
+                                placeholder="Nombre de la imagen"
                                 style={{ width: '100%', padding: '0.4rem', fontSize: '0.8rem', border: '1px solid hsl(var(--border))', borderRadius: '4px', background: 'hsl(var(--background))', color: 'hsl(var(--foreground))' }}
                             />
                         </div>
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
                             <div>
-                                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: '600', marginBottom: '0.5rem', color: 'hsl(var(--foreground))' }}>Width (px):</label>
+                                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: '600', marginBottom: '0.5rem', color: 'hsl(var(--foreground))' }}>Ancho (px):</label>
                                 <input
                                     type="number"
                                     min="10"
@@ -1623,7 +1623,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                                 />
                             </div>
                             <div>
-                                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: '600', marginBottom: '0.5rem', color: 'hsl(var(--foreground))' }}>Height (px):</label>
+                                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: '600', marginBottom: '0.5rem', color: 'hsl(var(--foreground))' }}>Alto (px):</label>
                                 <input
                                     type="number"
                                     min="10"
@@ -1635,7 +1635,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                             </div>
                         </div>
                         <div>
-                            <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: '600', marginBottom: '0.5rem', color: 'hsl(var(--foreground))' }}>Link URL:</label>
+                            <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: '600', marginBottom: '0.5rem', color: 'hsl(var(--foreground))' }}>URL del enlace:</label>
                             <input
                                 type="text"
                                 value={selectedElement.link || ''}
@@ -1658,12 +1658,12 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                     borderRadius: '8px'
                 }}>
                     <h4 style={{ margin: '0 0 0.75rem 0', fontSize: '0.9rem', fontWeight: '600', color: 'hsl(var(--foreground))', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                        📑 Bookmarks ({bookmarks?.length || 0})
+                        📑 Marcadores ({bookmarks?.length || 0})
                     </h4>
 
                     {(!bookmarks || bookmarks.length === 0) ? (
                         <div style={{ fontSize: '0.8rem', color: 'hsl(var(--muted-foreground))', textAlign: 'center', padding: '1rem 0' }}>
-                            No bookmarks defined
+                            No hay marcadores definidos
                         </div>
                     ) : (
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
@@ -1682,7 +1682,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
 
                     <button
                         onClick={() => {
-                            const newBookmark = { title: 'New Bookmark', page: 1 }
+                            const newBookmark = { title: 'Nuevo marcador', page: 1 }
                             setBookmarks([...(bookmarks || []), newBookmark])
                         }}
                         style={{
@@ -1697,7 +1697,7 @@ export default function PropertiesPanel({ selectedElement, selectedCell, selecte
                             cursor: 'pointer'
                         }}
                     >
-                        + Add Bookmark
+                        + Añadir marcador
                     </button>
                 </div>
             )}
@@ -1748,7 +1748,7 @@ function BookmarkItem({ bookmark, index, depth, bookmarks, setBookmarks, parentP
         if (!currentBookmark.children) {
             currentBookmark.children = []
         }
-        currentBookmark.children.push({ title: 'New Child', page: bookmark.page || 1 })
+        currentBookmark.children.push({ title: 'Nuevo submarcador', page: bookmark.page || 1 })
         setBookmarks(newBookmarks)
     }
 
@@ -1778,7 +1778,7 @@ function BookmarkItem({ bookmark, index, depth, bookmarks, setBookmarks, parentP
                             type="text"
                             value={bookmark.title}
                             onChange={(e) => updateBookmark({ title: e.target.value })}
-                            placeholder="Title"
+                            placeholder="Título"
                             style={{ padding: '0.25rem', fontSize: '0.75rem', border: '1px solid hsl(var(--border))', borderRadius: '3px', background: 'hsl(var(--background))', color: 'hsl(var(--foreground))' }}
                         />
                         <div style={{ display: 'flex', gap: '0.35rem' }}>
@@ -1786,7 +1786,7 @@ function BookmarkItem({ bookmark, index, depth, bookmarks, setBookmarks, parentP
                                 type="number"
                                 value={bookmark.page || 1}
                                 onChange={(e) => updateBookmark({ page: parseInt(e.target.value) || 1 })}
-                                placeholder="Page"
+                                placeholder="Página"
                                 min="1"
                                 style={{ width: '60px', padding: '0.25rem', fontSize: '0.75rem', border: '1px solid hsl(var(--border))', borderRadius: '3px', background: 'hsl(var(--background))', color: 'hsl(var(--foreground))' }}
                             />
@@ -1802,7 +1802,7 @@ function BookmarkItem({ bookmark, index, depth, bookmarks, setBookmarks, parentP
                             onClick={() => setIsEditing(false)}
                             style={{ padding: '0.25rem', fontSize: '0.7rem', background: 'hsl(var(--primary))', color: 'hsl(var(--primary-foreground))', border: 'none', borderRadius: '3px', cursor: 'pointer' }}
                         >
-                            Done
+                            Listo
                         </button>
                     </div>
                 ) : (
@@ -1816,21 +1816,21 @@ function BookmarkItem({ bookmark, index, depth, bookmarks, setBookmarks, parentP
                         <button
                             onClick={() => setIsEditing(true)}
                             style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '0.15rem', fontSize: '0.7rem', color: 'hsl(var(--muted-foreground))' }}
-                            title="Edit"
+                            title="Editar"
                         >
                             ✏️
                         </button>
                         <button
                             onClick={addChild}
                             style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '0.15rem', fontSize: '0.7rem', color: 'hsl(var(--muted-foreground))' }}
-                            title="Add child"
+                            title="Añadir subelemento"
                         >
                             +
                         </button>
                         <button
                             onClick={deleteBookmark}
                             style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '0.15rem', fontSize: '0.7rem', color: 'hsl(var(--destructive))' }}
-                            title="Delete"
+                            title="Eliminar"
                         >
                             ✕
                         </button>

@@ -47,14 +47,14 @@
 
   /* Legacy tokens bridge */
   --primary-color: hsl(var(--primary));
-  --secondary-color: hsl(175 61% 55%);
-  /* teal-ish accent for CTA */
+  --secondary-color: #ff493b;
+  /* naranja de acento del sistema */
 
   /* New gradient variables */
-  --gradient-hero: linear-gradient(135deg, #667eea 0%, #4ecdc4 50%, #f093fb 100%);
-  --gradient-hero-dark: linear-gradient(135deg, #4c63d2 0%, #3eb8b0 50%, #d67de8 100%);
-  --gradient-card: linear-gradient(180deg, rgba(78, 205, 196, 0.08) 0%, rgba(0, 122, 204, 0.08) 100%);
-  --gradient-glow: radial-gradient(circle, rgba(78, 205, 196, 0.4) 0%, transparent 70%);
+  --gradient-hero: linear-gradient(135deg, #ff493b 0%, #ff6b35 50%, #ff8560 100%);
+  --gradient-hero-dark: linear-gradient(135deg, #e63d30 0%, #ff493b 50%, #ff6b35 100%);
+  --gradient-card: linear-gradient(180deg, rgba(255, 73, 59, 0.08) 0%, rgba(255, 107, 53, 0.08) 100%);
+  --gradient-glow: radial-gradient(circle, rgba(255, 73, 59, 0.4) 0%, transparent 70%);
 
   /* Glassmorphism */
   --glass-bg: rgba(255, 255, 255, 0.08);
@@ -62,9 +62,9 @@
   --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 
   /* New accent colors */
-  --accent-primary: #4ecdc4;
-  --accent-secondary: #007acc;
-  --accent-tertiary: #f093fb;
+  --accent-primary: #ff493b;
+  --accent-secondary: #e63d30;
+  --accent-tertiary: #ff8560;
   --accent-warning: #ffc107;
   --accent-success: #10b981;
 }
@@ -777,7 +777,7 @@ select:focus {
   padding: 1.5rem;
   font-family: 'SF Mono', 'Monaco', 'Cascadia Code', 'Consolas', monospace;
   font-size: 0.9rem;
-  color: #4ecdc4;
+  color: #ff493b;
   line-height: 1.8;
   min-height: 200px;
 }
@@ -901,14 +901,11 @@ select:focus {
   transition: all 0.3s ease;
 }
 
-.feature-icon-box.teal {
-  background: rgba(78, 205, 196, 0.15);
-  color: #4ecdc4;
-}
-
-.feature-icon-box.blue {
-  background: rgba(0, 122, 204, 0.15);
-  color: #007acc;
+.feature-icon-box.teal,
+.feature-icon-box.blue,
+.feature-icon-box.orange {
+  background: rgba(255, 73, 59, 0.15);
+  color: #ff493b;
 }
 
 .feature-icon-box.purple {
@@ -1124,7 +1121,7 @@ select option {
   border: 1px solid rgba(78, 205, 196, 0.3);
   border-radius: 50px;
   margin-bottom: 2rem;
-  color: #4ecdc4;
+  color: #ff493b;
   font-size: 0.9rem;
   font-weight: 500;
 }
@@ -1147,12 +1144,12 @@ select option {
 }
 
 .hero-description .highlight-teal {
-  color: #4ecdc4;
+  color: #ff493b;
   font-weight: 600;
 }
 
 .hero-description .highlight-blue {
-  color: #007acc;
+  color: #e63d30;
   font-weight: 600;
 }
 
@@ -1192,7 +1189,7 @@ select option {
 .hero-pill {
   background: rgba(78, 205, 196, 0.08);
   border: 1px solid rgba(78, 205, 196, 0.2);
-  color: #4ecdc4;
+  color: #ff493b;
   padding: 0.4rem 0.9rem;
   border-radius: 20px;
   font-size: 0.9rem;
@@ -1292,7 +1289,7 @@ select option {
   padding: 1rem;
   font-family: 'SF Mono', 'Monaco', 'Cascadia Code', 'Consolas', monospace;
   font-size: 0.75rem;
-  color: #4ecdc4;
+  color: #ff493b;
   line-height: 1.6;
 }
 
@@ -1322,7 +1319,7 @@ select option {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #4ecdc4;
+  color: #ff493b;
   font-size: 0.85rem;
   font-weight: 600;
 }
@@ -1395,7 +1392,7 @@ select option {
 
 .api-tab-button[data-headlessui-state~="selected"] {
   background: rgba(78, 205, 196, 0.15);
-  color: #4ecdc4;
+  color: #ff493b;
   box-shadow: 0 2px 8px rgba(78, 205, 196, 0.1);
 }
 
@@ -1429,7 +1426,7 @@ select option {
 
 .api-method-badge.post {
   background: rgba(0, 122, 204, 0.2);
-  color: #007acc;
+  color: #e63d30;
 }
 
 .api-method-badge.get {
@@ -1443,7 +1440,7 @@ select option {
 }
 
 .api-endpoint-path {
-  color: #4ecdc4;
+  color: #ff493b;
   font-size: 0.85rem;
   font-family: 'SF Mono', 'Monaco', 'Cascadia Code', 'Consolas', monospace;
 }
@@ -1462,7 +1459,7 @@ select option {
 
 /* Performance section full-width */
 .comparison-eyebrow {
-  color: #4ecdc4;
+  color: #ff493b;
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -1745,7 +1742,7 @@ select option {
 }
 
 .footer-link:hover {
-  color: #4ecdc4;
+  color: #ff493b;
 }
 
 .footer-bottom {
@@ -1779,4 +1776,81 @@ select option {
   font-size: 1.1rem;
   max-width: 600px;
   margin: 0 auto;
+}
+
+/* Lazo diagonal "nuevo" — esquina superior izquierda */
+.welcome-ribbon {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 130px;
+  height: 130px;
+  overflow: hidden;
+  z-index: 1100;
+  pointer-events: none;
+  animation: welcomeRibbonIn 0.4s ease-out;
+}
+
+@keyframes welcomeRibbonIn {
+  from {
+    opacity: 0;
+    transform: translate(-8px, -8px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+.welcome-ribbon-band {
+  position: absolute;
+  display: block;
+  width: 220px;
+  padding: 9px 0;
+  background: var(--accent-primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-align: center;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transform: rotate(-45deg);
+  top: 32px;
+  left: -58px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+
+.welcome-ribbon-band::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.welcome-ribbon-band::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 768px) {
+  .welcome-ribbon {
+    width: 110px;
+    height: 110px;
+  }
+
+  .welcome-ribbon-band {
+    width: 180px;
+    padding: 7px 0;
+    font-size: 0.7rem;
+    top: 26px;
+    left: -52px;
+  }
 }

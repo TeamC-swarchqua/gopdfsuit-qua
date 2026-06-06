@@ -44,7 +44,7 @@ const Viewer = () => {
       if (error.message.includes("Authentication failed") || error.message.includes("401") || error.message.includes("403") || error.message.includes("Not authenticated")) {
         triggerLogin()
       } else {
-        showError('Error loading template: ' + error.message)
+        showError('Error al cargar la plantilla: ' + error.message)
       }
     } finally {
       setIsLoading(false)
@@ -72,7 +72,7 @@ const Viewer = () => {
       if (error.message.includes("Authentication failed") || error.message.includes("401") || error.message.includes("403") || error.message.includes("Not authenticated")) {
         triggerLogin()
       } else {
-        showError('Error generating PDF: ' + error.message)
+        showError('Error al generar el PDF: ' + error.message)
       }
     } finally {
       setIsLoading(false)
@@ -106,17 +106,17 @@ const Viewer = () => {
               alignItems: 'center',
               gap: '0.5rem',
               padding: '0.5rem 1rem',
-              background: 'rgba(78, 205, 196, 0.1)',
-              border: '1px solid rgba(78, 205, 196, 0.3)',
+              background: 'rgba(255, 73, 59, 0.1)',
+              border: '1px solid rgba(255, 73, 59, 0.3)',
               borderRadius: '50px',
               marginBottom: '1.5rem',
-              color: '#4ecdc4',
+              color: '#ff493b',
               fontSize: '0.9rem',
               fontWeight: '500',
             }}
           >
             <Sparkles size={16} />
-            Template-based PDF Generation
+            Generación de PDFs con plantillas
           </div>
 
           <h1
@@ -134,7 +134,7 @@ const Viewer = () => {
             <div className="feature-icon-box teal" style={{ width: '56px', height: '56px', marginBottom: 0 }}>
               <FileText size={28} />
             </div>
-            PDF Viewer
+            Visor de PDF
           </h1>
           <p style={{
             color: 'hsl(var(--muted-foreground))',
@@ -142,7 +142,7 @@ const Viewer = () => {
             maxWidth: '600px',
             margin: '0 auto',
           }}>
-            Load JSON templates and generate PDFs with live preview
+            Carga plantillas y genera PDFs con vista previa en directo
           </p>
         </div>
       </section>
@@ -165,7 +165,7 @@ const Viewer = () => {
                 <div className="feature-icon-box blue" style={{ width: '40px', height: '40px', marginBottom: 0 }}>
                   <Upload size={18} />
                 </div>
-                Template Input
+                Datos de la plantilla
               </h3>
 
               <div style={{ marginBottom: '1.5rem' }}>
@@ -176,14 +176,14 @@ const Viewer = () => {
                   fontWeight: '600',
                   fontSize: '0.9rem',
                 }}>
-                  Load from file:
+                  Cargar desde un archivo:
                 </label>
                 <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem' }}>
                   <input
                     type="text"
                     value={fileName}
                     onChange={(e) => setFileName(e.target.value)}
-                    placeholder="Enter filename (e.g., temp.json)"
+                    placeholder="Escribe el nombre del archivo (p. ej., temp.json)"
                     style={{
                       flex: 1,
                       padding: '0.75rem 1rem',
@@ -207,7 +207,7 @@ const Viewer = () => {
                     }}
                   >
                     {isLoading ? <RefreshCw size={16} className="spin" /> : <Download size={16} />}
-                    Load
+                    Cargar
                   </button>
                 </div>
 
@@ -223,7 +223,7 @@ const Viewer = () => {
                     padding: '0 1rem',
                     position: 'relative',
                     zIndex: 1,
-                  }}>or</span>
+                  }}>o</span>
                   <div style={{
                     position: 'absolute',
                     top: '50%',
@@ -253,7 +253,7 @@ const Viewer = () => {
                   }}
                 >
                   <Upload size={16} />
-                  Upload JSON File
+                  Subir archivo JSON
                 </button>
               </div>
 
@@ -264,12 +264,12 @@ const Viewer = () => {
                 fontWeight: '600',
                 fontSize: '0.9rem',
               }}>
-                JSON Template:
+                Plantilla JSON:
               </label>
               <textarea
                 value={templateData}
                 onChange={(e) => setTemplateData(e.target.value)}
-                placeholder="Enter or paste your JSON template here..."
+                placeholder="Escribe o pega aquí tu plantilla JSON..."
                 style={{
                   width: '100%',
                   height: '350px',
@@ -300,7 +300,7 @@ const Viewer = () => {
                 }}
               >
                 {isLoading ? <RefreshCw size={18} className="spin" /> : <Play size={18} />}
-                Generate PDF
+                Generar PDF
               </button>
             </div>
 
@@ -326,7 +326,7 @@ const Viewer = () => {
                   <div className="feature-icon-box purple" style={{ width: '40px', height: '40px', marginBottom: 0 }}>
                     <FileText size={18} />
                   </div>
-                  PDF Preview
+                  Vista del PDF
                 </h3>
                 {pdfUrl && (
                   <button
@@ -348,7 +348,7 @@ const Viewer = () => {
                     }}
                   >
                     <Download size={14} />
-                    Download
+                    Descargar
                   </button>
                 )}
               </div>
@@ -365,7 +365,7 @@ const Viewer = () => {
                         borderRadius: '8px',
                         background: 'white',
                       }}
-                      title="PDF Preview"
+                      title="Vista del PDF"
                     />
                     {isLoading && (
                       <div style={{
@@ -389,10 +389,10 @@ const Viewer = () => {
                           display: 'flex',
                           alignItems: 'center',
                           gap: '0.75rem',
-                          color: '#4ecdc4',
+                          color: '#ff493b',
                         }}>
                           <RefreshCw size={18} className="spin" />
-                          Generating PDF...
+                          Generando PDF...
                         </div>
                       </div>
                     )}
@@ -403,24 +403,24 @@ const Viewer = () => {
                     justifyContent: 'space-between',
                     alignItems: 'center',
                     padding: '1rem',
-                    background: 'rgba(78, 205, 196, 0.08)',
+                    background: 'rgba(255, 73, 59, 0.08)',
                     borderRadius: '8px',
-                    border: '1px solid rgba(78, 205, 196, 0.2)',
+                    border: '1px solid rgba(255, 73, 59, 0.2)',
                     fontSize: '0.9rem',
                   }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                       <span style={{ color: 'hsl(var(--muted-foreground))' }}>
-                        PDF generated successfully
+                        PDF generado correctamente
                       </span>
                       <span style={{
-                        background: 'rgba(78, 205, 196, 0.2)',
-                        color: '#4ecdc4',
+                        background: 'rgba(255, 73, 59, 0.2)',
+                        color: '#ff493b',
                         padding: '0.25rem 0.75rem',
                         borderRadius: '20px',
                         fontSize: '0.8rem',
                         fontWeight: '600'
                       }}>
-                        Preview Ready
+                        Vista lista
                       </span>
                     </div>
                     <button
@@ -442,7 +442,7 @@ const Viewer = () => {
                       }}
                     >
                       <Download size={14} />
-                      Download PDF
+                      Descargar PDF
                     </button>
                   </div>
                 </div>
@@ -468,10 +468,10 @@ const Viewer = () => {
                       <FileText size={32} />
                     </div>
                     <p style={{ marginBottom: '0.5rem', fontSize: '1.1rem', fontWeight: '600' }}>
-                      Load a JSON template to start
+                      Carga una plantilla JSON para empezar
                     </p>
                     <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: 0 }}>
-                      Enter template data above and click &quot;Generate PDF&quot; to see the preview
+                      Escribe los datos de la plantilla arriba y pulsa &quot;Generar PDF&quot; para ver la vista previa
                     </p>
                   </div>
                 </div>
@@ -493,7 +493,7 @@ const Viewer = () => {
               <div className="feature-icon-box yellow" style={{ width: '40px', height: '40px', marginBottom: 0 }}>
                 <span style={{ fontSize: '1.2rem' }}>📋</span>
               </div>
-              Sample Templates
+              Plantillas de ejemplo
             </h3>
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               {['temp_multiplepage.json', 'temp.json', 'temp_og.json'].map((sample) => (

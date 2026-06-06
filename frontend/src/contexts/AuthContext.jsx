@@ -78,7 +78,15 @@ function useAuthState() {
     }
 
     if (!res.ok) {
-      throw new Error(data.error || 'Authentication failed')
+      const errorMap = {
+        'invalid credentials': 'Credenciales incorrectas',
+        'email already registered': 'Este correo ya está registrado',
+        'username (min 3 chars) and password (min 8 chars) required': 'Se requiere un correo válido y una contraseña de al menos 8 caracteres',
+        'username and password required': 'Correo y contraseña son obligatorios',
+        'Authentication failed': 'Error de autenticación',
+      }
+      const raw = data.error || 'Error de autenticación'
+      throw new Error(errorMap[raw] || raw)
     }
 
     persist(data.token, data.user)

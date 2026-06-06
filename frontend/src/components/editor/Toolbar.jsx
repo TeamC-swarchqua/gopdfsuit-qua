@@ -56,8 +56,8 @@ export default function Toolbar({ theme, setTheme, onLoadTemplate, onPreviewPDF,
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'hsl(var(--foreground))' }}>
                 <Edit size={20} />
                 <div>
-                    <strong style={{ display: 'block', lineHeight: 1, color: 'hsl(var(--foreground))' }}>PDF Template Editor</strong>
-                    <span style={{ fontSize: '0.75rem', color: 'hsl(var(--muted-foreground))' }}>{elementCount} elements • {pageSize} Portrait</span>
+                    <strong style={{ display: 'block', lineHeight: 1, color: 'hsl(var(--foreground))' }}>Editor de plantillas PDF</strong>
+                    <span style={{ fontSize: '0.75rem', color: 'hsl(var(--muted-foreground))' }}>{elementCount} elementos • {pageSize} vertical</span>
                 </div>
             </div>
 
@@ -86,7 +86,7 @@ export default function Toolbar({ theme, setTheme, onLoadTemplate, onPreviewPDF,
                                 if (loadMethod !== 'github') setTemplateInput('editor/financial_report.json')
                             }}
                             style={toggleBtnStyle(loadMethod === 'github')}
-                            title="Load from GitHub repository"
+                            title="Cargar desde el repositorio de GitHub"
                         >
                             <Github size={13} /> GitHub
                         </button>
@@ -96,7 +96,7 @@ export default function Toolbar({ theme, setTheme, onLoadTemplate, onPreviewPDF,
                                 if (loadMethod !== 'local') setTemplateInput('')
                             }}
                             style={toggleBtnStyle(loadMethod === 'local')}
-                            title="Load from local server"
+                            title="Cargar desde el servidor local"
                         >
                             <HardDrive size={13} /> Local
                         </button>
@@ -108,7 +108,7 @@ export default function Toolbar({ theme, setTheme, onLoadTemplate, onPreviewPDF,
                             type="text"
                             value={templateInput}
                             onChange={(e) => setTemplateInput(e.target.value)}
-                            placeholder="Enter template path..."
+                            placeholder="Escriba la ruta de la plantilla..."
                             style={{
                                 padding: '0.35rem 0.6rem',
                                 fontSize: '0.8rem',
@@ -139,7 +139,7 @@ export default function Toolbar({ theme, setTheme, onLoadTemplate, onPreviewPDF,
                                 cursor: 'pointer'
                             }}
                         >
-                            <option value="">Select a template...</option>
+                            <option value="">Seleccione una plantilla...</option>
                             {githubFiles.map(f => (
                                 <option key={f} value={f}>{f}</option>
                             ))}
@@ -160,25 +160,25 @@ export default function Toolbar({ theme, setTheme, onLoadTemplate, onPreviewPDF,
                             fontWeight: '500'
                         }}
                     >
-                        <FolderOpen size={13} /> Load
+                        <FolderOpen size={13} /> Cargar
                     </button>
                 </div>
 
                 <div style={{ width: '1px', height: '24px', background: 'hsl(var(--border))' }}></div>
 
                 <button onClick={onPreviewPDF} className="btn primary" style={{ padding: '0.4rem 0.8rem', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.3rem', background: 'var(--secondary-color)', color: 'white', borderRadius: '6px', fontWeight: '500' }}>
-                    <Eye size={14} /> Preview
+                    <Eye size={14} /> Vista previa
                 </button>
                 <button onClick={onDownloadPDF} className="btn" style={{ padding: '0.4rem 0.8rem', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.3rem', borderRadius: '6px' }}>
-                    <Download size={14} /> Generate
+                    <Download size={14} /> Generar
                 </button>
                 <button
                     onClick={() => fileInputRef.current?.click()}
                     className="btn"
                     style={{ padding: '0.4rem 0.8rem', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.3rem', borderRadius: '6px' }}
-                    title="Upload custom font (.ttf or .otf)"
+                    title="Subir fuente personalizada (.ttf o .otf)"
                 >
-                    <Upload size={14} /> Font
+                    <Upload size={14} /> Fuente
                 </button>
                 <input
                     ref={fileInputRef}
@@ -188,12 +188,12 @@ export default function Toolbar({ theme, setTheme, onLoadTemplate, onPreviewPDF,
                     onChange={handleFontUpload}
                 />
                 <button onClick={onCopyJSON} className="btn" style={{ padding: '0.4rem 0.8rem', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.3rem', borderRadius: '6px' }}>
-                    {copiedId === 'json' ? <><Check size={14} /> Copied</> : <><Copy size={14} /> Copy</>}
+                    {copiedId === 'json' ? <><Check size={14} /> Copiado</> : <><Copy size={14} /> Copiar</>}
                 </button>
 
                 <div style={{ width: '1px', height: '24px', background: 'hsl(var(--border))' }}></div>
 
-                <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} className="btn icon-only" title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}>
+                <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} className="btn icon-only" title={`Cambiar a modo ${theme === 'light' ? 'oscuro' : 'claro'}`}>
                     {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
                 </button>
             </div>

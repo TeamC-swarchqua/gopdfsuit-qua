@@ -73,7 +73,7 @@ export default function ComponentList({ draggedType, setDraggedType }) {
                     height: '14px',
                     borderRadius: '2px'
                 }}></div>
-                Components
+                Componentes
             </h3>
             <div style={{
                 display: 'grid',

@@ -289,7 +289,7 @@ export default function Editor() {
     if (!el) return
     const type = id === 'title' ? 'title' : id === 'footer' ? 'footer' : el.type
     setClipboard({ type, data: structuredClone(el) })
-    showToast('Copied to clipboard', 'success', 1500)
+    showToast('Copiado al portapapeles', 'success', 1500)
   }
 
   const handleCut = (id) => {
@@ -304,10 +304,10 @@ export default function Editor() {
 
     if (type === 'title') {
       if (!title) setTitle(clone)
-      else showToast('Title already exists', 'error', 2000)
+      else showToast('El título ya existe', 'error', 2000)
     } else if (type === 'footer') {
       if (!footer) setFooter(clone)
-      else showToast('Footer already exists', 'error', 2000)
+      else showToast('El pie de página ya existe', 'error', 2000)
     } else {
       // Insert after the target, or append at end
       if (afterId && afterId !== 'title' && afterId !== 'footer') {
@@ -327,11 +327,11 @@ export default function Editor() {
     const clone = structuredClone(el)
 
     if (id === 'title') {
-      showToast('Cannot duplicate title — only one allowed', 'error', 2000)
+      showToast('No se puede duplicar el título — solo se permite uno', 'error', 2000)
       return
     }
     if (id === 'footer') {
-      showToast('Cannot duplicate footer — only one allowed', 'error', 2000)
+      showToast('No se puede duplicar el pie de página — solo se permite uno', 'error', 2000)
       return
     }
 
@@ -841,7 +841,7 @@ export default function Editor() {
 
     } catch (error) {
       console.error('Error loading template:', error)
-      alert(error.message || 'Failed to load template')
+      alert(error.message || 'No se pudo cargar la plantilla')
     }
   }
 
@@ -983,7 +983,7 @@ export default function Editor() {
               )
               if (response.ok) {
                 const data = await response.json()
-                showToast(`Font "${data.name}" uploaded successfully!`, 'success')
+                showToast(`Fuente "${data.name}" subida correctamente`, 'success')
                 // Refresh fonts list (invalidate cache)
                 _fontsCache = null
                 _fontsFetchPromise = null
@@ -1001,11 +1001,11 @@ export default function Editor() {
                 }
               } else {
                 const error = await response.json()
-                showToast(`Failed to upload font: ${error.error || 'Unknown error'}`, 'error')
+                showToast(`Error al subir la fuente: ${error.error || 'Error desconocido'}`, 'error')
               }
             } catch (error) {
               console.error('Error uploading font:', error)
-              showToast(`Error uploading font: ${error.message}`, 'error')
+              showToast(`Error al subir la fuente: ${error.message}`, 'error')
             }
           }}
         />
@@ -1389,7 +1389,7 @@ export default function Editor() {
             border: '1px solid hsl(var(--border))'
           }} onClick={e => e.stopPropagation()}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-              <h3 style={{ margin: 0, color: 'hsl(var(--foreground))' }}>PDF Preview</h3>
+              <h3 style={{ margin: 0, color: 'hsl(var(--foreground))' }}>Vista del PDF</h3>
               <button
                 onClick={() => setShowPreviewModal(false)}
                 style={{

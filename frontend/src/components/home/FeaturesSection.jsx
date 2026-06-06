@@ -7,106 +7,72 @@ import {
   FileCheck,
   Globe,
   Image,
-  Zap,
+  Scissors,
   Eraser,
-  Sigma,
   ArrowRight,
 } from 'lucide-react'
 
 const features = [
   {
     icon: <FileText size={24} />,
-    title: 'Native Go Support',
-    description: 'Use as a standalone library (gopdflib) or via HTTP API.',
-    link: 'https://github.com/chinmay-sawant/gopdfsuit/tree/master/pkg/gopdflib',
-    color: 'blue',
-    external: true,
-  },
-  {
-    icon: <Globe size={24} />,
-    title: 'Python Web Client',
-    description: 'Lightweight API client for interacting with the GoPdfSuit server.',
-    link: 'https://github.com/chinmay-sawant/gopdfsuit/tree/master/sampledata/python/gopdf',
-    color: 'teal',
-    external: true,
-  },
-  {
-    icon: <Zap size={24} />,
-    title: 'Native Python Support',
-    description: 'High-performance CGO bindings for direct PDF generation from Python.',
-    link: 'https://github.com/chinmay-sawant/gopdfsuit/tree/master/bindings/python',
-    color: 'yellow',
-    external: true,
-  },
-  {
-    icon: <Globe size={24} />,
-    title: 'Language Agnostic',
-    description: 'REST API works with any programming language.',
-    link: '#section-api',
-    color: 'purple',
-    external: false,
-  },
-  {
-    icon: <FileText size={24} />,
-    title: 'Template-based PDF',
-    description: 'JSON-driven PDF creation with multi-page support and automatic page breaks.',
+    title: 'Visor de PDF',
+    description: 'Abre plantillas y genera documentos PDF listos para descargar.',
     link: '/viewer',
-    color: 'teal',
+    color: 'orange',
   },
   {
     icon: <Edit size={24} />,
-    title: 'Visual PDF Editor',
-    description: 'Drag-and-drop interface for building PDF templates with live preview.',
+    title: 'Editor visual',
+    description: 'Diseña tus documentos arrastrando elementos sobre la página.',
     link: '/editor',
-    color: 'blue',
+    color: 'orange',
   },
   {
     icon: <Merge size={24} />,
-    title: 'PDF Merge',
-    description: 'Combine multiple PDFs with drag-and-drop reordering and live preview.',
+    title: 'Combinar PDF',
+    description: 'Une varios archivos PDF en uno solo, en el orden que elijas.',
     link: '/merge',
-    color: 'purple',
+    color: 'orange',
+  },
+  {
+    icon: <Scissors size={24} />,
+    title: 'Dividir PDF',
+    description: 'Separa un PDF en partes más pequeñas según las páginas que indiques.',
+    link: '/split',
+    color: 'orange',
   },
   {
     icon: <FileCheck size={24} />,
-    title: 'Form Filling',
-    description: 'AcroForm and XFDF support for filling PDF forms programmatically.',
+    title: 'Rellenar formularios',
+    description: 'Completa automáticamente los campos de un formulario PDF.',
     link: '/filler',
-    color: 'yellow',
+    color: 'orange',
   },
   {
     icon: <Globe size={24} />,
-    title: 'HTML to PDF',
-    description: 'Convert HTML content or web pages to PDF using Chromium.',
+    title: 'HTML a PDF',
+    description: 'Convierte una página web o contenido HTML en un archivo PDF.',
     link: '/htmltopdf',
-    color: 'green',
+    color: 'orange',
   },
   {
     icon: <Image size={24} />,
-    title: 'HTML to Image',
-    description: 'Convert HTML to PNG, JPG, or SVG with custom dimensions.',
+    title: 'HTML a imagen',
+    description: 'Genera una imagen a partir de contenido HTML o una página web.',
     link: '/htmltoimage',
-    color: 'blue',
+    color: 'orange',
   },
   {
     icon: <Eraser size={24} />,
-    title: 'PDF Redaction',
-    description: 'Redact sensitive content with visual selection or text search across pages.',
+    title: 'Ocultar información',
+    description: 'Tapar datos sensibles en un PDF antes de compartirlo.',
     link: '/redact',
-    color: 'red',
-  },
-  {
-    icon: <Sigma size={24} />,
-    title: 'Typst Math Rendering',
-    description: 'Render mathematical equations in PDFs using Typst syntax with full symbol support.',
-    link: 'https://github.com/chinmay-sawant/gopdfsuit/tree/master/sampledata/typstsyntax',
-    color: 'green',
-    external: true,
+    color: 'orange',
   },
 ]
 
 const FeatureCard = ({ feature }) => (
-  <div className={`glass-card feature-card-inner`}>
+  <div className="glass-card feature-card-inner">
     <div className="feature-card-content">
       <div className="feature-card-header">
         <div
@@ -119,15 +85,10 @@ const FeatureCard = ({ feature }) => (
       </div>
       <p className="feature-card-desc">{feature.description}</p>
       <div className="feature-card-link">
-        {feature.external ? 'View on GitHub' : 'Try it now'}
+        Probar ahora
         <ArrowRight size={14} />
       </div>
     </div>
-    {feature.wide && feature.extra && (
-      <div className="feature-card-extra">
-        {feature.extra}
-      </div>
-    )}
   </div>
 )
 
@@ -147,16 +108,20 @@ const FeaturesSection = ({ isVisible }) => {
           style={{ marginBottom: '3rem' }}
         >
           <h2 className="gradient-text section-heading">
-            Powerful Features
+            ¿Qué puedes hacer?
           </h2>
           <p className="section-subheading">
-            Everything you need for professional PDF workflows
+            Todas las herramientas que necesitas para trabajar con PDF de forma sencilla
           </p>
         </Transition>
 
         <div className="bento-features">
-          {features.map((feature, index) => {
-            const card = (
+          {features.map((feature, index) => (
+            <Link
+              key={index}
+              to={feature.link}
+              style={{ textDecoration: 'none', color: 'inherit' }}
+            >
               <Transition
                 as="div"
                 show={!!visible}
@@ -167,48 +132,8 @@ const FeaturesSection = ({ isVisible }) => {
               >
                 <FeatureCard feature={feature} />
               </Transition>
-            )
-
-            const wrapperClass = feature.wide ? 'bento-wide' : ''
-
-            if (feature.link.startsWith('#')) {
-              return (
-                <div
-                  key={index}
-                  className={wrapperClass}
-                  onClick={() => {
-                    const element = document.getElementById(feature.link.substring(1))
-                    if (element) element.scrollIntoView({ behavior: 'smooth' })
-                  }}
-                  style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}
-                >
-                  {card}
-                </div>
-              )
-            }
-
-            return feature.external ? (
-              <a
-                key={index}
-                className={wrapperClass}
-                href={feature.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ textDecoration: 'none', color: 'inherit' }}
-              >
-                {card}
-              </a>
-            ) : (
-              <Link
-                key={index}
-                className={wrapperClass}
-                to={feature.link}
-                style={{ textDecoration: 'none', color: 'inherit' }}
-              >
-                {card}
-              </Link>
-            )
-          })}
+            </Link>
+          ))}
         </div>
       </div>
     </section>

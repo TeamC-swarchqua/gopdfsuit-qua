@@ -12,7 +12,7 @@ export default function JsonTemplate({ jsonText, handleJsonChange, setIsJsonEdit
         }}>
             <div style={{ marginBottom: '0.75rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <h3 style={{ margin: 0, display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', color: 'hsl(var(--foreground))' }}>
-                    <FileText size={16} /> JSON Template
+                    <FileText size={16} /> Plantilla JSON
                 </h3>
                 <button
                     onClick={async () => {
@@ -44,7 +44,7 @@ export default function JsonTemplate({ jsonText, handleJsonChange, setIsJsonEdit
                         e.currentTarget.style.background = 'hsl(var(--secondary))'
                     }}
                 >
-                    {copiedId === 'json' ? <><Check size={12} /> Copied</> : <><Copy size={12} /> Copy</>}
+                    {copiedId === 'json' ? <><Check size={12} /> Copiado</> : <><Copy size={12} /> Copiar</>}
                 </button>
             </div>
             <textarea
@@ -72,7 +72,7 @@ export default function JsonTemplate({ jsonText, handleJsonChange, setIsJsonEdit
                 fontSize: '0.7rem',
                 color: 'hsl(var(--muted-foreground))'
             }}>
-                Edit JSON directly or paste to load template. Changes apply on blur.
+                Edite el JSON directamente o péguelo para cargar la plantilla. Los cambios se aplican al salir del campo.
             </p>
         </div>
     )

@@ -7,8 +7,8 @@ import {
 } from 'lucide-react'
 
 const stats = [
-  { value: 'Free', label: 'vs $2K-4K/dev/year', color: '#4ecdc4', icon: <CheckCircle size={28} /> },
-  { value: '< 100ms', label: 'Response time', color: '#007acc', icon: <Zap size={28} /> },
+  { value: 'Free', label: 'vs $2K-4K/dev/year', color: '#ff493b', icon: <CheckCircle size={28} /> },
+  { value: '< 100ms', label: 'Response time', color: '#e63d30', icon: <Zap size={28} /> },
   { value: '0 deps', label: 'Pure Go binary', color: '#f093fb', icon: <Download size={28} /> },
 ]
 
@@ -17,16 +17,16 @@ const featureCategories = [
     label: 'Language Support',
     features: [
       { name: 'Go Support (gopdflib)', desc: 'Direct Struct Access & HTTP API', color: '#ffc107' },
-      { name: 'Native Python Bindings', desc: 'CGO + ctypes wrapper via pypdfsuit', color: '#4ecdc4' },
-      { name: 'Python Web Client', desc: 'Lightweight REST API client', color: '#007acc' },
+      { name: 'Native Python Bindings', desc: 'CGO + ctypes wrapper via pypdfsuit', color: '#ff493b' },
+      { name: 'Python Web Client', desc: 'Lightweight REST API client', color: '#e63d30' },
       { name: 'Language Agnostic', desc: 'REST API works with any programming language', color: '#f093fb' },
     ],
   },
   {
     label: 'Compliance & Security',
     features: [
-      { name: 'PDF/A-4 Compliance', desc: 'Archival standard with sRGB ICC profiles', color: '#4ecdc4' },
-      { name: 'PDF/UA-2 Accessibility', desc: 'Universal accessibility compliance', color: '#007acc' },
+      { name: 'PDF/A-4 Compliance', desc: 'Archival standard with sRGB ICC profiles', color: '#ff493b' },
+      { name: 'PDF/UA-2 Accessibility', desc: 'Universal accessibility compliance', color: '#e63d30' },
       { name: 'AES-128 Encryption', desc: 'Password protection with permissions', color: '#f093fb' },
       { name: 'Digital Signatures', desc: 'PKCS#7 certificates with visual appearance', color: '#ffc107' },
     ],
@@ -34,8 +34,8 @@ const featureCategories = [
   {
     label: 'Document Features',
     features: [
-      { name: 'Font Subsetting', desc: 'TrueType embedding with glyph optimization', color: '#4ecdc4' },
-      { name: 'PDF Merge', desc: 'Combine multiple PDFs, preserve forms', color: '#007acc' },
+      { name: 'Font Subsetting', desc: 'TrueType embedding with glyph optimization', color: '#ff493b' },
+      { name: 'PDF Merge', desc: 'Combine multiple PDFs, preserve forms', color: '#e63d30' },
       { name: 'PDF Split', desc: 'Extract page ranges into separate files', color: '#ffc107' },
       { name: 'XFDF Form Filling', desc: 'Advanced field detection and population', color: '#f093fb' },
       { name: 'PDF Redaction', desc: 'Visual selection or text search redaction', color: '#ef4444' },
@@ -45,8 +45,8 @@ const featureCategories = [
   {
     label: 'Conversion',
     features: [
-      { name: 'HTML to PDF', desc: 'Chromium-based web page conversion', color: '#4ecdc4' },
-      { name: 'HTML to Image', desc: 'PNG, JPG, or SVG with custom dimensions', color: '#007acc' },
+      { name: 'HTML to PDF', desc: 'Chromium-based web page conversion', color: '#ff493b' },
+      { name: 'HTML to Image', desc: 'PNG, JPG, or SVG with custom dimensions', color: '#e63d30' },
       { name: 'Typst Math Rendering', desc: 'Mathematical equations via Typst syntax', color: '#10b981' },
     ],
   },

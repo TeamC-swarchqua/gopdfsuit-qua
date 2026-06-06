@@ -46,7 +46,7 @@ const BackgroundAnimation = () => {
         this.density = Math.random() * 30 + 1;
         // Color palette: Subtle professional colors (slate/blueish)
         const colors = [
-          `rgba(78, 205, 196, ${Math.random() * 0.3 + 0.1})`, // Reduced opacity
+          `rgba(255, 73, 59, ${Math.random() * 0.3 + 0.1})`, // Reduced opacity
           `rgba(0, 122, 204, ${Math.random() * 0.2 + 0.1})`, // Reduced opacity
           `rgba(150, 150, 200, ${Math.random() * 0.2 + 0.1})`, // More neutral
         ];
@@ -260,12 +260,12 @@ const BackgroundAnimation = () => {
           }
           
           .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: rgba(78, 205, 196, 0.5);
+            background: rgba(255, 73, 59, 0.5);
             border-radius: 4px;
           }
           
           .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: rgba(78, 205, 196, 0.8);
+            background: rgba(255, 73, 59, 0.8);
           }
         `}
       </style>

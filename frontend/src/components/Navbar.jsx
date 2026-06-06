@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { FileText, Edit, Merge, FileCheck, Globe, Image, Menu, X, Sun, Moon, Camera, LogOut, Scissors, Book, Eraser, Gauge } from 'lucide-react'
+import { FileText, Edit, Merge, FileCheck, Globe, Image, Menu, X, Sun, Moon, LogOut, Scissors, Eraser } from 'lucide-react'
 import { useTheme } from '../theme'
 import { useAuth } from '../contexts/AuthContext'
+import { getUserDisplayName } from '../utils/userDisplay'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -11,102 +12,75 @@ const Navbar = () => {
   const navigate = useNavigate()
   const { isAuthenticated, user, logout, setNavigate } = useAuth()
 
-  // Wire up the navigate fn for context-level logout redirect
-  // (only once — the ref prevents re-renders)
   setNavigate(navigate)
 
-  // Don't render the navbar on the login page
   if (location.pathname === '/login') return null
 
   const isNavItemActive = (path) => {
-    const [pathname, query] = path.split('?')
-    if (location.pathname !== pathname) return false
-    if (query) return location.search === `?${query}`
-    if (pathname === '/documentation') return location.search !== '?item=performance-overview'
-    return true
+    const [pathname] = path.split('?')
+    return location.pathname === pathname
   }
 
-  // Check if running on GitHub Pages
-  const isGitHubPages = window.location.hostname.includes('chinmay-sawant.github.io')
-
   const navItems = [
-    { path: '/', label: 'Home', icon: FileText },
-    { path: '/viewer', label: 'Viewer', icon: FileText },
+    { path: '/', label: 'Inicio', icon: FileText },
+    { path: '/viewer', label: 'Visor', icon: FileText },
     { path: '/editor', label: 'Editor', icon: Edit },
-    { path: '/merge', label: 'Merge', icon: Merge },
-    { path: '/split', label: 'Split', icon: Scissors },
-    { path: '/filler', label: 'Filler', icon: FileCheck },
-    { path: '/htmltopdf', label: 'HTML→PDF', icon: Globe },
-    { path: '/htmltoimage', label: 'HTML→Image', icon: Image },
-    { path: '/redact', label: 'Redact', icon: Eraser },
-    { path: '/comparison', label: 'Comparison', icon: FileCheck },
-    { path: '/screenshots', label: 'Screenshots', icon: Camera },
-    { path: '/documentation?item=performance-overview', label: 'Performance', icon: Gauge },
-    { path: '/documentation?item=introduction', label: 'Documentation', icon: Book },
+    { path: '/merge', label: 'Combinar', icon: Merge },
+    { path: '/split', label: 'Dividir', icon: Scissors },
+    { path: '/filler', label: 'Rellenar', icon: FileCheck },
+    { path: '/htmltopdf', label: 'HTML a PDF', icon: Globe },
+    { path: '/htmltoimage', label: 'HTML a imagen', icon: Image },
+    { path: '/redact', label: 'Ocultar', icon: Eraser },
   ]
 
-  return (
-    <>
-      {/* Preview Ribbon for GitHub Pages - Fixed position on left */}
-      {isGitHubPages && (
-        <div
-          className="preview-ribbon"
-          title="Run the app locally to generate the PDF"
-        >
-          Preview
-        </div>
-      )}
+  const displayName = getUserDisplayName(user)
 
-      <nav className="navbar" style={{ padding: '0.75rem 0' }}>
-        <div className="container-full">
+  return (
+    <nav className="navbar" style={{ padding: '0.75rem 0' }}>
+      <div className="container-full">
+        <div style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}>
+          <Link
+            to="/"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.4rem',
+              color: 'hsl(var(--foreground))',
+              textDecoration: 'none',
+              fontSize: '1.5rem',
+              fontWeight: '700',
+              lineHeight: '1',
+              marginRight: '1rem',
+            }}
+          >
+            <span style={{ verticalAlign: 'middle', fontSize: '1.5rem' }}>📄</span> GoPdfSuit
+          </Link>
+
           <div style={{
             display: 'flex',
-            justifyContent: 'space-between',
+            gap: '0.25rem',
             alignItems: 'center',
-          }}>
-            <Link
-              to="/"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.4rem',
-                color: 'hsl(var(--foreground))',
-                textDecoration: 'none',
-                fontSize: '1.5rem', /* Reduced from 2rem */
-                fontWeight: '700',
-                lineHeight: '1',
-                marginRight: '1rem', /* Reduced from 2rem */
-              }}
-            >
-              <span style={{ verticalAlign: 'middle', fontSize: '1.5rem' }}>📄</span> GoPdfSuit
-            </Link>
-
-            {/* Desktop Menu */}
-            <div style={{
-              display: 'flex',
-              gap: '0.25rem', // Reduced gap from 0.5rem
-              alignItems: 'center',
-              '@media (max-width: 768px)': {
-                display: 'none',
-              },
-            }} className="desktop-menu">
-              {navItems.slice(1).map(({ path, label, icon: Icon }) => (
-                (() => {
-                  const active = isNavItemActive(path)
-                  return (
+          }} className="desktop-menu">
+            {navItems.slice(1).map(({ path, label, icon: Icon }) => {
+              const active = isNavItemActive(path)
+              return (
                 <Link
                   key={path}
                   to={path}
                   style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '0.35rem', // Reduced from 0.5rem
+                    gap: '0.35rem',
                     color: active ? 'var(--secondary-color)' : 'hsl(var(--muted-foreground))',
                     textDecoration: 'none',
-                    padding: '0.4rem 0.5rem', // Reduced padding from 0.5rem 0.75rem
+                    padding: '0.4rem 0.5rem',
                     borderRadius: '6px',
                     transition: 'all 0.3s ease',
-                    fontSize: '0.85rem', // Reduced font size
+                    fontSize: '0.85rem',
                     background: active ? 'color-mix(in hsl, var(--secondary-color) 15%, transparent)' : 'transparent',
                   }}
                   onMouseEnter={(e) => {
@@ -122,134 +96,124 @@ const Navbar = () => {
                     }
                   }}
                 >
-                  <Icon size={14} /> {/* Reduced icon size from 16 */}
+                  <Icon size={14} />
                   {label}
                 </Link>
-                  )
-                })()
-              ))}
+              )
+            })}
 
-              {/* Theme toggle - desktop */}
-              <button
-                onClick={toggle}
-                title={theme === 'dark' ? 'Switch to light' : 'Switch to dark'}
-                style={{
-                  background: 'transparent',
-                  border: '1px solid hsl(var(--border))',
-                  padding: '0.3rem 0.5rem', // Reduced padding
-                  borderRadius: '6px', // Slightly smaller radius
-                  cursor: 'pointer',
-                  color: 'hsl(var(--foreground))',
-                  transition: 'all 0.3s ease',
-                  marginLeft: '0.25rem'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'hsl(var(--accent))'
-                  e.currentTarget.style.color = 'hsl(var(--accent-foreground))'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'transparent'
-                  e.currentTarget.style.color = 'hsl(var(--foreground))'
-                }}
-              >
-                {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />} {/* Reduced icon size */}
-              </button>
-
-              {/* User Profile and Sign Out - always shown when authenticated */}
-              {isAuthenticated && user && (
-                <>
-                  <div
-                    title={user.email}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.4rem',
-                      padding: '0.3rem 0.5rem',
-                      borderRadius: '6px',
-                      border: '1px solid hsl(var(--border))',
-                      background: 'hsl(var(--card))',
-                      maxWidth: '160px',
-                      marginLeft: '0.25rem'
-                    }}>
-                    <div style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-                      <span style={{
-                        fontSize: '0.75rem',
-                        fontWeight: '600',
-                        color: 'hsl(var(--foreground))',
-                        lineHeight: '1.2',
-                        overflow: 'hidden',
-                        textOverflow: 'ellipsis',
-                        whiteSpace: 'nowrap'
-                      }}>
-                        {user.email}
-                      </span>
-                    </div>
-                  </div>
-
-                  <button
-                    onClick={logout}
-                    title="Sign Out"
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.4rem',
-                      background: 'hsl(var(--destructive))',
-                      color: 'hsl(var(--destructive-foreground))',
-                      border: '1px solid hsl(var(--border))',
-                      padding: '0.3rem 0.6rem',
-                      borderRadius: '6px',
-                      cursor: 'pointer',
-                      fontSize: '0.75rem',
-                      fontWeight: '500',
-                      transition: 'all 0.3s ease',
-                      whiteSpace: 'nowrap'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.opacity = '0.9'
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.opacity = '1'
-                    }}
-                  >
-                    <LogOut size={14} />
-                    Sign Out
-                  </button>
-                </>
-              )}
-            </div>
-
-            {/* Mobile Menu Button */}
             <button
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={toggle}
+              title={theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
               style={{
-                display: 'none',
-                background: 'none',
-                border: 'none',
-                color: 'hsl(var(--foreground))',
+                background: 'transparent',
+                border: '1px solid hsl(var(--border))',
+                padding: '0.3rem 0.5rem',
+                borderRadius: '6px',
                 cursor: 'pointer',
-                padding: '0.5rem',
+                color: 'hsl(var(--foreground))',
+                transition: 'all 0.3s ease',
+                marginLeft: '0.25rem'
               }}
-              className="mobile-menu-button"
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'hsl(var(--accent))'
+                e.currentTarget.style.color = 'hsl(var(--accent-foreground))'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'transparent'
+                e.currentTarget.style.color = 'hsl(var(--foreground))'
+              }}
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
             </button>
+
+            {isAuthenticated && user && (
+              <>
+                <div
+                  title={user.email}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.4rem',
+                    padding: '0.3rem 0.5rem',
+                    borderRadius: '6px',
+                    border: '1px solid hsl(var(--border))',
+                    background: 'hsl(var(--card))',
+                    maxWidth: '160px',
+                    marginLeft: '0.25rem'
+                  }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+                    <span style={{
+                      fontSize: '0.75rem',
+                      fontWeight: '600',
+                      color: 'hsl(var(--foreground))',
+                      lineHeight: '1.2',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      whiteSpace: 'nowrap'
+                    }}>
+                      {displayName}
+                    </span>
+                  </div>
+                </div>
+
+                <button
+                  onClick={logout}
+                  title="Cerrar sesión"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.4rem',
+                    background: 'hsl(var(--destructive))',
+                    color: 'hsl(var(--destructive-foreground))',
+                    border: '1px solid hsl(var(--border))',
+                    padding: '0.3rem 0.6rem',
+                    borderRadius: '6px',
+                    cursor: 'pointer',
+                    fontSize: '0.75rem',
+                    fontWeight: '500',
+                    transition: 'all 0.3s ease',
+                    whiteSpace: 'nowrap'
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.9' }}
+                  onMouseLeave={(e) => { e.currentTarget.style.opacity = '1' }}
+                >
+                  <LogOut size={14} />
+                  Cerrar sesión
+                </button>
+              </>
+            )}
           </div>
 
-          {/* Mobile Menu */}
-          {isOpen && (
-            <div style={{
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '0.5rem',
-              marginTop: '1rem',
-              padding: '1rem',
-              background: 'hsl(var(--card))',
-              borderRadius: '8px',
-            }} className="mobile-menu">
-              {navItems.slice(1).map(({ path, label, icon: Icon }) => (
-                (() => {
-                  const active = isNavItemActive(path)
-                  return (
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            style={{
+              display: 'none',
+              background: 'none',
+              border: 'none',
+              color: 'hsl(var(--foreground))',
+              cursor: 'pointer',
+              padding: '0.5rem',
+            }}
+            className="mobile-menu-button"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+
+        {isOpen && (
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '0.5rem',
+            marginTop: '1rem',
+            padding: '1rem',
+            background: 'hsl(var(--card))',
+            borderRadius: '8px',
+          }} className="mobile-menu">
+            {navItems.slice(1).map(({ path, label, icon: Icon }) => {
+              const active = isNavItemActive(path)
+              return (
                 <Link
                   key={path}
                   to={path}
@@ -268,95 +232,84 @@ const Navbar = () => {
                   <Icon size={16} />
                   {label}
                 </Link>
-                  )
-                })()
-              ))}
+              )
+            })}
 
-              {/* Theme toggle - mobile */}
-              <button
-                onClick={toggle}
-                title={theme === 'dark' ? 'Switch to light' : 'Switch to dark'}
-                style={{
-                  background: 'transparent',
-                  border: '1px solid hsl(var(--border))',
-                  padding: '0.6rem',
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  color: 'hsl(var(--foreground))',
+            <button
+              onClick={toggle}
+              title={theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
+              style={{
+                background: 'transparent',
+                border: '1px solid hsl(var(--border))',
+                padding: '0.6rem',
+                borderRadius: '8px',
+                cursor: 'pointer',
+                color: 'hsl(var(--foreground))',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.5rem',
+                transition: 'all 0.3s ease',
+              }}
+            >
+              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+              <span className="text-muted">{theme === 'dark' ? 'Modo claro' : 'Modo oscuro'}</span>
+            </button>
+
+            {isAuthenticated && user && (
+              <>
+                <div style={{
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '0.5rem',
-                  transition: 'all 0.3s ease',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'hsl(var(--accent))'
-                  e.currentTarget.style.color = 'hsl(var(--accent-foreground))'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'transparent'
-                  e.currentTarget.style.color = 'hsl(var(--foreground))'
-                }}
-              >
-                {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-                <span className="text-muted">{theme === 'dark' ? 'Light mode' : 'Dark mode'}</span>
-              </button>
+                  gap: '0.75rem',
+                  padding: '0.75rem',
+                  borderRadius: '8px',
+                  border: '1px solid hsl(var(--border))',
+                  background: 'hsl(var(--card))',
+                  marginTop: '0.5rem'
+                }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+                    <span style={{
+                      fontSize: '0.875rem',
+                      fontWeight: '600',
+                      color: 'hsl(var(--foreground))'
+                    }}>
+                      {displayName}
+                    </span>
+                  </div>
+                </div>
 
-              {/* User Profile and Sign Out - mobile */}
-              {isAuthenticated && user && (
-                <>
-                  <div style={{
+                <button
+                  onClick={() => {
+                    logout()
+                    setIsOpen(false)
+                  }}
+                  style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '0.75rem',
+                    justifyContent: 'center',
+                    gap: '0.5rem',
+                    background: 'hsl(var(--destructive))',
+                    color: 'hsl(var(--destructive-foreground))',
+                    border: '1px solid hsl(var(--border))',
                     padding: '0.75rem',
                     borderRadius: '8px',
-                    border: '1px solid hsl(var(--border))',
-                    background: 'hsl(var(--card))',
-                    marginTop: '0.5rem'
-                  }}>
-                    <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
-                      <span style={{
-                        fontSize: '0.875rem',
-                        fontWeight: '600',
-                        color: 'hsl(var(--foreground))'
-                      }}>
-                        {user.email}
-                      </span>
-                    </div>
-                  </div>
+                    cursor: 'pointer',
+                    fontSize: '0.875rem',
+                    fontWeight: '500',
+                    transition: 'all 0.3s ease',
+                  }}
+                >
+                  <LogOut size={16} />
+                  Cerrar sesión
+                </button>
+              </>
+            )}
+          </div>
+        )}
+      </div>
 
-                  <button
-                    onClick={() => {
-                      logout()
-                      setIsOpen(false)
-                    }}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: '0.5rem',
-                      background: 'hsl(var(--destructive))',
-                      color: 'hsl(var(--destructive-foreground))',
-                      border: '1px solid hsl(var(--border))',
-                      padding: '0.75rem',
-                      borderRadius: '8px',
-                      cursor: 'pointer',
-                      fontSize: '0.875rem',
-                      fontWeight: '500',
-                      transition: 'all 0.3s ease',
-                    }}
-                  >
-                    <LogOut size={16} />
-                    Sign Out
-                  </button>
-                </>
-              )}
-            </div>
-          )}
-        </div>
-
-        <style jsx>{`
+      <style jsx>{`
         @media (max-width: 768px) {
           .desktop-menu {
             display: none !important;
@@ -370,45 +323,8 @@ const Navbar = () => {
             display: none !important;
           }
         }
-        .preview-ribbon {
-          position: fixed;
-          left: -40px;
-          top: 80px;
-          transform: rotate(-45deg);
-          background: hsl(var(--foreground));
-          color: hsl(var(--background));
-          padding: 0.5rem 3rem;
-          font-size: 0.75rem;
-          font-weight: 600;
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
-          z-index: 1000;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-          cursor: help;
-          transition: all 0.2s ease;
-        }
-        .preview-ribbon:hover {
-          filter: brightness(1.2);
-        }
-        @media (max-width: 768px) {
-          .preview-ribbon {
-            left: -50px;
-            top: 60px;
-            padding: 0.4rem 2.5rem;
-            font-size: 0.65rem;
-          }
-        }
-        @media (max-width: 480px) {
-          .preview-ribbon {
-            left: -55px;
-            top: 50px;
-            padding: 0.35rem 2rem;
-            font-size: 0.6rem;
-          }
-        }
       `}</style>
-      </nav>
-    </>
+    </nav>
   )
 }
 

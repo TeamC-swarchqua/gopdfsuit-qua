@@ -13,7 +13,7 @@ import {
 } from 'lucide-react'
 import { useTheme } from '../theme'
 
-export default function PdfPreview({ pdfUrl, onClose, title = "PDF Preview" }) {
+export default function PdfPreview({ pdfUrl, onClose, title = "Vista del PDF" }) {
   const [isFullscreen, setIsFullscreen] = useState(false)
   const [zoomLevel, setZoomLevel] = useState(100)
   const [rotation, setRotation] = useState(0)
@@ -138,7 +138,7 @@ export default function PdfPreview({ pdfUrl, onClose, title = "PDF Preview" }) {
             onClick={handleZoomOut}
             disabled={zoomLevel <= 50}
             className="btn-icon"
-            title="Zoom Out"
+            title="Alejar"
             style={{
               padding: '0.4rem',
               background: '#f5f5f5',
@@ -159,7 +159,7 @@ export default function PdfPreview({ pdfUrl, onClose, title = "PDF Preview" }) {
             onClick={handleZoomIn}
             disabled={zoomLevel >= 200}
             className="btn-icon"
-            title="Zoom In"
+            title="Acercar"
             style={{
               padding: '0.4rem',
               background: '#f5f5f5',
@@ -179,7 +179,7 @@ export default function PdfPreview({ pdfUrl, onClose, title = "PDF Preview" }) {
           <button
             onClick={handleRotate}
             className="btn-icon"
-            title="Rotate 90°"
+            title="Girar 90°"
             style={{
               padding: '0.4rem',
               background: '#f5f5f5',
@@ -198,7 +198,7 @@ export default function PdfPreview({ pdfUrl, onClose, title = "PDF Preview" }) {
           <button
             onClick={handleRefresh}
             className="btn-icon"
-            title="Refresh"
+            title="Actualizar"
             style={{
               padding: '0.4rem',
               background: '#f5f5f5',
@@ -217,12 +217,12 @@ export default function PdfPreview({ pdfUrl, onClose, title = "PDF Preview" }) {
           <button
             onClick={handleDownload}
             className="btn-icon"
-            title="Download PDF"
+            title="Descargar PDF"
             style={{
               padding: '0.4rem',
-              background: '#2563eb',
+              background: '#ff493b',
               color: '#fff',
-              border: '1px solid #2563eb',
+              border: '1px solid #ff493b',
               borderRadius: '4px',
               cursor: 'pointer',
               display: 'flex',
@@ -236,7 +236,7 @@ export default function PdfPreview({ pdfUrl, onClose, title = "PDF Preview" }) {
           <button
             onClick={handleFullscreen}
             className="btn-icon"
-            title={isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
+            title={isFullscreen ? "Salir de pantalla completa" : "Pantalla completa"}
             style={{
               padding: '0.4rem',
               background: '#f5f5f5',
@@ -256,7 +256,7 @@ export default function PdfPreview({ pdfUrl, onClose, title = "PDF Preview" }) {
             <button
               onClick={isFullscreen ? handleFullscreen : onClose}
               className="btn-icon"
-              title="Close"
+              title="Cerrar"
               style={{
                 padding: '0.4rem',
                 background: '#dc2626',
@@ -301,7 +301,7 @@ export default function PdfPreview({ pdfUrl, onClose, title = "PDF Preview" }) {
             color: theme === 'dark' ? '#fff' : '#666'
           }}>
             <Loader2 size={24} className="animate-spin" />
-            <span style={{ fontSize: '0.9rem' }}>Loading PDF...</span>
+            <span style={{ fontSize: '0.9rem' }}>Cargando PDF...</span>
           </div>
         )}
 
@@ -319,7 +319,7 @@ export default function PdfPreview({ pdfUrl, onClose, title = "PDF Preview" }) {
             textAlign: 'center'
           }}>
             <X size={24} />
-            <span style={{ fontSize: '0.9rem' }}>Failed to load PDF</span>
+            <span style={{ fontSize: '0.9rem' }}>No se pudo cargar el PDF</span>
             <button
               onClick={handleRefresh}
               style={{
@@ -332,7 +332,7 @@ export default function PdfPreview({ pdfUrl, onClose, title = "PDF Preview" }) {
                 fontSize: '0.8rem'
               }}
             >
-              Try Again
+              Intentar de nuevo
             </button>
           </div>
         )}
@@ -350,7 +350,7 @@ export default function PdfPreview({ pdfUrl, onClose, title = "PDF Preview" }) {
               ref={iframeRef}
               src={pdfUrl}
               style={iframeStyles}
-              title="PDF Preview"
+              title="Vista del PDF"
               onLoad={handleIframeLoad}
               onError={handleIframeError}
               loading="lazy"

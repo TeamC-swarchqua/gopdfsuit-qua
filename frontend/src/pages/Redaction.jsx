@@ -98,7 +98,7 @@ const Redaction = () => {
     const selectedFile = event.target.files[0]
         if (selectedFile && selectedFile.type === 'application/pdf') {
             if (selectedFile.size === 0) {
-                setError('Selected PDF is empty. Please choose a valid non-empty PDF file.')
+                setError('El PDF seleccionado está vacío. Elija un archivo PDF válido con contenido.')
                 return
             }
       setFile(selectedFile)
@@ -136,7 +136,7 @@ const Redaction = () => {
       }
 
     } else {
-      setError('Please select a valid PDF file')
+      setError('Seleccione un archivo PDF válido')
     }
   }
 
@@ -230,7 +230,7 @@ const Redaction = () => {
 
         const pdfRect = toPDFCoords(currentRect)
         if (!pdfRect) {
-            setError('Unable to map coordinates. Wait for the page to fully render and try again.')
+            setError('No se pudieron calcular las coordenadas. Espere a que la página termine de cargar e inténtelo de nuevo.')
             setCurrentRect(null)
             return
         }
@@ -255,7 +255,7 @@ const Redaction = () => {
         const terms = parseSearchTerms(searchText)
         if (!file || terms.length === 0) return
         if (file.size === 0) {
-            setError('Selected PDF is empty. Please re-upload a valid PDF.')
+            setError('El PDF seleccionado está vacío. Vuelva a subir un PDF válido.')
             return
         }
     setIsSearching(true)
@@ -273,7 +273,7 @@ const Redaction = () => {
         }, getAuthHeaders)
 
                 if (!response.ok) {
-                    const message = await readErrorResponse(response, 'Search failed')
+                    const message = await readErrorResponse(response, 'La búsqueda falló')
                     throw new Error(message)
                 }
 
@@ -293,9 +293,9 @@ const Redaction = () => {
                 })
                 return next
             })
-            setSuccessMsg(`Found and marked ${results.length} occurrence(s) for ${terms.join(', ')}`)
+            setSuccessMsg(`Se encontraron y marcaron ${results.length} coincidencia(s) para ${terms.join(', ')}`)
         } else {
-            setSuccessMsg(`No occurrences found for ${terms.join(', ')}`)
+            setSuccessMsg(`No se encontraron coincidencias para ${terms.join(', ')}`)
         }
         setSearchQueries(prev => {
           const existing = new Set(prev.map((x) => x.toLowerCase()))
@@ -316,7 +316,7 @@ const Redaction = () => {
         const hasTextCriteria = searchQueries.length > 0 || parseSearchTerms(searchText).length > 0
         if (!file || (!hasAny && !hasTextCriteria)) return
         if (file.size === 0) {
-            setError('Selected PDF is empty. Please re-upload a valid PDF.')
+            setError('El PDF seleccionado está vacío. Vuelva a subir un PDF válido.')
             return
         }
     
@@ -355,7 +355,7 @@ const Redaction = () => {
             let appliedMode = ''
             let fallbackUsed = false
             let response = null
-            let lastError = 'Redaction failed'
+            let lastError = 'No se pudo ocultar la información'
 
             for (let i = 0; i < modesToTry.length; i += 1) {
                 const candidateMode = modesToTry[i]
@@ -372,7 +372,7 @@ const Redaction = () => {
                     break
                 }
 
-                const message = await readErrorResponse(tryResponse, 'Redaction failed')
+                const message = await readErrorResponse(tryResponse, 'No se pudo ocultar la información')
                 lastError = message
 
                 const canFallback = mode === 'auto' && candidateMode === 'secure_required'
@@ -406,19 +406,19 @@ const Redaction = () => {
 
       if (report && report.generatedRects === 0) {
         setSuccessMsg(
-          'No redactable text content was found in this PDF — the downloaded file is unchanged. ' +
-          'This usually means the PDF is scanned/image-based and its text is not embedded as selectable text. ' +
-          'Try drawing redaction boxes manually instead, or use a PDF with embedded text.'
+          'No se encontró texto que se pueda ocultar en este PDF; el archivo descargado no ha cambiado. ' +
+          'Esto suele ocurrir cuando el PDF es una imagen escaneada y no tiene texto seleccionable. ' +
+          'Pruebe a dibujar recuadros manualmente o use un PDF con texto incluido.'
         )
       } else if (fallbackUsed) {
-        const rectInfo = report ? ` ${report.appliedRectangles} region(s) redacted.` : ''
-        setSuccessMsg(`Secure redaction was unavailable for this PDF; visual redaction fallback was applied and downloaded successfully.${rectInfo}`)
+        const rectInfo = report ? ` Se ocultaron ${report.appliedRectangles} zona(s).` : ''
+        setSuccessMsg(`No fue posible la ocultación segura; se aplicó la ocultación visual y el PDF se descargó correctamente.${rectInfo}`)
       } else if (appliedMode === 'secure_required') {
-        const rectInfo = report ? ` ${report.appliedRectangles} region(s) redacted.` : ''
-        setSuccessMsg(`Secure redaction applied and PDF downloaded successfully!${rectInfo}`)
+        const rectInfo = report ? ` Se ocultaron ${report.appliedRectangles} zona(s).` : ''
+        setSuccessMsg(`Ocultación segura aplicada y PDF descargado correctamente.${rectInfo}`)
       } else {
-        const rectInfo = report ? ` ${report.appliedRectangles} region(s) redacted.` : ''
-        setSuccessMsg(`Visual redaction applied and PDF downloaded successfully!${rectInfo}`)
+        const rectInfo = report ? ` Se ocultaron ${report.appliedRectangles} zona(s).` : ''
+        setSuccessMsg(`Ocultación visual aplicada y PDF descargado correctamente.${rectInfo}`)
       }
     } catch (err) {
       setError(err.message)
@@ -448,7 +448,7 @@ const Redaction = () => {
         
         <div className="container" style={{ padding: '2rem 1rem', position: 'relative', zIndex: 1 }}>
             <h1 style={{ fontSize: '2rem', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <Eraser size={32} /> PDF Redaction
+                <Eraser size={32} /> Ocultar información en PDF
             </h1>
 
             {!file ? (
@@ -456,7 +456,7 @@ const Redaction = () => {
                     <div style={{ marginBottom: '1.5rem' }}>
                         <Upload size={48} className="text-muted" style={{ opacity: 0.5 }} />
                     </div>
-                    <h3 style={{ marginBottom: '1rem' }}>Upload a PDF to redact</h3>
+                    <h3 style={{ marginBottom: '1rem' }}>Suba un PDF para ocultar información</h3>
                     <input 
                         type="file" 
                         accept="application/pdf" 
@@ -469,7 +469,7 @@ const Redaction = () => {
                         className="btn-glow"
                         style={{ cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
                     >
-                        <Upload size={18} /> Choose File
+                        <Upload size={18} /> Elegir archivo
                     </label>
                 </div>
             ) : (
@@ -486,7 +486,7 @@ const Redaction = () => {
                             >
                                 <ChevronLeft size={20} />
                             </button>
-                            <span>Page {pageNumber} of {numPages || '--'}</span>
+                            <span>Página {pageNumber} de {numPages || '--'}</span>
                             <button 
                                 onClick={() => setPageNumber(p => Math.min(numPages || 1, p + 1))} 
                                 disabled={pageNumber >= numPages}
@@ -508,7 +508,7 @@ const Redaction = () => {
                             <Document
                                 file={file}
                                 onLoadSuccess={onDocumentLoadSuccess}
-                                loading={<div style={{padding: '2rem'}}>Loading PDF...</div>}
+                                loading={<div style={{padding: '2rem'}}>Cargando PDF...</div>}
                             >
                                 <Page 
                                     pageNumber={pageNumber} 
@@ -574,11 +574,11 @@ const Redaction = () => {
                     {/* Sidebar */}
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                         <div className="glass-card" style={{ padding: '1.5rem' }}>
-                            <h3 style={{ marginBottom: '1rem' }}>Redact by Text</h3>
+                            <h3 style={{ marginBottom: '1rem' }}>Ocultar por texto</h3>
                              <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem' }}>
                                 <input 
                                     type="text" 
-                                    placeholder="Search words (comma-separated)..." 
+                                    placeholder="Buscar palabras (separadas por comas)..." 
                                     value={searchText}
                                     onChange={(e) => setSearchText(e.target.value)}
                                     style={{ 
@@ -601,24 +601,24 @@ const Redaction = () => {
                             </div>
                             <hr style={{ opacity: 0.1, margin: '1rem 0' }} />
 
-                            <h3 style={{ marginBottom: '1rem' }}>Actions</h3>
+                            <h3 style={{ marginBottom: '1rem' }}>Acciones</h3>
                                                         <div style={{ marginBottom: '0.75rem' }}>
-                                                            <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.35rem' }}>Mode</label>
+                                                            <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.35rem' }}>Modo</label>
                                                             <select
                                                                 value={mode}
                                                                 onChange={(e) => setMode(e.target.value)}
                                                                 style={{ width: '100%', padding: '0.5rem', borderRadius: '4px', border: '1px solid #ddd', background: 'rgba(255,255,255,0.1)', color: 'inherit' }}
                                                             >
-                                                                <option value="auto">Default (Try Secure, then Visual Fallback)</option>
-                                                                <option value="secure_required">Secure Required</option>
-                                                                <option value="visual_allowed">Visual Allowed (current engine)</option>
+                                                                <option value="auto">Predeterminado (intentar seguro, luego visual)</option>
+                                                                <option value="secure_required">Solo ocultación segura</option>
+                                                                <option value="visual_allowed">Ocultación visual (motor actual)</option>
                                                             </select>
                                                         </div>
                                                         <div style={{ marginBottom: '0.75rem' }}>
-                                                            <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.35rem' }}>PDF Password (optional)</label>
+                                                            <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.35rem' }}>Contraseña del PDF (opcional)</label>
                                                             <input
                                                                 type="password"
-                                                                placeholder="Enter password for encrypted PDFs"
+                                                                placeholder="Escriba la contraseña si el PDF está protegido"
                                                                 value={password}
                                                                 onChange={(e) => setPassword(e.target.value)}
                                                                 style={{ width: '100%', padding: '0.5rem', borderRadius: '4px', border: '1px solid #ddd', background: 'rgba(255,255,255,0.1)', color: 'inherit' }}
@@ -631,7 +631,7 @@ const Redaction = () => {
                                 style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginBottom: '1rem' }}
                             >
                                 <Download size={16} /> 
-                                {isLoading ? 'Processing...' : 'Apply & Download'}
+                                {isLoading ? 'Procesando...' : 'Aplicar y descargar'}
                             </button>
                             
                             <button 
@@ -646,14 +646,14 @@ const Redaction = () => {
                                 className="btn-outline-glow"
                                 style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}
                             >
-                                <Trash2 size={16} /> Reset
+                                <Trash2 size={16} /> Reiniciar
                             </button>
                         </div>
 
                         <div className="glass-card" style={{ padding: '1rem', flex: 1 }}>
-                             <h4 style={{ marginBottom: '0.5rem' }}>Redactions on Page {pageNumber}</h4>
+                             <h4 style={{ marginBottom: '0.5rem' }}>Ocultaciones en la página {pageNumber}</h4>
                              {(!redactions[pageNumber] || redactions[pageNumber].length === 0) ? (
-                                <p className="text-muted" style={{ fontSize: '0.9rem' }}>No redactions on this page.</p>
+                                <p className="text-muted" style={{ fontSize: '0.9rem' }}>No hay ocultaciones en esta página.</p>
                              ) : (
                                 <ul style={{ listStyle: 'none', padding: 0 }}>
                                     {redactions[pageNumber].map((r, idx) => (
@@ -667,7 +667,7 @@ const Redaction = () => {
                                             borderRadius: '4px'
                                         }}>
                                             <span style={{ fontSize: '0.8rem' }}>
-                                                Box {idx + 1}: {Math.round(r.width)}x{Math.round(r.height)}
+                                                Recuadro {idx + 1}: {Math.round(r.width)}x{Math.round(r.height)}
                                             </span>
                                             <button 
                                                 onClick={() => removeRedaction(pageNumber, idx)}
